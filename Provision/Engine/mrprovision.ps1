@@ -339,6 +339,11 @@ Write-Output @"
 
 "@
 
+$tenantURL = ([environment]::GetEnvironmentVariable("APPSETTING_TenantURL"))
+$uri = [Uri]$tenantURL
+$tenantUrl = $uri.Scheme + "://" + $uri.Host
+$tenantAdminUrl = $tenantUrl.Replace(".sharepoint", "-admin.sharepoint")
+
 Connect -Url "$tenantURL$siteDirectorySiteUrl"
 $templateConfigurationItems = @(Get-PnPListItem -List $templateConfigurationsList)
 $baseModuleItems = @(Get-PnPListItem -List $baseModulesLibrary)
