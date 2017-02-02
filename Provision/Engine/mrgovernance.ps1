@@ -1,9 +1,7 @@
 param(
   [switch]$siteClosure,
   [switch]$irm,
-  [switch]$sitePolicy,
   [switch]$accessRequestEmail,
-  [switch]$verifyBusinessOwner,
   [switch]$memberSharing
 )
 
@@ -62,18 +60,6 @@ function CheckAccessRequestEmail{
   SetRequestAccessEmail -url $url -ownersEmail ($ownerEmailAddresses -join ',')
 }
 
-function CheckBusinessOwner{
-  Param(
-      [string]$url
-  )
-  Connect -Url $url
-  $metadata = Get-PnPPropertyBag -Key ProjectMetadata | ConvertFrom-Json
-  $businessOwner = ($metadata |? Key -eq '-SiteDirectory_BusinessOwner-').Value.Data
-  $businessOwnerEmail = $businessOwner.Split('|')[2]
-
-  $itemId = [Regex]::Match( ($metadata |? Key -eq '-SiteDirectory_ShowProjectInformation-').Value.Data, 'ID=(?<ID>\d+)').Groups["ID"].Value
-  CheckDirectReportsOfOwner -ownerEmail $businessOwnerEmail -id $itemId
-}
 
 Write-Output @"
   ___  ___       _____                                                
@@ -95,9 +81,6 @@ $sites = Get-PnPSiteSearchQueryResults -All -Query "path:$teamSiteFilter"
 foreach ($site in $sites) {
   $url = $site.Url
   Write-Output "Processing $url"
-  if($sitePolicy) {
-    CheckSitePolicy -url $url
-  }
 
   if($siteClosure) {
     CheckSiteClosure -url $url
@@ -109,10 +92,6 @@ foreach ($site in $sites) {
 
   if($accessRequestEmail) {
     CheckAccessRequestEmail -url $url
-  }
-
-  if($verifyBusinessOwner) {
-    CheckBusinessOwner -url $url
   }
 
   if($memberSharing) {

@@ -13,9 +13,9 @@ Import-Module .\Engine\bundle\SharePointPnPPowerShellOnline.psd1 -ErrorAction Si
 
 1. Create a new site under the root site, gg. /collaboration
 2. Connect-SPOnline -Url https://<tenant>.sharepoint.com/collaboration -AppId <appId> -AppSecret <appSecret>
-3. Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\sitedirectory.xml -Handlers TermGroups,Fields,ContentTypes,Files
+3. Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\template.xml -Handlers TermGroups,Fields,ContentTypes,Files
 4. Connect-SPOnline -Url https://<tenant>.sharepoint.com/collaboration -AppId <appId> -AppSecret <appSecret>
-5. Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\sitedirectory.xml -ExcludeHandlers TermGroups,Fields,ContentTypes,Files
+5. Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\template.xml -ExcludeHandlers TermGroups,Fields,ContentTypes,Files
 6. Connect-SPOnline -Url https://<tenant>.sharepoint.com/sites/pzl-cdn -AppId <appId> -AppSecret <appSecret>
 7. Apply-SPOProvisioningTemplate -Path .\Templates\cdn\cdn.xml 
 
@@ -27,8 +27,8 @@ In your site you should now see the following:
 * Apps      - library to store functional scoped PnP template files
 
 *Note:*  _If you install the site catalog to a subsite, run the following:_
-* *Root site* Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\sitedirectory.xml -Handlers TermGroups,Fields,ContentTypes,Files
-* *Subsite* Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\sitedirectory.xml -ExcludeHandlers TermGroups,Fields,ContentTypes,Files
+* *Root site* Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\template.xml -Handlers TermGroups,Fields,ContentTypes,Files
+* *Subsite* Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\template.xml -ExcludeHandlers TermGroups,Fields,ContentTypes,Files
 
 # Package Team Site Template
 

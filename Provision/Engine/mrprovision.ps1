@@ -55,7 +55,7 @@ function EnsureSite{
     $site = Get-PnPTenantSite -Url $url -ErrorAction SilentlyContinue
     if( $? -eq $false) {
         Write-Output "Site at $url does not exist - let's create it"
-        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdmin -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0"  -RemoveDeletedSite:$true
+        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdmin -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0" -RemoveDeletedSite:$true
         if( $? -eq $false) {
             # send e-mail
             $mailHeadBody = GetMailContent -email $owner.Email -mailFile "fail"
@@ -229,26 +229,6 @@ function UpdateStatus($id, $status) {
     Set-PnPListItem -List $siteDirectoryList -Identity $id -Values @{"$($columnPrefix)SiteStatus" = $status} -ErrorAction SilentlyContinue >$null 2>&1
 }
 
-function VerifyBusinessUnit {
-    Param(
-        [string]$ownerEmail,
-        $siteItem        
-    )
-    Connect -Url $tenantAdminUrl
-    $acc = Get-PnPUserProfileProperty -Account $ownerEmail
-    $termLabel = $siteItem["$($columnPrefix)BusinessUnit"].Label
-
-    if($termLabel -ne "All") {
-        $unit = $acc.UserProfileProperties["SPS-Department"]        
-        if($unit -and $unit -ne $termLabel){
-            Connect -Url "$tenantURL$siteDirectorySiteUrl"
-            Write-Output "`tUpdating business unit to $unit"
-            $term = Get-PnPTaxonomyItem -TermPath "Pzl Taxonomies|Units|$unit"
-            Set-PnPListItem -List $siteDirectoryList -Identity $siteItem["ID"] -Values @{"$($columnPrefix)BusinessUnit" = "$($term.Id.ToString())"} -ErrorAction SilentlyContinue >$null 2>&1
-        }
-    }
-}
-
 function SendReadyEmail(){
     Param(
         [string]$url,
@@ -399,13 +379,6 @@ foreach ($siteItem in $siteDirectoryItems) {
 
     $editor = $siteItem["Editor"][0].LookUpValue 
 
-    if( $siteItem["$($columnPrefix)NeedForSupport"] ) {
-        $mailHeadBody = GetMailContent -email $owner.Email -mailFile "requesthelp"
-        Write-Output "Sending request help notification to $($orderedByUser.Email)"
-        Send-PnPMail -To $orderedByUser.Email -Subject $mailHeadBody[0] -Body $mailHeadBody[1]
-        continue    
-    }
-
     EnsureSite -siteEntryId $siteItem["ID"] -title $title -url $siteUrl -description $description `
         -siteCollectionAdmin $fallbackSiteCollectionAdmin `
         -owner $ownerAccount `
@@ -422,19 +395,17 @@ foreach ($siteItem in $siteDirectoryItems) {
         UpdateStatus -id $siteItem["ID"] -status 'Provisioned'
 
         SetRequestAccessEmail -url $siteUrl -ownersEmail ($ownerEmailAddresses -join ',')
-        CheckDirectReportsOfOwner -ownerEmail $businessOwnerEmailAddress -id $siteItem["ID"]
-        VerifyBusinessUnit -ownerEmail $businessOwnerEmailAddress -siteItem $siteItem
         if($siteStatus -ne 'Provisioned') {
             EnableIRM -classification $siteItem["$($columnPrefix)InformationClassification"].Label -siteUrl $siteUrl
         } else {
             EnableIRM -ownerEmail $businessOwnerEmailAddress -classification $siteItem["$($columnPrefix)InformationClassification"].Label -siteUrl $siteUrl
         }
-        CheckSitePolicy -url $siteUrl
         DisableMemberSharing -url $siteUrl
 
         SyncMetadata -siteItem $siteItem -siteUrl $siteUrl -urlToDirectory $urlToSiteDirectory -title $title -description $description
 
         if($siteStatus -ne 'Provisioned'){
+            # Provisining did not fail - and old value was "Provisining"
             SendReadyEmail -url $siteUrl -toEmail $orderedByUser.Email -ccEmails $businessOwnerEmailAddress
         }
     }    
