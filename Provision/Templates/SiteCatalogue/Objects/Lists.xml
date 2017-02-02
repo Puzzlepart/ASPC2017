@@ -1,5 +1,67 @@
 <pnp:Lists 
 	xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+	<pnp:ListInstance Title="{resource:SiteDirectory_ListTitle}" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Sites" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" RemoveExistingContentTypes="true" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" EnableAttachments="false">
+		<pnp:ContentTypeBindings>
+			<pnp:ContentTypeBinding ContentTypeID="0x0100E4D7DDB5A27749089422751FF2C0CDC301" Default="true" />
+			<pnp:ContentTypeBinding ContentTypeID="0x0120" />
+		</pnp:ContentTypeBindings>
+		<pnp:Views RemoveExistingViews="true">
+			<View Name="{FB42F274-FD70-49E4-91A0-F284ECC4AC3E}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Sites/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=43">
+				<Query>
+					<OrderBy>
+						<FieldRef Name="ID" />
+					</OrderBy>
+				</Query>
+				<ViewFields>
+					<FieldRef Name="LinkTitle" />
+					<FieldRef Name="PZL_BusinessOwner" />
+					<FieldRef Name="Editor" />
+					<FieldRef Name="Modified" />
+					<FieldRef Name="PZL_ProjectDescription" />
+					<FieldRef Name="PZL_SiteURL" />
+					<FieldRef Name="PZL_TemplateConfig" />
+					<FieldRef Name="PZL_SubModules" />
+				</ViewFields>
+				<RowLimit Paged="TRUE">30</RowLimit>
+				<Aggregations Value="Off" />
+				<JSLink>clienttemplates.js</JSLink>
+			</View>
+			<View Name="{C6D765D5-33E9-4125-9B8C-43529EEE3075}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="Requested" Url="/sites/pzldir/Lists/Sites/Requested.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+				<Query>
+					<OrderBy>
+						<FieldRef Name="ID" />
+					</OrderBy>
+					<Where>
+						<Eq>
+							<FieldRef Name="PZL_SiteStatus" />
+							<Value Type="Text">Requested</Value>
+						</Eq>
+					</Where>
+				</Query>
+				<ViewFields>
+					<FieldRef Name="LinkTitle" />
+					<FieldRef Name="PZL_BusinessOwner" />
+					<FieldRef Name="Editor" />
+					<FieldRef Name="Modified" />
+					<FieldRef Name="PZL_ProjectDescription" />
+					<FieldRef Name="PZL_SiteURL" />
+					<FieldRef Name="PZL_TemplateConfig" />
+					<FieldRef Name="PZL_SubModules" />
+					<FieldRef Name="PZL_SiteStatus" />
+				</ViewFields>
+				<RowLimit Paged="TRUE">30</RowLimit>
+				<Aggregations Value="Off" />
+				<JSLink>clienttemplates.js</JSLink>
+			</View>
+		</pnp:Views>
+		<pnp:Fields>
+			<Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" StaticName="Title" Description="{resource:SiteDirectory_TitleDescription}" />
+		</pnp:Fields>
+		<pnp:FieldRefs>
+			<pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" />
+			<pnp:FieldRef ID="0cedaa12-9d11-45d9-8847-8a88fa282ec4" Name="{parameter:GenericFieldsPrefix}ProjectDescription" Required="true" />
+		</pnp:FieldRefs>
+	</pnp:ListInstance>
 	<pnp:ListInstance Title="{resource:TemplatesListTitle}" Description="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Templates" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableAttachments="false" EnableFolderCreation="false">
 		<pnp:Views RemoveExistingViews="true">
 			<View Name="{b2d72a7b-9310-4e4f-a92f-f342b65a9399}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Templates/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=43">
@@ -86,481 +148,5 @@
 			<pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" />
 			<pnp:FieldRef ID="85ca8205-4466-4134-ad6d-34e276430222" Name="{parameter:GenericFieldsPrefix}Description" />
 		</pnp:FieldRefs>
-	</pnp:ListInstance>
-	<pnp:ListInstance Title="{resource:SiteDirectory_ListTitle}" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Sites" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" RemoveExistingContentTypes="true" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" EnableAttachments="false">
-		<pnp:ContentTypeBindings>
-			<pnp:ContentTypeBinding ContentTypeID="0x0100E4D7DDB5A27749089422751FF2C0CDC301" Default="true" />
-			<pnp:ContentTypeBinding ContentTypeID="0x0120" />
-		</pnp:ContentTypeBindings>
-		<pnp:Views RemoveExistingViews="true">
-			<View Name="{FB42F274-FD70-49E4-91A0-F284ECC4AC3E}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Sites/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=43">
-				<Query>
-					<OrderBy>
-						<FieldRef Name="ID" />
-					</OrderBy>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="PZL_BusinessOwner" />
-					<FieldRef Name="Editor" />
-					<FieldRef Name="Modified" />
-					<FieldRef Name="PZL_ProjectDescription" />
-					<FieldRef Name="PZL_SiteURL" />
-					<FieldRef Name="PZL_TemplateConfig" />
-					<FieldRef Name="PZL_SubModules" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<Aggregations Value="Off" />
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{C6D765D5-33E9-4125-9B8C-43529EEE3075}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="Requested" Url="/sites/pzldir/Lists/Sites/Requested.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<OrderBy>
-						<FieldRef Name="ID" />
-					</OrderBy>
-					<Where>
-						<Eq>
-							<FieldRef Name="PZL_SiteStatus" />
-							<Value Type="Text">Requested</Value>
-						</Eq>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="PZL_BusinessOwner" />
-					<FieldRef Name="Editor" />
-					<FieldRef Name="Modified" />
-					<FieldRef Name="PZL_ProjectDescription" />
-					<FieldRef Name="PZL_SiteURL" />
-					<FieldRef Name="PZL_TemplateConfig" />
-					<FieldRef Name="PZL_SubModules" />
-					<FieldRef Name="PZL_SiteStatus" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<Aggregations Value="Off" />
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-		</pnp:Views>
-		<pnp:Fields>
-			<Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" StaticName="Title" Description="Name of your site" />
-		</pnp:Fields>
-		<pnp:FieldRefs>
-			<pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" />
-			<pnp:FieldRef ID="0cedaa12-9d11-45d9-8847-8a88fa282ec4" Name="{parameter:GenericFieldsPrefix}ProjectDescription" Required="true" />
-		</pnp:FieldRefs>
-	</pnp:ListInstance>
-	<pnp:ListInstance Title="Site Owner Training List" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/SiteOwnerTrainingList" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" EnableAttachments="false">
-		<pnp:ContentTypeBindings>
-			<pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
-			<pnp:ContentTypeBinding ContentTypeID="0x0120" />
-		</pnp:ContentTypeBindings>
-		<pnp:Views>
-			<View Name="{2E4EA561-48D7-41AA-B14B-EC7C1E47B1BD}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="/collaboration/Lists/SiteOwnerTrainingList/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<OrderBy>
-						<FieldRef Name="Name" />
-					</OrderBy>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-					<FieldRef Name="Department" />
-					<FieldRef Name="Job_x0020_Title" />
-					<FieldRef Name="Country" />
-					<FieldRef Name="Office" />
-					<FieldRef Name="Site_x0020_owner" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">50</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{D284B9AB-C68A-46FF-81E9-EA0F544555A8}" MobileView="TRUE" Type="HTML" DisplayName="Training Location and date" Url="/collaboration/Lists/SiteOwnerTrainingList/Invited.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<GroupBy Collapse="TRUE" GroupLimit="30">
-						<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-					</GroupBy>
-					<OrderBy>
-						<FieldRef Name="Name" />
-					</OrderBy>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Name" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{0D0DFD21-12E8-4492-AA04-3E43748F0083}" MobileView="TRUE" Type="HTML" DisplayName="Users to have E-learning" Url="/collaboration/Lists/SiteOwnerTrainingList/Users Elearning.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<Where>
-						<And>
-							<And>
-								<Neq>
-									<FieldRef Name="Tested" />
-									<Value Type="Text">Passed</Value>
-								</Neq>
-								<Eq>
-									<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-									<Value Type="Text">E-learning</Value>
-								</Eq>
-							</And>
-							<Neq>
-								<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-								<Value Type="Text">Not Site Owner anymore</Value>
-							</Neq>
-						</And>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-					<FieldRef Name="Created" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{5166F932-D065-411D-A49C-289EDA867CC3}" MobileView="TRUE" Type="HTML" DisplayName="Users remain to be trained" Url="/collaboration/Lists/SiteOwnerTrainingList/Users remain to be trained.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<GroupBy Collapse="TRUE" GroupLimit="30" />
-					<Where>
-						<Neq>
-							<FieldRef Name="Status_x0020_participation" />
-							<Value Type="Text">Participated</Value>
-						</Neq>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-					<FieldRef Name="Modified" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{502E372E-4AAD-461D-B610-F59F65C5D14F}" MobileView="TRUE" Type="HTML" DisplayName="Participated users" Url="/collaboration/Lists/SiteOwnerTrainingList/Reinvited users.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<OrderBy>
-						<FieldRef Name="Name" />
-					</OrderBy>
-					<Where>
-						<Or>
-							<Eq>
-								<FieldRef Name="Tested" />
-								<Value Type="Text">Passed</Value>
-							</Eq>
-							<Eq>
-								<FieldRef Name="Tested" />
-								<Value Type="Text">Received</Value>
-							</Eq>
-						</Or>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-					<FieldRef Name="Department" />
-					<FieldRef Name="Office" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{FF931704-0A52-453B-B5AB-360243A94D43}" MobileView="TRUE" Type="HTML" DisplayName="Users not Site Owners anymore" Url="/collaboration/Lists/SiteOwnerTrainingList/Users not Site Owners anymore.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<Where>
-						<Eq>
-							<FieldRef Name="Tested" />
-							<Value Type="Text">Not current</Value>
-						</Eq>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-					<FieldRef Name="Modified" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{8751BC6B-97A8-4D0C-ACC5-45A851B6BA4E}" MobileView="TRUE" Type="HTML" DisplayName="Cap list Site Owners - Not training" Url="/collaboration/Lists/SiteOwnerTrainingList/Added Site Owners  Not passed test.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<Where>
-						<And>
-							<Or>
-								<Eq>
-									<FieldRef Name="Created" />
-									<Value Type="DateTime">2015-10-26T00:00:00Z</Value>
-								</Eq>
-								<Eq>
-									<FieldRef Name="Created" />
-									<Value Type="DateTime">2015-12-04T00:00:00Z</Value>
-								</Eq>
-							</Or>
-							<Eq>
-								<FieldRef Name="Status_x0020_participation" />
-								<Value Type="Text">Not invited</Value>
-							</Eq>
-						</And>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-					<FieldRef Name="Created" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">30</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{80B68285-7C81-400B-997D-C687E2D23EE2}" MobileView="TRUE" Type="HTML" DisplayName="Qualified Site Owners" Url="/collaboration/Lists/SiteOwnerTrainingList/Qualified Site Owners.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<OrderBy>
-						<FieldRef Name="Modified" Ascending="FALSE" />
-					</OrderBy>
-					<Where>
-						<Eq>
-							<FieldRef Name="Tested" />
-							<Value Type="Text">Passed</Value>
-						</Eq>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Modified" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">500</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{06326E94-2924-43E9-AD95-8B7EC8CB47C3}" MobileView="TRUE" Type="HTML" DisplayName="by Location" Url="/collaboration/Lists/SiteOwnerTrainingList/by Location.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<GroupBy Collapse="TRUE" GroupLimit="50">
-						<FieldRef Name="Office" />
-					</GroupBy>
-					<OrderBy>
-						<FieldRef Name="Modified" Ascending="FALSE" />
-					</OrderBy>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Name" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Instructor" />
-					<FieldRef Name="Status_x0020_participation" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Location_x0020_and_x0020_date_x0" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">600</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{05579747-4454-4BF1-8B6E-05724DFCDED8}" MobileView="TRUE" Type="HTML" DisplayName="Qualified Site Owners last month" Url="/collaboration/Lists/SiteOwnerTrainingList/Qualified Site Owners last month.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<OrderBy>
-						<FieldRef Name="Modified" Ascending="FALSE" />
-					</OrderBy>
-					<Where>
-						<And>
-							<Eq>
-								<FieldRef Name="Tested" />
-								<Value Type="Text">Passed</Value>
-							</Eq>
-							<Geq>
-								<FieldRef Name="Modified" />
-								<Value Type="DateTime">
-									<Today OffsetDays="-30" />
-								</Value>
-							</Geq>
-						</And>
-					</Where>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="Date" />
-					<FieldRef Name="Tested" />
-					<FieldRef Name="Diploma" />
-					<FieldRef Name="Modified" />
-					<FieldRef Name="Editor" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">500</RowLimit>
-				<Aggregations Value="On">
-					<FieldRef Name="Name" Type="COUNT" />
-				</Aggregations>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-			<View Name="{60F8723F-AFEF-4A87-8CCD-4D88FAAF48A5}" Type="HTML" DisplayName="AdminView" Url="/collaboration/Lists/SiteOwnerTrainingList/AdminView.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
-				<Query>
-					<OrderBy>
-						<FieldRef Name="Modified" Ascending="FALSE" />
-						<FieldRef Name="Name" />
-					</OrderBy>
-				</Query>
-				<ViewFields>
-					<FieldRef Name="Name" />
-					<FieldRef Name="LinkTitle" />
-					<FieldRef Name="Department" />
-					<FieldRef Name="Job_x0020_Title" />
-					<FieldRef Name="Modified" />
-				</ViewFields>
-				<RowLimit Paged="TRUE">50</RowLimit>
-				<JSLink>clienttemplates.js</JSLink>
-			</View>
-		</pnp:Views>
-		<pnp:Fields>
-			<Field Type="Choice" DisplayName="Course" EnforceUniqueValues="FALSE" Required="TRUE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{ae4baa8e-76b5-4098-b778-7701ce5ed325}" Name="Course" StaticName="Course" Format="Dropdown" FillInChoice="TRUE" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar4" RowOrdinal="0" Version="3">
-				<Default>Site Owner Training</Default>
-				<CHOICES>
-					<CHOICE>Site Owner Training</CHOICE>
-				</CHOICES>
-			</Field>
-			<Field Type="DateTime" DisplayName="Date participated" Description="Date training" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{b01d4647-d550-4850-bf5d-273589c23c11}" Name="Date" StaticName="Date" Format="DateOnly" SourceID="{{listid:Site Owner Training List}}" ColName="datetime1" RowOrdinal="0" Version="2" />
-			<Field Type="User" DisplayName="Name" Description="Name of person joining the training session" EnforceUniqueValues="TRUE" Required="FALSE" Indexed="TRUE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{1d9b66b5-d80a-4cd4-9fc4-8fb94d4a8a03}" Name="Name" StaticName="Name" ShowField="EMail" UserSelectionScope="0" UserSelectionMode="PeopleOnly" List="UserInfo" SourceID="{3a8b3456-301c-4ddd-829c-4caec6dc3ea4}" ColName="int1" RowOrdinal="0" Version="5" Group="" />
-			<Field Type="Choice" DisplayName="Final Test" EnforceUniqueValues="FALSE" Required="FALSE" Indexed="TRUE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{7515dcae-54b2-476b-bceb-42c214f4d606}" Name="Tested" StaticName="Tested" Format="Dropdown" FillInChoice="TRUE" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar3" RowOrdinal="0" Version="3">
-				<Default>Not sent out</Default>
-				<CHOICES>
-					<CHOICE>Not sent out</CHOICE>
-					<CHOICE>Received</CHOICE>
-					<CHOICE>Passed</CHOICE>
-				</CHOICES>
-			</Field>
-			<Field Type="Calculated" DisplayName="Year" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="TRUE" CanToggleHidden="FALSE" ID="{e6722c0c-fb11-4c83-9060-5806b43eeec8}" Name="Year" StaticName="Year" Format="DateOnly" LCID="2057" ResultType="Text" Percentage="FALSE" SourceID="{{listid:Site Owner Training List}}" ColName="sql_variant2" RowOrdinal="0" Version="3">
-				<Formula>=TEXT([Date participated],"yyyy")</Formula>
-			</Field>
-			<Field Type="Calculated" DisplayName="Month" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="TRUE" CanToggleHidden="FALSE" ID="{e21cd211-b8ed-41aa-915c-935b7da9c922}" Name="Month" StaticName="Month" Format="DateOnly" LCID="2057" ResultType="Text" Percentage="FALSE" SourceID="{{listid:Site Owner Training List}}" ColName="sql_variant1" RowOrdinal="0" Version="3">
-				<Formula>=TEXT([Date participated],"MM")&amp;" : "&amp;TEXT([Date participated],"MMMM")</Formula>
-			</Field>
-			<Field Type="Choice" DisplayName="Employment type" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{180cd824-cd5a-408a-89f9-8481d0103773}" Name="Employment_x0020_type" StaticName="Employment_x0020_type" Format="Dropdown" FillInChoice="TRUE" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar9" RowOrdinal="0" Version="3">
-				<Default>Employee</Default>
-				<CHOICES>
-					<CHOICE>Employee</CHOICE>
-					<CHOICE>Contractor</CHOICE>
-				</CHOICES>
-			</Field>
-			<Field Type="Boolean" DisplayName="Diploma" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{6f41f97e-29b5-492b-8a5b-aeb21adfa7db}" Name="Diploma" StaticName="Diploma" SourceID="{{listid:Site Owner Training List}}" ColName="bit1" RowOrdinal="0" Version="2">
-				<Default>0</Default>
-			</Field>
-			<Field Type="Choice" DisplayName="Instructor" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{65653844-989b-492a-b13a-4dfad1f1553d}" Name="Instructor" StaticName="Instructor" Format="Dropdown" FillInChoice="TRUE" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar5" RowOrdinal="0" Version="3">
-				<Default>Not decided yet</Default>
-				<CHOICES>
-					<CHOICE>Anton Lindgren</CHOICE>
-					<CHOICE>Henning Strand</CHOICE>
-					<CHOICE>Jochem Claus</CHOICE>
-					<CHOICE>Eystein Vigerust</CHOICE>
-					<CHOICE>Marcelo Trojahn</CHOICE>
-					<CHOICE>Francisco Borrego</CHOICE>
-					<CHOICE>Dries Vandenhoeck</CHOICE>
-					<CHOICE>Thijs ter Beek</CHOICE>
-					<CHOICE>Not current</CHOICE>
-					<CHOICE>Not decided yet</CHOICE>
-				</CHOICES>
-			</Field>
-			<Field Type="Choice" DisplayName="Status participation" EnforceUniqueValues="FALSE" Required="FALSE" Indexed="TRUE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{05e33d29-e74f-418a-b182-67582569e13f}" Name="Status_x0020_participation" StaticName="Status_x0020_participation" Format="Dropdown" FillInChoice="TRUE" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar12" RowOrdinal="0" Version="3">
-				<Default>Not invited</Default>
-				<CHOICES>
-					<CHOICE>Not invited</CHOICE>
-					<CHOICE>Invited</CHOICE>
-					<CHOICE>Participated</CHOICE>
-				</CHOICES>
-			</Field>
-			<Field Type="Choice" DisplayName="Location and date" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{ead79d2f-4669-4818-85f0-52ef3227f5bf}" Name="Location_x0020_and_x0020_date_x0" StaticName="Location_x0020_and_x0020_date_x0" Format="Dropdown" FillInChoice="TRUE" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar7" RowOrdinal="0" Version="3">
-				<Default>Not decided</Default>
-				<CHOICES>
-					<CHOICE>2016-01-26 - Brussels Zaventem</CHOICE>
-					<CHOICE>Brazil November</CHOICE>
-					<CHOICE>Porto Alegre December 14</CHOICE>
-					<CHOICE>Helsingborg October</CHOICE>
-					<CHOICE>Lync Online CAN / US / UK</CHOICE>
-					<CHOICE>Lync Online Asia</CHOICE>
-					<CHOICE>Paris October</CHOICE>
-					<CHOICE>Oslo October 22nd</CHOICE>
-					<CHOICE>Oslo October 28th</CHOICE>
-					<CHOICE>Oslo November 11th</CHOICE>
-					<CHOICE>Oslo December 02nd</CHOICE>
-					<CHOICE>Sluiskil November</CHOICE>
-					<CHOICE>Brussels October 22</CHOICE>
-					<CHOICE>Brussels October 28</CHOICE>
-					<CHOICE>Brussels December 09</CHOICE>
-					<CHOICE>LATam November</CHOICE>
-					<CHOICE>E-Learning</CHOICE>
-					<CHOICE>Espoo Q4</CHOICE>
-					<CHOICE>Uusikaupunki Oct 14th</CHOICE>
-					<CHOICE>2014 - October 2015</CHOICE>
-					<CHOICE>Not decided</CHOICE>
-				</CHOICES>
-			</Field>
-			<Field Type="Text" DisplayName="Department" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{ab56b3a3-7958-464f-abbc-d394021d61c4}" Name="Department" StaticName="Department" MaxLength="255" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar10" RowOrdinal="0" Version="2" />
-			<Field Type="Text" DisplayName="Job Title" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{c427b537-446d-4f58-9b9d-cf0172405e1c}" Name="Job_x0020_Title" StaticName="Job_x0020_Title" MaxLength="255" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar6" RowOrdinal="0" Version="2" />
-			<Field Type="Text" DisplayName="Country" EnforceUniqueValues="FALSE" Required="FALSE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{82a6aa0d-0480-428c-a3a6-007ab538b6d8}" Name="Country" StaticName="Country" MaxLength="255" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar11" RowOrdinal="0" Version="2" />
-			<Field Type="Text" DisplayName="Office" EnforceUniqueValues="FALSE" Required="FALSE" Indexed="TRUE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{1b400b64-abb0-4457-a841-2ccff708d0f9}" Name="Office" StaticName="Office" MaxLength="255" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar8" RowOrdinal="0" Version="2" />
-			<Field Type="Choice" DisplayName="Site owner" Description="User is site owner" EnforceUniqueValues="FALSE" Required="FALSE" Indexed="TRUE" Hidden="FALSE" ReadOnly="FALSE" CanToggleHidden="FALSE" ID="{1f682baf-70dd-4943-868b-8338ba06d23b}" Name="Site_x0020_owner" StaticName="Site_x0020_owner" Format="Dropdown" FillInChoice="TRUE" SourceID="{{listid:Site Owner Training List}}" ColName="nvarchar13" RowOrdinal="0" Version="3">
-				<Default>Yes</Default>
-				<CHOICES>
-					<CHOICE>Yes</CHOICE>
-					<CHOICE>No</CHOICE>
-				</CHOICES>
-			</Field>
-		</pnp:Fields>
 	</pnp:ListInstance>
 </pnp:Lists>
