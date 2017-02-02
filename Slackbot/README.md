@@ -29,4 +29,5 @@ You can use whatever cloud provider you want, we're using Heroku.
     * run git push heroku master
 
 
-White Rabbit is created with :heart: by the people at Puzzlepart who took the red :pill: , and is based on [[Howdyai's BotKit](https://github.com/howdyai/botkit)
+White Rabbit is created with :heart: by the people at Puzzlepart who took the red :pill:.
+White Rabbit is based on [Howdyais BotKit](https://github.com/howdyai/botkit)
