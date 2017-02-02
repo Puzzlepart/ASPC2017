@@ -1,0 +1,11 @@
+*.debug.xml
+node_modules/
+build/
+dist/
+docs/
+releases/
+*.DS_Store
+**/bower_components/
+/Releases/*
+Icon?
+env.json
