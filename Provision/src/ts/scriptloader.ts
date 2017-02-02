@@ -1,5 +1,5 @@
 /// <reference path="resourcehelper.ts" />
-/// <reference path="projectportal-shared.ts" />
+/// <reference path="sharedfunctions.ts" />
 
 declare function registerCssLink(url: string);
 declare function LoadSodByKey(url: string);
