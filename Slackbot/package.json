@@ -1,0 +1,20 @@
+{
+  "name": "white_rabbit_slackbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "botkit": "^0.4.6",
+    "cheerio": "^0.22.0",
+    "jira-client": "^4.2.0",
+    "request": "^2.79.0"
+  },
+  "engines": {
+    "node": "5.10.1"
+  }
+}
