@@ -9,3 +9,4 @@ releases/
 /Releases/*
 Icon?
 env.json
+**/node_modules
