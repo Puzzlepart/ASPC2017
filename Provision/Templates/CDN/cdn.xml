@@ -6,6 +6,9 @@
     <pnp:ProvisioningTemplate ID="TEMPLATE-PZL-PROJECTPORTAL-Assets" Version="1">
       <pnp:ComposedLook Name="Pzl Site Branding" ColorFile="{sitecollection}/_catalogs/Theme/15/pzl.spcolor" FontFile="{sitecollection}/_catalogs/Theme/15/pzl.spfont" BackgroundFile="" Version="0" />
       <pnp:Files>
+        <!-- Composed looks -->
+        <pnp:File Folder="{sitecollection}_catalogs/Theme/15" Overwrite="true" Src="..\..\dist\ComposedLook\pzl.spcolor" />
+        <pnp:File Folder="{sitecollection}_catalogs/Theme/15" Overwrite="true" Src="..\..\dist\ComposedLook\pzl.spfont" />
         <!-- Libs from npm -->
         <pnp:File Folder="{site}/SiteAssets/CDN/libs/css" Overwrite="false" Src="..\..\node_modules\bootstrap-tour\build\css\bootstrap-tour-standalone.min.css" />
         <pnp:File Folder="{site}/SiteAssets/CDN/libs/js" Overwrite="false" Src="..\..\node_modules\bootstrap-tour\build\js\bootstrap-tour-standalone.min.js" />
@@ -21,8 +24,6 @@
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.ttf" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.eot" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.woff" />
-        <pnp:File Folder="_catalogs/Theme/15" Overwrite="true" Src="..\..\dist\ComposedLook\pzl.spcolor" />
-        <pnp:File Folder="_catalogs/Theme/15" Overwrite="true" Src="..\..\dist\ComposedLook\pzl.spfont" />
       </pnp:Files>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>

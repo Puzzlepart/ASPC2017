@@ -10,8 +10,8 @@
 			<pnp:FieldRef ID="7d6e9eb3-6120-4f7c-b462-d8b068773769" Name="{parameter:GenericFieldsPrefix}SiteURL" Required="false" />
 			<pnp:FieldRef ID="61cbedde-c288-43c3-bed1-fc67bdeaa03b" Name="{parameter:GenericFieldsPrefix}BusinessUnit" Required="false" />
 			<pnp:FieldRef ID="c779cf5e-955c-429c-a392-7fd8b890db13" Name="{parameter:GenericFieldsPrefix}InformationClassification" Required="false" />
-			<pnp:FieldRef ID="dc07b242-3368-4fe5-934b-7548a4cfbbbe" Name="{parameter:GenericFieldsPrefix}BusinessOwner" Required="true" />
-			<pnp:FieldRef ID="c5d84c7b-8fed-4823-9e00-4077770b4f51" Name="{parameter:GenericFieldsPrefix}SiteOwners" Required="true" />
+			<pnp:FieldRef ID="dc07b242-3368-4fe5-934b-7548a4cfbbbe" Name="{parameter:GenericFieldsPrefix}BusinessOwner" Required="false" />
+			<pnp:FieldRef ID="c5d84c7b-8fed-4823-9e00-4077770b4f51" Name="{parameter:GenericFieldsPrefix}SiteOwners" Required="false" />
 			<pnp:FieldRef ID="e4cd48a9-2c5c-4f60-86ff-a9bf4fb0d110" Name="{parameter:GenericFieldsPrefix}SiteMembers" Required="false" />
 			<pnp:FieldRef ID="4330bb13-b27d-4a71-81a5-2b65a7547f56" Name="{parameter:GenericFieldsPrefix}SiteVisitors" Required="false" />
 			<pnp:FieldRef ID="465ba4e9-aa5d-480f-b83a-2be27f472bea" Name="{parameter:GenericFieldsPrefix}SiteStatus" Required="false" />

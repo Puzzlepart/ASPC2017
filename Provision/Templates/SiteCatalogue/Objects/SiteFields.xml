@@ -2,8 +2,8 @@
   xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
   <Field Type="Note" DisplayName="{resource:SiteDirectory_SiteDescription}" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="3" RichText="FALSE" Sortable="FALSE" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{0cedaa12-9d11-45d9-8847-8a88fa282ec4}" StaticName="{parameter:GenericFieldsPrefix}ProjectDescription" Name="{parameter:GenericFieldsPrefix}ProjectDescription" Description="Please enter a short description of the site. This could include the purpose of the site, what information is stored and who will be using it"></Field>
   <Field Type="UserMulti" DisplayName="{resource:SiteDirectory_SiteVisitors}" List="UserInfo" Required="FALSE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleAndGroups" UserSelectionScope="0" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{4330bb13-b27d-4a71-81a5-2b65a7547f56}" StaticName="{parameter:GenericFieldsPrefix}SiteVisitors" Name="{parameter:GenericFieldsPrefix}SiteVisitors" Mult="TRUE" Sortable="FALSE" Description="Site Visitors will be able to Read content on your site" />
-  <Field Type="User" DisplayName="{resource:SiteDirectory_BusinessOwner}" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{dc07b242-3368-4fe5-934b-7548a4cfbbbe}" StaticName="{parameter:GenericFieldsPrefix}BusinessOwner" Name="{parameter:GenericFieldsPrefix}BusinessOwner" Description="The Business Owner is accountable for content stored within the site and governance is followed" />
-  <Field Type="UserMulti" DisplayName="{resource:SiteDirectory_SiteOwners}" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0" Mult="TRUE" Sortable="FALSE" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{c5d84c7b-8fed-4823-9e00-4077770b4f51}" StaticName="{parameter:GenericFieldsPrefix}SiteOwners" Name="{parameter:GenericFieldsPrefix}SiteOwners" Description="The Site Owners are appointed by the Business Owner and will have Full Control on the site and are responsible for managing content and permission within a site" />
+  <Field Type="User" DisplayName="{resource:SiteDirectory_BusinessOwner}" List="UserInfo" Required="FALSE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{dc07b242-3368-4fe5-934b-7548a4cfbbbe}" StaticName="{parameter:GenericFieldsPrefix}BusinessOwner" Name="{parameter:GenericFieldsPrefix}BusinessOwner" Description="The Business Owner is accountable for content stored within the site and governance is followed" />
+  <Field Type="UserMulti" DisplayName="{resource:SiteDirectory_SiteOwners}" List="UserInfo" Required="FALSE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0" Mult="TRUE" Sortable="FALSE" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{c5d84c7b-8fed-4823-9e00-4077770b4f51}" StaticName="{parameter:GenericFieldsPrefix}SiteOwners" Name="{parameter:GenericFieldsPrefix}SiteOwners" Description="The Site Owners are appointed by the Business Owner and will have Full Control on the site and are responsible for managing content and permission within a site" />
   <Field Type="UserMulti" DisplayName="{resource:SiteDirectory_SiteMembers}" List="UserInfo" Required="FALSE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleAndGroups" UserSelectionScope="0" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{e4cd48a9-2c5c-4f60-86ff-a9bf4fb0d110}" StaticName="{parameter:GenericFieldsPrefix}SiteMembers" Name="{parameter:GenericFieldsPrefix}SiteMembers" Mult="TRUE" Sortable="FALSE" Description="Site Members will be able to Contribute (read, create, edit and delete) content on your site" />
   <Field Type="Choice" DisplayName="{resource:SiteDirectory_ProvisionStatus}" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" Group="{parameter:TemplateSpecificFieldsGroup}" ID="{465ba4e9-aa5d-480f-b83a-2be27f472bea}" StaticName="{parameter:GenericFieldsPrefix}SiteStatus" Name="{parameter:GenericFieldsPrefix}SiteStatus" ShowInNewForm="FALSE" ShowInEditForm="FALSE">
     <Default>Requested</Default>
@@ -28,14 +28,14 @@
           <Name>SspId</Name>
           <Value 
             xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" 
-            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{sitecollectiontermstoreid}                              
+            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{sitecollectiontermstoreid}                                                  
           </Value>
         </Property>
         <Property>
           <Name>TermSetId</Name>
           <Value 
             xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" 
-            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">c412985e-08d0-482f-88d2-1c7f0363ef6f                              
+            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">c412985e-08d0-482f-88d2-1c7f0363ef6f                                                  
           </Value>
         </Property>
       </ArrayOfProperty>
@@ -48,14 +48,14 @@
           <Name>SspId</Name>
           <Value 
             xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" 
-            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{sitecollectiontermstoreid}                              
+            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{sitecollectiontermstoreid}                                                  
           </Value>
         </Property>
         <Property>
           <Name>TermSetId</Name>
           <Value 
             xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" 
-            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">b53a2280-fb45-412d-adff-1e26d39ea65f                              
+            xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">b53a2280-fb45-412d-adff-1e26d39ea65f                                                  
           </Value>
         </Property>
       </ArrayOfProperty>
