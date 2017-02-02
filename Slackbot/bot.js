@@ -50,7 +50,24 @@ controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)"], ['direct_message
         var siteTitle = q.split(',')[0];
         var siteDesc = q.split(',')[1];
         if (siteTitle && siteDesc) {
-            helpers.giphy(siteTitle, siteDesc, bot, message)
+            var options = {
+                headers: { 'content-type': 'application/json' },
+                uri: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
+                method: 'POST',
+                json: {
+                    "title": siteTitle,
+                    "description": siteDesc
+                }
+            };
+            request(options, function (error, response, body) {
+                if (!error) {
+                    console.log(response.statusCode.toString());
+                }
+                else {
+                    console.log(error.toString());
+                }
+                bot.reply(message, "Site " + siteTitle + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
+            });
         }
     }
     else {
@@ -64,6 +81,52 @@ controller.hears(["Create-SPSite", "help Create-SPSite", "man Create-SPSite", "c
     bot.reply(message, "*Create-SPSite* \n" +
         "*Usage:* Create-SPSite [Title], [Description]");
 });
+
+
+//Create CRM Lead
+controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    var q = message.match[1];
+    if (q) {
+        var crmLead = q.split(',');
+        if (siteTitle && siteDesc) {
+            var options = {
+                headers: { 'content-type': 'application/json' },
+                uri: 'https://prod-26.westeurope.logic.azure.com:443/workflows/f5467c0caf5f4b2c89c99d0cc178c450/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mmepSJpLDsrmRA8DpRYQoc_dlSXXL3qNHEn4NkdVToA',
+                method: 'POST',
+                json: {
+                    "firstname": crmLead[0],
+                    "lastname": crmLead[1],
+                    "email": crmLead[2],
+                    "city": crmLead[3],
+                    "country": crmLead[4],
+                    "phone": crmLead[5],
+                    "handle": crmLead[6]
+                }
+            };
+            request(options, function (error, response, body) {
+                if (!error) {
+                    console.log(response.statusCode.toString());
+                }
+                else {
+                    console.log(error.toString());
+                }
+                bot.reply(message, "Lead for " + crmLead[6] + " Created!");
+            });
+        }
+    }
+    else {
+        bot.reply(message, "*Create-CRMLead* \n" +
+            "*Usage:* Create-CRMLead [Firstname],[Lastname],[Email],[City],[Country],[Phone],[Handle]");
+    }
+});
+
+//Create CRM Lead Helper
+controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead", "Create-CRMLead help"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    bot.reply(message, "*Create-CRMLead* \n" +
+        "*Usage:* Create-SPSite [Title], [Description]");
+});
+
+
 
 
 //===
