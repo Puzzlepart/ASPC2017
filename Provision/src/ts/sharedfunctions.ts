@@ -1,4 +1,4 @@
-namespace ProjectPortal.SharedResources {
+namespace Pzl.SharedResources {
     export module CDN {
         export const SITECOL_SERVER_RELATIVE_URL = '/sites/pzl-cdn';
         export const ROOT_FOLDER = SITECOL_SERVER_RELATIVE_URL + '/SiteAssets/CDN';
@@ -15,7 +15,7 @@ namespace ProjectPortal.SharedResources {
     }
 }
 
-namespace ProjectPortal.SharedFunctions {
+namespace Pzl.SharedFunctions {
     export function OpenInDialog(url: string, title: string) {
         SP.UI.ModalDialog.showModalDialog({
             url: url,
