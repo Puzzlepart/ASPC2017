@@ -15,6 +15,7 @@ You take the red pill, you stay in Wonderland, and I show you how deep the rabbi
 
 ## Get runnning in the cloud!
 You can use whatever cloud provider you want, we're using Heroku.
+
 1. Create a [free Heroku account](https://signup.heroku.com/)
 2. Download the [Heroku CLI toolbelt](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 3. From the CLI run heroku create [appname]. Your app will be created at https://appname.herokuapp.com
@@ -22,10 +23,10 @@ You can use whatever cloud provider you want, we're using Heroku.
 5. Edit the keepalive url in bot.js line 38-ish, replace white-rabbit with [app-name].
 6. Set the git upstream to match your heroku app git repo, with
     * heroku git:remote -a [app-name]
-7a. If you're still working in the cloned ASPC2017 repo and haven't created your own, you'll want to push only the Slackbot subdirectory upstream. In that case
+7. If you're still working in the cloned ASPC2017 repo and haven't created your own, you'll want to push only the Slackbot subdirectory upstream. In that case
     * cd to the ASPC2017 directory (root repo folder)
     * run git subtree push --prefix Slackbot heroku master
-7b. If you've simply copied the code and are working in your own repo with the bot code on root
+8. If you've simply copied the code and are working in your own repo with the bot code on root
     * run git push heroku master
 
 
