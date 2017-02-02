@@ -89,7 +89,7 @@ controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'm
             else {
                 console.log(error.toString());
             }
-            res.end();
+            bot.reply(message, "Site "+siteTitle+ " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
         });
     }
     else {
