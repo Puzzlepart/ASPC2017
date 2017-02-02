@@ -7,16 +7,22 @@ This repository contains Puzzlepart's work at ASPC17.
 
 ## Objective ##
 
-Our objective is quite dynamic at this point (agile!). Our Endlösung is to onboard citizens onto ships to fight the system. Ships will have their own Office 365 groups with ship members to collaborate. We're focusing on the provisioning part of solution from the start - allowing people to report interest and onboard ships using different means.
+Our objective is quite dynamic at this point (agile!). Our Endlösung is to onboard citizens onto ships to fight the system.
+
+Ships are account entities, and crew members/recruites are contacts in Dynamics CRM.
+
+Ships will have their own Office 365 groups with ship members to collaborate and share information. We're focusing on the provisioning part of solution from the start - allowing people to report interest and onboard ships using different means. Chat bots (think Neo IRC), PowerApps, public web.
 
 ## Architecture ##
 We plan to do the following solution and architecture.
 
 ![Architecture idea](Documentation/Architecture.PNG "Architecture idea")
 
-At it's core, we will create a provisioning solution to create user and ship entities in CRM and ship sites in Office 365, which are interlinked. We will use a central SharePoint list to be used as a data source for the entities.
+At it's core, we will create a provisioning solution to create leads (-> contact) and ship entities in CRM and ship sites in Office 365, which are interlinked. We will use a central SharePoint list to be used as a data source for the entities.
 
 We will use a web form, mobile-supported power app and the bot framework (gitter/slack/teams) to create ships.
+
+If time allows we will from the ships calendar create event pages in the ships site with extra information.
 
 ## Join in! ##
 
