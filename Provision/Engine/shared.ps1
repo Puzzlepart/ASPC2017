@@ -144,44 +144,5 @@ function DisableMemberSharing([string]$url){
         $web.MembersCanShare = $false
         $web.Update()
         $web.Context.ExecuteQuery()
-        #TODO:
-        #https://blogs.msdn.microsoft.com/chandru/2015/12/31/sharepoint-onlinecsom-change-access-requests-settings/ 
-        #web.AssociatedMemberGroup.AllowMembersEditMembership = false; 
-        #web.AssociatedMemberGroup.Update(); 
-    }
-}
-
-function CheckDirectReportsOfOwner{
-    Param(
-        [string]$ownerEmail,
-        [int]$id
-    )
-    Connect -Url $tenantAdminUrl
-    $acc = Get-PnPUserProfileProperty -Account $ownerEmail
-    $hasDirectReports = $acc.DirectReports.Count -gt 0
-
-    Connect -Url "$tenantURL$siteDirectorySiteUrl"
-    $siteItem = Get-PnpListItem -List $siteDirectoryList -Id $id -Fields "$($columnPrefix)Compliant"
-    $compliant = $siteItem["$($columnPrefix)Compliant"]
-    
-    if($hasDirectReports -and -not $compliant) {
-        Write-Output "`tSite is compliant"
-        Set-PnPListItem -List $siteDirectoryList -Identity $id -Values @{"$($columnPrefix)Compliant" = $true; "$($columnPrefix)Comment" = ''} -ErrorAction SilentlyContinue >$null 2>&1
-    } elseif(-not $hasDirectReports -and $compliant) {
-        Write-Output "`tSite is not compliant $ownerEmail has no direct reports"
-        Set-PnPListItem -List $siteDirectoryList -Identity $id -Values @{"$($columnPrefix)Compliant" = $false; "$($columnPrefix)Comment" = 'Business owner is not a Pzl manager'} -ErrorAction SilentlyContinue >$null 2>&1
-    }
-}
-
-function CheckSitePolicy{
-    Param(
-        [string]$url
-    )
-    Connect -Url $url
-    $policyName = "Delete unconfirmed after 3 months"
-    $policy = Get-PnPSitePolicy
-    if($policy -eq $null -or $policy.Name -ne $policyName) {
-        Write-Output "`tApplying site policy: $policyName"
-        Set-PnPSitePolicy -Name $policyName
     }
 }
