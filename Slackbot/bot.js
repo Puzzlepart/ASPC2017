@@ -44,29 +44,14 @@ setInterval(function () {
 //=====================
 
 //Create SPSite
-controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var q = message.match[1];
     if (q && q.length > 3) {
         var siteTitle = q.split(',')[0];
         var siteDesc = q.split(',')[1];
-        var options = {
-            headers: { 'content-type': 'application/json' },
-            uri: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
-            method: 'POST',
-            json: {
-                "title": siteTitle,
-                "description": siteDesc
-            }
-        };
-        request(options, function (error, response, body) {
-            if (!error) {
-                console.log(response.statusCode.toString());
-            }
-            else {
-                console.log(error.toString());
-            }
-            bot.reply(message, "Site " + siteTitle + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
-        });
+        if (siteTitle && siteDesc) {
+            helpers.giphy(siteTitle, siteDesc, bot, message)
+        }
     }
     else {
         bot.reply(message, "*Create-SPSite* \n" +
@@ -74,7 +59,8 @@ controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'm
     }
 });
 
-controller.hears(["Create-SPSite"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+//Create SPSite Helper
+controller.hears(["Create-SPSite", "help Create-SPSite", "man Create-SPSite", "create-spsite help"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
     bot.reply(message, "*Create-SPSite* \n" +
         "*Usage:* Create-SPSite [Title], [Description]");
 });
