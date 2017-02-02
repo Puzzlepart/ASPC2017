@@ -46,7 +46,7 @@ setInterval(function () {
 //Create SPSite
 controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var q = message.match[1];
-    if (q && q.indexOf(',' > -1)) {
+    if (q && q.length > 3) {
         var siteTitle = q.split(',')[0];
         var siteDesc = q.split(',')[1];
         var options = {
@@ -65,7 +65,7 @@ controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'm
             else {
                 console.log(error.toString());
             }
-            bot.reply(message, "Site "+siteTitle+ " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
+            bot.reply(message, "Site " + siteTitle + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
         });
     }
     else {
@@ -73,6 +73,12 @@ controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'm
             "*Usage:* Create-SPSite [Title], [Description]");
     }
 });
+
+controller.hears(["Create-SPSite"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    bot.reply(message, "*Create-SPSite* \n" +
+        "*Usage:* Create-SPSite [Title], [Description]");
+});
+
 
 //===
 //bot commands
