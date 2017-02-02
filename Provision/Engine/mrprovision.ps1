@@ -379,13 +379,6 @@ foreach ($siteItem in $siteDirectoryItems) {
 
     $editor = $siteItem["Editor"][0].LookUpValue 
 
-    if( $siteItem["$($columnPrefix)NeedForSupport"] ) {
-        $mailHeadBody = GetMailContent -email $owner.Email -mailFile "requesthelp"
-        Write-Output "Sending request help notification to $($orderedByUser.Email)"
-        Send-PnPMail -To $orderedByUser.Email -Subject $mailHeadBody[0] -Body $mailHeadBody[1]
-        continue    
-    }
-
     EnsureSite -siteEntryId $siteItem["ID"] -title $title -url $siteUrl -description $description `
         -siteCollectionAdmin $fallbackSiteCollectionAdmin `
         -owner $ownerAccount `

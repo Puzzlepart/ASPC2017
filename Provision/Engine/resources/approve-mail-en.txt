@@ -1,6 +1,0 @@
-Site approval request for {0} by {1}|
-<p>{1} has requested you approve a new site at {0}</p>
-<p>You can review the site request <a href='{2}'>here</a> before approving
-or rejecting with the buttons below.</p>
-<p style='color:red'>If you reject the site creation, you need to manually delete the request
-and contact the requestor with information.</p>
