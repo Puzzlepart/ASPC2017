@@ -1,9 +1,9 @@
-Site {0} Approved|<p>Dear requestor,
+Site {0} is ready|<p>Dear requestor,
 </p><p>
-Your request for the SharePoint Site {0} has been approved and the site has already been created.
+Your request for the SharePoint Site {0} has been processed and the site has already been created.
 </p><p>
 The Site is available at the following URL: <a href="{1}">{1}</a>
 </p><p>
 Thank you.
 </p><p>
-SharePoint Application Management Service
+Pzl Team
