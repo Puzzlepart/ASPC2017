@@ -1,4 +1,3 @@
-/// <reference path="../../typings/index.d.ts" />
 /// <reference path="projectportal-shared.ts" />
 
 declare var Tour: any;

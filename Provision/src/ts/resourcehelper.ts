@@ -1,4 +1,3 @@
-/// <reference path="../../typings/index.d.ts" />
 
 interface Window {
     pageResources: any;

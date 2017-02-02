@@ -1,5 +1,3 @@
-/// <reference path="../../typings/index.d.ts" />
-
 namespace ProjectPortal.SharedResources {
     export module CDN {
         export const SITECOL_SERVER_RELATIVE_URL = '/sites/matrix-cdn';

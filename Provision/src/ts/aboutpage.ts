@@ -1,4 +1,3 @@
-/// <reference path="../../typings/index.d.ts" />
 /// <reference path="./resourcehelper.ts" />
 
 module Portal.About {
