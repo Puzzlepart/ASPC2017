@@ -5,7 +5,7 @@
 
 //Check if there's a slack token, if not, we're probably debugging, so load dotenv
 if (!process.env.SLACK_TOKEN) {
-require('dotenv').config();
+    require('dotenv').config();
 }
 
 //Spawn bot
@@ -63,6 +63,25 @@ controller.hears(['tell me a joke'], ['direct_message', 'direct_mention', 'menti
 });
 
 
+//=======================
+// SHAREPOINT INTEGRATION
+//=====================
+
+//Create SPSite
+controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    var q = message.match[1];
+    if (q && q.indexOf(',' > -1)) {
+        var siteTitle = q.split(',')[0];
+        var siteDesc = q.split(',')[1];
+        helpers.createSite(siteTitle, siteDesc, bot, message);
+    }
+    else {
+        bot.reply(message, "*Create-SPSite* \n" +
+            "*Usage:* Create-SPSite [Title], [Description]");
+    }
+});
+
+
 //========
 // Jira integration
 // =======
@@ -91,7 +110,7 @@ var __jiraConfig = {
 };
 
 //Syntax help
-controller.hears(['jira help', 'man jira', 'help jira'], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira help', 'man jira', 'help jira'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     bot.reply(message, "*JIRA COMMANDS* \n" +
         "*Usage:* jira [Options] \n" +
         "*Create issue:* create|new <Project key>; <Issue type>; <Summary>; <Description>  _(Semi colon delimited)_ \n" +
@@ -102,7 +121,7 @@ controller.hears(['jira help', 'man jira', 'help jira'], ['ambient','direct_mess
 });
 
 // Create issue
-controller.hears(['jira new (.*)', 'jira create (.*)'], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira new (.*)', 'jira create (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var parts = message.match[1].split(";").map(function (p) { return p.trim() });
     var projectKey = parts[0], issueType = parts[1], summary = parts[2], description = parts[3];
     var addIssueJSON = {
@@ -129,7 +148,7 @@ controller.hears(['jira new (.*)', 'jira create (.*)'], ['ambient','direct_messa
 });
 
 // Find issue
-controller.hears(['jira get (.*)', 'jira find (.*)'], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira get (.*)', 'jira find (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var issueKey = message.match[1];
     api.findIssue(issueKey).then(function (issue) {
         bot.reply(message, issueKey +
@@ -146,7 +165,7 @@ controller.hears(['jira get (.*)', 'jira find (.*)'], ['ambient','direct_message
 
 
 // Transition issue
-controller.hears(['jira set (.*)', 'jira transition (.*)'], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira set (.*)', 'jira transition (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var match = message.match[1];
     var issueKey = match.substring(0, match.indexOf(" ")).trim();
     var transitionStr = match.substring(issueKey.length + 1, match.length).trim().toLowerCase();
@@ -168,12 +187,12 @@ controller.hears(['jira set (.*)', 'jira transition (.*)'], ['ambient','direct_m
 
 
 //Comment on issue
-controller.hears(['jira comment (.*)'], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira comment (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var match = message.match[1];
     var issueKey = match.substring(0, match.indexOf(" ")).trim();
     var commentStr = match.substring(issueKey.length + 1, match.length).trim();
-    console.log("commenting on issue "+issueKey);
-    console.log("comment to be added:\n"+commentStr);
+    console.log("commenting on issue " + issueKey);
+    console.log("comment to be added:\n" + commentStr);
     var addCommentJSON = {
         "body": {
             "body": commentStr
