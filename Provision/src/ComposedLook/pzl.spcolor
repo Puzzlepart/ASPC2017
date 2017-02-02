@@ -46,8 +46,8 @@
     <s:color name="SubtleEmphasisCommandLinks" value="262626" />
     <s:color name="SubtleEmphasisBackground" value="F1F1F1" />
     <s:color name="TopBarText" value="1BC500" />
-    <s:color name="TopBarBackground" value="333333" />
-    <s:color name="TopBarHoverText" value="333333" />
+    <s:color name="TopBarBackground" value="222222" />
+    <s:color name="TopBarHoverText" value="222222" />
     <s:color name="TopBarPressedText" value="3C8841" />
     <s:color name="HeaderText" value="1BC500" />
     <s:color name="HeaderSubtleText" value="1BC566" />
