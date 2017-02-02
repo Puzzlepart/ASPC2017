@@ -50,7 +50,24 @@ controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)"], ['direct_message
         var siteTitle = q.split(',')[0];
         var siteDesc = q.split(',')[1];
         if (siteTitle && siteDesc) {
-            helpers.giphy(siteTitle, siteDesc, bot, message)
+            var options = {
+                headers: { 'content-type': 'application/json' },
+                uri: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
+                method: 'POST',
+                json: {
+                    "title": siteTitle,
+                    "description": siteDesc
+                }
+            };
+            request(options, function (error, response, body) {
+                if (!error) {
+                    console.log(response.statusCode.toString());
+                }
+                else {
+                    console.log(error.toString());
+                }
+                bot.reply(message, "Site " + siteTitle + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
+            });
         }
     }
     else {
