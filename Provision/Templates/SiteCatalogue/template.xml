@@ -12,7 +12,7 @@
     </pnp:Parameters>
   </pnp:Preferences>
   <pnp:Localizations>
-    <pnp:Localization LCID="1033" Name="English" ResourceFile="sitedirectory.en-US.resx" />
+    <pnp:Localization LCID="1033" Name="English" ResourceFile="template.en-US.resx" />
   </pnp:Localizations>
   <pnp:Templates ID="CONTAINER-TEMPLATE-PZL-PROJECTPORTAL">
     <pnp:ProvisioningTemplate ID="TEMPLATE-PZL-PROJECTPORTAL-SITEDIRECTORY" Version="1">
