@@ -10,8 +10,6 @@
         <pnp:File Folder="{sitecollection}_catalogs/Theme/15" Overwrite="true" Src="..\..\dist\ComposedLook\pzl.spcolor" />
         <pnp:File Folder="{sitecollection}_catalogs/Theme/15" Overwrite="true" Src="..\..\dist\ComposedLook\pzl.spfont" />
         <!-- Libs from npm -->
-        <pnp:File Folder="{site}/SiteAssets/CDN/libs/css" Overwrite="false" Src="..\..\node_modules\bootstrap-tour\build\css\bootstrap-tour-standalone.min.css" />
-        <pnp:File Folder="{site}/SiteAssets/CDN/libs/js" Overwrite="false" Src="..\..\node_modules\bootstrap-tour\build\js\bootstrap-tour-standalone.min.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/libs/js" Overwrite="true" Src="..\..\node_modules\jquery\dist\jquery.min.js" />
         <!-- Solution custom -->
         <pnp:File Folder="{site}/SiteAssets/CDN/img" Overwrite="true" Src="..\..\dist\img\favicon.ico" />
@@ -19,8 +17,7 @@
         <pnp:File Folder="{site}/SiteAssets/CDN/img" Overwrite="true" Src="..\..\dist\img\pzl-logo-O365-64x64.png" />
         <pnp:File Folder="{site}/SiteAssets/CDN/css" Overwrite="true" Src="..\..\dist\css\pzl-branding.css" />
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\resources.js" />
-        <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\aboutpage.js" />
-        <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\projectportal-shared.js" />
+        <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\sharedfunctions.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\scriptloader.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.ttf" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.eot" />
