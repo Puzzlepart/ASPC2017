@@ -27,7 +27,7 @@ The site directory is a list of all projects, and is used by [mrprovision.ps1](E
 1. Clone repository from bitbucket
 2. From git shell: npm install
 3. From git shell: typings install
-4. Run gulp 'gulp' to build 'AssetsSrc' to 'dist'-folder
+4. Run gulp 'gulp' to build 'src' to 'dist'-folder
 5. Connect-PnPOnline and then Apply-SPOProvisioningTemplate <path to template> (Relevant for CDN and SiteDirectory)
 
 ## Template setup of lists and libraries ##

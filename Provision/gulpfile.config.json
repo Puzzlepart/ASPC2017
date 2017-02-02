@@ -6,7 +6,7 @@
   },
   "buildOutput": {
     "outputFolder": "dist/",
-    "sourceFolder": "AssetsSrc/",
+    "sourceFolder": "src/",
     "lessFiles": [
       "dist/css/*.less",
       "dist/css/**/*.less"
