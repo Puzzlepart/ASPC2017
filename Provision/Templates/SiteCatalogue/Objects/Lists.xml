@@ -6,7 +6,7 @@
 			<pnp:ContentTypeBinding ContentTypeID="0x0120" />
 		</pnp:ContentTypeBindings>
 		<pnp:Views RemoveExistingViews="true">
-			<View Name="{FB42F274-FD70-49E4-91A0-F284ECC4AC3E}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Sites/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=43">
+			<View Name="{FB42F274-FD70-49E4-91A0-F284ECC4AC3E}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="{resource:SiteDirectory_AllItems}" Url="{site}/Lists/Sites/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=43">
 				<Query>
 					<OrderBy>
 						<FieldRef Name="ID" />
@@ -26,7 +26,7 @@
 				<Aggregations Value="Off" />
 				<JSLink>clienttemplates.js</JSLink>
 			</View>
-			<View Name="{C6D765D5-33E9-4125-9B8C-43529EEE3075}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="Requested" Url="/sites/pzldir/Lists/Sites/Requested.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+			<View Name="{C6D765D5-33E9-4125-9B8C-43529EEE3075}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="{resource:SiteDirectory_ViewRequested}" Url="{site}/Lists/Sites/Requested.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
 				<Query>
 					<OrderBy>
 						<FieldRef Name="ID" />
@@ -35,6 +35,33 @@
 						<Eq>
 							<FieldRef Name="PZL_SiteStatus" />
 							<Value Type="Text">Requested</Value>
+						</Eq>
+					</Where>
+				</Query>
+				<ViewFields>
+					<FieldRef Name="LinkTitle" />
+					<FieldRef Name="PZL_BusinessOwner" />
+					<FieldRef Name="Editor" />
+					<FieldRef Name="Modified" />
+					<FieldRef Name="PZL_ProjectDescription" />
+					<FieldRef Name="PZL_SiteURL" />
+					<FieldRef Name="PZL_TemplateConfig" />
+					<FieldRef Name="PZL_SubModules" />
+					<FieldRef Name="PZL_SiteStatus" />
+				</ViewFields>
+				<RowLimit Paged="TRUE">30</RowLimit>
+				<Aggregations Value="Off" />
+				<JSLink>clienttemplates.js</JSLink>
+			</View>
+			<View Name="{3748eac1-e666-47ef-b661-40768647d404}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="{resource:SiteDirectory_ViewFailed}" Url="{site}/Lists/Sites/Failed.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+				<Query>
+					<OrderBy>
+						<FieldRef Name="ID" />
+					</OrderBy>
+					<Where>
+						<Eq>
+							<FieldRef Name="PZL_SiteStatus" />
+							<Value Type="Text">Failed</Value>
 						</Eq>
 					</Where>
 				</Query>
