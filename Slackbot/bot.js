@@ -38,30 +38,6 @@ setInterval(function () {
     http.get("http://white-rabbit.herokuapp.com");
 }, 300000);
 
-//===
-//bot commands
-//===
-
-//Say Hi
-controller.hears(['hello', 'hey', 'hi', 'hei', 'sup', 'wassup', 'hola'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    bot.reply(message, "Hi!");
-});
-
-//Who's yo daddy?
-controller.hears(["Who's yo daddy", "Who owns you", "whos your daddy", "who is your daddy", "who's your daddy"], ['direct_message', 'direct_mention', 'mention', 'ambient'], function (bot, message) {
-    bot.reply(message, "Kimzter");
-});
-
-// 8 ball
-controller.hears(['8ball', '8-ball', '8 ball', 'eightball', 'eight ball'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    bot.reply(message, helpers.eightBall());
-});
-
-// Jokes
-controller.hears(['tell me a joke'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    bot.reply(message, helpers.getJoke());
-});
-
 
 //=======================
 // SHAREPOINT INTEGRATION
@@ -96,6 +72,30 @@ controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'm
         bot.reply(message, "*Create-SPSite* \n" +
             "*Usage:* Create-SPSite [Title], [Description]");
     }
+});
+
+//===
+//bot commands
+//===
+
+//Say Hi
+controller.hears(['hello', 'hey', 'hi', 'hei', 'sup', 'wassup', 'hola'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    bot.reply(message, "Hi!");
+});
+
+//Who's yo daddy?
+controller.hears(["Who's yo daddy", "Who owns you", "whos your daddy", "who is your daddy", "who's your daddy"], ['direct_message', 'direct_mention', 'mention', 'ambient'], function (bot, message) {
+    bot.reply(message, "Kimzter");
+});
+
+// 8 ball
+controller.hears(['8ball', '8-ball', '8 ball', 'eightball', 'eight ball'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    bot.reply(message, helpers.eightBall());
+});
+
+// Jokes
+controller.hears(['tell me a joke'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    bot.reply(message, helpers.getJoke());
 });
 
 
