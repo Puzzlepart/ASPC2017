@@ -5,7 +5,7 @@
 		<pnp:FieldRefs>
 			<pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" />
 			<pnp:FieldRef ID="0cedaa12-9d11-45d9-8847-8a88fa282ec4" Name="{parameter:GenericFieldsPrefix}ProjectDescription" Required="false" />
-			<pnp:FieldRef ID="b6819305-b14d-4110-8854-bb3633ced4b8" Name="{parameter:GenericFieldsPrefix}TemplateConfig" Required="true" />
+			<pnp:FieldRef ID="b6819305-b14d-4110-8854-bb3633ced4b8" Name="{parameter:GenericFieldsPrefix}TemplateConfig" Required="false" />
 			<pnp:FieldRef ID="5f56a87f-be15-4a28-8596-ada81c39fbaa" Name="{parameter:GenericFieldsPrefix}SubModules" Required="false" />
 			<pnp:FieldRef ID="7d6e9eb3-6120-4f7c-b462-d8b068773769" Name="{parameter:GenericFieldsPrefix}SiteURL" Required="false" />
 			<pnp:FieldRef ID="61cbedde-c288-43c3-bed1-fc67bdeaa03b" Name="{parameter:GenericFieldsPrefix}BusinessUnit" Required="false" />
