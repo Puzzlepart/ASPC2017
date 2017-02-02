@@ -1,18 +1,18 @@
 <pnp:TermGroups 
 	xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
-	<pnp:TermGroup Name="Pzl OfficePnP Example" ID="1753ee15-5de4-4b80-9677-8d1e1db51dec" Description="">
+	<pnp:TermGroup Name="Pzl OfficePnP Example" ID="a31685b7-2f51-47fb-9517-68b4c7324700" Description="">
 		<pnp:TermSets>
-			<pnp:TermSet Name="Information Classification" ID="db7c8118-7f54-4ea2-93d8-84458016e64e" Description="">
+			<pnp:TermSet Name="Information Classification" ID="b53a2280-fb45-412d-adff-1e26d39ea65f" Description="">
 				<pnp:Terms>
-					<pnp:Term Name="Public" ID="3caf08bf-aba9-455a-b508-c48ea5207c93" CustomSortOrder="1" />
-					<pnp:Term Name="Internal" ID="8d0bf247-e111-4539-9347-43011421bfa3" CustomSortOrder="2" />
-					<pnp:Term Name="Confidential" ID="a6ee347a-9936-4c32-bf31-f70a9f337d27" CustomSortOrder="3" />
-					<pnp:Term Name="Strictly Confidential" ID="07d4fb64-7622-4a26-a894-b31abdc8f698" CustomSortOrder="4" />
+					<pnp:Term Name="Public" ID="809577d7-b8c4-416d-a045-06237b870283" CustomSortOrder="1" />
+					<pnp:Term Name="Internal" ID="4a4a2948-4ad6-410f-838a-de4d047e85fa" CustomSortOrder="2" />
+					<pnp:Term Name="Confidential" ID="8fa5b4e3-91c5-4147-bd2e-0e3a603a4cce" CustomSortOrder="3" />
+					<pnp:Term Name="Strictly Confidential" ID="90d2af51-7797-467a-b943-7edffa1a0bf9" CustomSortOrder="4" />
 				</pnp:Terms>
 			</pnp:TermSet>
 			<pnp:TermSet Name="Units" ID="c412985e-08d0-482f-88d2-1c7f0363ef6f" Description="Segments and Business units">
 				<pnp:Terms>
-					<pnp:Term Name="All" ID="4393772f-39eb-4e2b-8831-944acafc1f84"/>
+					<pnp:Term Name="All" ID="24706dde-4db6-4350-82aa-8779f0f473f1"/>
 					<pnp:Term Name="IT" ID="54c652e0-2875-43e2-b249-b14b804421d8"/>
 					<pnp:Term Name="HR" ID="1cfbcf23-9bb9-4a5d-868e-2de5db806fd3"/>
 					<pnp:Term Name="Sales" ID="4e00fb20-1dcb-4fda-8a99-d59e9f25eaab"/>
