@@ -21,6 +21,7 @@
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\resources.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\aboutpage.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\projectportal-shared.js" />
+        <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\scriptloader.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.ttf" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.eot" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MATRIX.woff" />

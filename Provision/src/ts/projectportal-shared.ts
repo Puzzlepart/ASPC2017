@@ -1,6 +1,6 @@
 namespace ProjectPortal.SharedResources {
     export module CDN {
-        export const SITECOL_SERVER_RELATIVE_URL = '/sites/matrix-cdn';
+        export const SITECOL_SERVER_RELATIVE_URL = '/sites/pzl-cdn';
         export const ROOT_FOLDER = SITECOL_SERVER_RELATIVE_URL + '/SiteAssets/CDN';
         export const DIRECTIVES_FOLDER = ROOT_FOLDER + '/html';
         export const IMAGES_FOLDER = ROOT_FOLDER + '/img';
@@ -11,11 +11,7 @@ namespace ProjectPortal.SharedResources {
         export const CONF_FOLDER = ROOT_FOLDER + '/config';
     }
     export module Directory {
-        export const SITE_DIRECTORY_RELATIVE_URL = '/sites/collaboration';
-        export const SHARED_TOOLS_LIST_NAME = 'Project tools';
-    }
-    export module Project {
-        export const PROJECT_TOOLS_LIST_NAME = 'Project Assets';
+        export const SITE_DIRECTORY_RELATIVE_URL = '/sites/directory';
     }
 }
 
