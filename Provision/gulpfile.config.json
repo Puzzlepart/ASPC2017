@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0.0",
+  "tsTypings": {
+    "outputFolder": "typings",
+    "main": "typings/index.d.ts"
+  },
+  "buildOutput": {
+    "outputFolder": "dist/",
+    "sourceFolder": "AssetsSrc/",
+    "lessFiles": [
+      "dist/css/*.less",
+      "dist/css/**/*.less"
+    ],
+    "htmlFiles": "dist/txt",
+    "tsFiles": [
+      "dist/js/*.ts",
+      "dist/js/**/*.ts",
+      "dist/js/**/**/*.ts"
+    ],
+    "resxFiles": [
+      "Templates/**/*.resx"
+    ],
+    "resourceJS": [
+      "dist/js/resources.js",
+      "dist/js/resourcehelper.js"
+    ]
+  },
+  "package": {
+    "message": "Creating package {0} under {1}.",
+    "prefix": "PZL-",
+    "outputFolder": "releases"
+  },
+  "watch": {
+    "initial": 0,
+    "interval": 60000
+  }
+}

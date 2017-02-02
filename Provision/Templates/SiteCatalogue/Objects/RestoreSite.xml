@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<pnp:Provisioning 
+  xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.9.1611.0, Culture=neutral, PublicKeyToken=3751622786b357c2" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-1DC463DBB9B04141A00A22D49E4E346F">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-1DC463DBB9B04141A00A22D49E4E346F" Version="1" BaseSiteTemplate="STS#0">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Restore Site" Description="Add new item to schedule restoration of a site backup" DocumentTemplate="" TemplateType="100" Url="Lists/RestoreSite" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableAttachments="false" EnableFolderCreation="false">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{D2253F78-8C22-4BEE-8431-EFE74FED9077}" DefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="/Lists/RestoreSite/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="Url" />
+                <FieldRef Name="Date" />
+                <FieldRef Name="RestoreGroups" />
+                <FieldRef Name="RestoreTermSets" />
+                <FieldRef Name="Status" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="Editor" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Text" DisplayName="Url" Description="Site collection url" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{c2416f24-d9c6-4a78-ad71-bf0fdd854139}" SourceID="{{listid:Restore Site}}" StaticName="Url" Name="Url" ColName="nvarchar3" RowOrdinal="0" Version="5">
+              <Validation Message="Please enter the full url of a SharePoint Online site (https://pzl.sharepoint.com/sites/site)">=AND(ISNUMBER(FIND("https://",Url)),ISNUMBER(FIND(".sharepoint.com",Url)))</Validation>
+            </Field>
+            <Field Type="DateTime" Title="Date" DisplayName="Date" Required="TRUE" Format="DateOnly" ID="{f09abf73-bb51-43a1-876c-1781e5c1dbd2}" SourceID="{{listid:Restore Site}}" StaticName="Date" Name="Date" ColName="datetime1" RowOrdinal="0" Version="4" Description="Date of backup to restore" EnforceUniqueValues="FALSE" Indexed="FALSE" CalType="0" FriendlyDisplayFormat="Disabled">
+              <Validation Message="Please enter a valid date in the past. Backups are retained for 30 days">=AND(Date&gt;TODAY()-31,Date&lt;TODAY())</Validation>
+            </Field>
+            <Field Type="Boolean" DisplayName="Restore Groups" Description="Restore security groups" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{7e59c59b-de83-4f83-ba56-1dff7e7e3514}" SourceID="{{listid:Restore Site}}" StaticName="RestoreGroups" Name="RestoreGroups" ColName="bit1" RowOrdinal="0" Version="3" Required="FALSE">
+              <Default>1</Default>
+            </Field>
+            <Field Type="Boolean" DisplayName="Restore Term Sets" Description="Restore term sets" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{e883cbdb-ed29-4c68-b618-94b67dc2ef2d}" SourceID="{{listid:Restore Site}}" StaticName="RestoreTermSets" Name="RestoreTermSets" ColName="bit2" RowOrdinal="0" Version="5" Required="FALSE">
+              <Default>1</Default>
+            </Field>
+            <Field Type="Choice" DisplayName="Status" Description="Restoration status" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" ID="{f3269b4c-1b6d-4592-9e0c-77b942992ffd}" SourceID="{{listid:Restore Site}}" StaticName="Status" Name="Status" ColName="nvarchar4" RowOrdinal="0" Version="1">
+              <Default>Requested</Default>
+              <CHOICES>
+                <CHOICE>Requested</CHOICE>
+                <CHOICE>Scheduled</CHOICE>
+                <CHOICE>Restored</CHOICE>
+                <CHOICE>Failed</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field Type="Note" DisplayName="Comments" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" ID="{def72ca5-17a5-42a7-9bb1-cbd897a5e8d1}" SourceID="{{listid:Restore Site}}" StaticName="Comments" Name="Comments" ColName="ntext2" RowOrdinal="0" Version="3" RestrictedMode="TRUE" RichTextMode="Compatible" IsolateStyles="FALSE" AppendOnly="FALSE" />
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="false" Hidden="true" />
+          </pnp:FieldRefs>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
