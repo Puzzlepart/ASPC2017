@@ -283,7 +283,7 @@ controller.hears(['uptime', 'identify yourself', 'who are you', 'what is your na
         var hostname = os.hostname();
         var uptime = helpers.formatUptime(process.uptime());
         bot.reply(message,
-            "I am the Whte rabbit.");
+            "I am the White rabbit.");
 
     });
 
