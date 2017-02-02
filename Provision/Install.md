@@ -17,7 +17,7 @@ Import-Module .\Engine\bundle\SharePointPnPPowerShellOnline.psd1 -ErrorAction Si
 4. Connect-SPOnline -Url https://<tenant>.sharepoint.com/collaboration -AppId <appId> -AppSecret <appSecret>
 5. Apply-SPOProvisioningTemplate -Path .\Templates\SiteCatalogue\template.xml -ExcludeHandlers TermGroups,Fields,ContentTypes,Files
 6. Connect-SPOnline -Url https://<tenant>.sharepoint.com/sites/pzl-cdn -AppId <appId> -AppSecret <appSecret>
-7. Apply-SPOProvisioningTemplate -Path .\Templates\cdn\cdn.xml 
+7. Apply-SPOProvisioningTemplate -Path .\Templates\cdn\template.xml 
 
 In your site you should now see the following:
 

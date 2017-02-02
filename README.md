@@ -1,9 +1,9 @@
 
 # There is no spoon #
 
-# Puzzlepart Appsters @ the Arctic SharePoint Challenge 2017 #
+## Puzzlepart Appsters @ the Arctic SharePoint Challenge 2017 ##
 
-This repository contains the Puzzlepart solution for ASPC17.
+This repository contains Puzzlepart's work at ASPC17.
 
 ## Objective ##
 
