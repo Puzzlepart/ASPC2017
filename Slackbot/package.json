@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node bot.js"
   },
-  "author": "",
+  "author": "@damsleth",
   "license": "ISC",
   "dependencies": {
     "botkit": "^0.4.6",
