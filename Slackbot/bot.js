@@ -71,9 +71,24 @@ controller.hears(['tell me a joke'], ['direct_message', 'direct_mention', 'menti
 controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var q = message.match[1];
     if (q && q.indexOf(',' > -1)) {
-        var siteTitle = q.split(',')[0];
-        var siteDesc = q.split(',')[1];
-        helpers.createSite(siteTitle, siteDesc, bot, message);
+        var siteTitle = q.split(',')[0].toString();
+        var siteDesc = q.split(',')[1].toString();
+        request.post({
+            headers: { 'content-type': 'application/json' },
+            url: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
+            body: {
+                'title': siteTitle,
+                'description': siteDesc
+            }
+        }, function (error, response, body) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                console.log(response);
+                console.log(body);
+            }
+        });
     }
     else {
         bot.reply(message, "*Create-SPSite* \n" +
