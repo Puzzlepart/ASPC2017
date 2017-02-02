@@ -73,21 +73,23 @@ controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'm
     if (q && q.indexOf(',' > -1)) {
         var siteTitle = q.split(',')[0].toString();
         var siteDesc = q.split(',')[1].toString();
-        request.post({
+        var options = {
             headers: { 'content-type': 'application/json' },
-            url: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
-            body: {
-                'title': siteTitle,
-                'description': siteDesc
+            uri: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
+            method: 'POST',
+            json: {
+                "title": siteTitle,
+                "description": siteDesc
             }
-        }, function (error, response, body) {
-            if (error) {
-                console.log(error);
+        };
+        request(options, function (error, response, body) {
+            if (!error) {
+                res.write(response.statusCode);
             }
             else {
-                console.log(response);
-                console.log(body);
+                console.log(error.toString());
             }
+            res.end();
         });
     }
     else {
