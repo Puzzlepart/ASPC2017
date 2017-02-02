@@ -18,12 +18,12 @@
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\resources.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\aboutpage.js" />
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\projectportal-shared.js" />
-        <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxWeb.eot" />
+        <!--<pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxWeb.eot" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxWeb.woff" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxWeb-Light.eot" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxWeb-Light.woff" />
         <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxComp.ttf" />
-        <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxComp-Light.ttf" />
+        <pnp:File Folder="{site}/SiteAssets/CDN/fonts" Overwrite="true" Src="..\..\dist\fonts\MaxComp-Light.ttf" />-->
         <pnp:File Folder="_catalogs/Theme/15" Overwrite="true" Src="ComposedLook\pzl.spcolor" />
         <pnp:File Folder="_catalogs/Theme/15" Overwrite="true" Src="ComposedLook\pzl.spfont" />
       </pnp:Files>

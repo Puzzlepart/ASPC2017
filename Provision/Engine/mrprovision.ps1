@@ -6,8 +6,7 @@ param(
 
 $siteMetadataToPersist = @([pscustomobject]@{DisplayName = "-SiteDirectory_BusinessOwner-"; InternalName = "$($columnPrefix)BusinessOwner"},
     [pscustomobject]@{DisplayName = "-SiteDirectory_BusinessUnit-"; InternalName = "$($columnPrefix)BusinessUnit"},
-    [pscustomobject]@{DisplayName = "-SiteDirectory_InformationClassification-"; InternalName = "$($columnPrefix)InformationClassification"},
-    [pscustomobject]@{DisplayName = "-SiteDirectory_BusinessCriticality-"; InternalName = "$($columnPrefix)BusinessCriticality"})
+    [pscustomobject]@{DisplayName = "-SiteDirectory_InformationClassification-"; InternalName = "$($columnPrefix)InformationClassification"})
 
 $templateConfigurationsList = '/Lists/Templates'
 $baseModulesLibrary = 'BaseModules'
