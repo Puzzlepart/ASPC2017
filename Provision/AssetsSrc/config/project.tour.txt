@@ -1,0 +1,51 @@
+{
+    "name": "project-tour",
+    "storage": false,
+    "backdrop": true,
+    "backdropPadding": "20",
+    "steps": [
+        {
+            "backdrop":false,
+            "orphan": true,
+            "title": "Welcome to the quick tour!",
+            "content": "The following steps will guide you through the most important elements of the site. Click Next to begin."
+        },
+        {
+            "element": "#sideNavBox #DeltaPlaceHolderLeftNavBar",
+            "title": "Quicklaunch",
+            "placement": "right",
+            "content": "This is the quicklaunch for the site. The links are shortcuts to useful tools in the project. The quicklaunch will follow you everywhere in the site."
+        },
+        {
+            "element": "#project-home .left-zone .ms-webpart-zone .ms-webpartzone-cell:nth-of-type(1)",
+            "title": "Project Assets",
+            "placement": "bottom",
+            "content": "Project Assets are shortcuts to other systems and sources that are relevant for this project."
+        },
+        {
+            "element": "#project-home .left-zone .ms-webpart-zone .ms-webpartzone-cell:nth-of-type(2)",
+            "title": "Documents",
+            "placement": "bottom",
+            "content": "You can work with project documents in this library."
+        },
+        {
+            "element": "#project-home .right-zone .ms-webpart-zone .ms-webpartzone-cell:nth-of-type(1)",
+            "title": "Project Information",
+            "placement": "bottom",
+            "content": "The metadata of the project is shown here so you'll be reminded what the project is all about."
+        },
+        {
+            "element": "#project-home .right-zone .ms-webpart-zone .ms-webpartzone-cell:nth-of-type(2)",
+            "title": "Newsfeed",
+            "placement": "bottom",
+            "content": "This is a nice way to discuss various topics in the context of the project."
+        },
+        {
+            "backdrop":false,
+            "orphan": true,
+            "title": "Help and support",
+            "template":"<div class='popover tour'><div class='arrow'></div><h3 class='popover-title'></h3><div class='popover-content'></div><div class='tour-support'>Do you want to learn more? Check out our <a href='javascript:void(0);return false;' onclick='alert(\"Not yet implemented\")'>help pages</a> or send an email to <a href='javascript:void(0);return false;' onclick='alert(\"Not yet implemented\")'>support@pzl.com</a></div><div class='popover-navigation'> <div class='btn-group'> <button class='btn btn-sm btn-default' data-role='prev'>« Prev</button> <button class='btn btn-sm btn-default' data-role='next'>Next »</button>  </div> <button class='btn btn-sm btn-default' data-role='end'>End tour</button> </div></div>",
+            "content": "The tour is over. You can restart the tour at any point from the link to the bottom right."
+        }
+    ]
+}

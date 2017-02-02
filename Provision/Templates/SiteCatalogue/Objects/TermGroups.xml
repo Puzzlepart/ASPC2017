@@ -1,0 +1,34 @@
+<pnp:TermGroups 
+	xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+	<pnp:TermGroup Name="Pzl Taxonomies" ID="1753ee15-5de4-4b80-9677-8d1e1db51dec" Description="">
+		<pnp:TermSets>
+			<pnp:TermSet Name="Information Classification" ID="db7c8118-7f54-4ea2-93d8-84458016e64e" Description="">
+				<pnp:Terms>
+					<pnp:Term Name="Public" ID="3caf08bf-aba9-455a-b508-c48ea5207c93" CustomSortOrder="1">
+						<pnp:Labels>
+							<pnp:Label Language="1031" Value="Offen" IsDefaultForLanguage="true" />
+						</pnp:Labels>
+					</pnp:Term>
+					<pnp:Term Name="Internal" ID="8d0bf247-e111-4539-9347-43011421bfa3" CustomSortOrder="2" />
+					<pnp:Term Name="Confidential" ID="a6ee347a-9936-4c32-bf31-f70a9f337d27" CustomSortOrder="3" />
+					<pnp:Term Name="Strictly Confidential" ID="07d4fb64-7622-4a26-a894-b31abdc8f698" CustomSortOrder="4" />
+				</pnp:Terms>
+			</pnp:TermSet>
+			<pnp:TermSet Name="Units" ID="c412985e-08d0-482f-88d2-1c7f0363ef6f" Description="Pzl Segments and Business units">
+				<pnp:Terms>
+					<pnp:Term Name="All" ID="4393772f-39eb-4e2b-8831-944acafc1f84"/>
+				</pnp:Terms>
+			</pnp:TermSet>
+			<pnp:TermSet Name="Business Criticality" ID="cd50ea29-e651-4850-b292-8b916342b395" Description="">
+				<pnp:Terms>
+					<pnp:Term Name="Critical" ID="e8c49380-7250-4dab-8ca7-e82cb7bbecbc" CustomSortOrder="1" />
+					<pnp:Term Name="High" ID="3bac9c45-6a7b-49a3-ac95-05edd273e478" CustomSortOrder="2" />
+					<pnp:Term Name="Medium" ID="d93de267-ad49-403e-ae2e-26799151d0f0" CustomSortOrder="3" />
+					<pnp:Term Name="Low" ID="d29024e5-cd33-42b1-88b9-b75c1be7d966" CustomSortOrder="4" />
+				</pnp:Terms>
+			</pnp:TermSet>
+		</pnp:TermSets>
+		<pnp:Contributors />
+		<pnp:Managers />
+	</pnp:TermGroup>
+</pnp:TermGroups>

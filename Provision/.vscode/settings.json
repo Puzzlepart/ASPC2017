@@ -1,0 +1,18 @@
+{
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		// "dist": true,
+		// "bower_components": true,
+		// "node_modules": true,
+		"typings": true
+	},
+	"less.compile": {
+		"out": false // false => DON'T output .css files (overridable per-file, see below)
+	},
+	"tslint.enable": true,
+	"tslint.autoFixOnSave": true,
+	"typescript.check.workspaceVersion": false,
+	"editor.formatOnSave": true,
+	"html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, script, select, small, span, strong, sub, sup, textarea, tt, var, %@"
+}

@@ -1,0 +1,4 @@
+Your site request is being processed - {0}|
+<div style="font-family: sans-serif;">
+    <p>You will be notified by e-mail once the site has been approved and is ready for use.<p>
+</div>

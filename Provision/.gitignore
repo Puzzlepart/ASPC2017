@@ -1,0 +1,8 @@
+bower_components
+node_modules
+typings
+exported
+dist
+*.log
+*.zip
+*.pnp

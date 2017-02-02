@@ -1,0 +1,8 @@
+{
+  "globalDependencies": {
+    "bootstrap": "registry:dt/bootstrap#3.3.5+20160619023404",
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922",
+    "microsoft.ajax": "registry:dt/microsoft.ajax#0.0.0+20160706234802",
+    "sharepoint": "registry:dt/sharepoint#0.0.0+20161003190438"
+  }
+}
