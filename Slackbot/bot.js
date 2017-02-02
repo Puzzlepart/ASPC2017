@@ -84,7 +84,7 @@ controller.hears(["Create-SPSite (.*)"], ['direct_message', 'direct_mention', 'm
         };
         request(options, function (error, response, body) {
             if (!error) {
-                res.write(response.statusCode);
+                console.log(response.statusCode.toString());
             }
             else {
                 console.log(error.toString());
