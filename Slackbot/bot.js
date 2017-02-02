@@ -3,10 +3,9 @@
 // Last updated 02.02.2017 by @damsleth
 //===
 
-//Check if there's a slack token, if not, exit
+//Check if there's a slack token, if not, we're probably debugging, so load dotenv
 if (!process.env.SLACK_TOKEN) {
-    console.log('Error: Specify SLACK_TOKEN in environment');
-    process.exit(1);
+require('dotenv').config();
 }
 
 //Spawn bot
@@ -19,7 +18,6 @@ var controller = Botkit.slackbot({ debug: false });
 var slackToken = process.env.SLACK_TOKEN;
 var bot = controller.spawn({ token: slackToken });
 var helpers = require('./lib/helpers');
-var jokes = require('./lib/jokes');
 var fs = require('fs');
 var cheerio = require('cheerio');
 
@@ -45,7 +43,7 @@ setInterval(function () {
 //===
 
 //Say Hi
-controller.hears(['hello', 'hey', 'hi', 'hei', 'yo', 'sup', 'wassup', 'hola'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['hello', 'hey', 'hi', 'hei', 'sup', 'wassup', 'hola'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
     bot.reply(message, "Hi!");
 });
 
@@ -282,12 +280,10 @@ controller.hears(['what is my name', 'who am i', 'whats my name', 'whoami'], 'di
 //Uptime
 controller.hears(['uptime', 'identify yourself', 'who are you', 'what is your name'],
     'direct_message,direct_mention,mention', function (bot, message) {
-
         var hostname = os.hostname();
         var uptime = helpers.formatUptime(process.uptime());
-
         bot.reply(message,
-            "I am " + bot.identity.name + ".");
+            "I am the Whte rabbit.");
 
     });
 
