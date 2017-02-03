@@ -26,9 +26,15 @@ You're good to go!
 
 ## Installation ##
 
+### Create Tour Central ###
+1. Create site collection with url /site/tour-central
+2. Connect-SPOOnline
+3. Apply-SPOProvisioningTemplate <path to TourCentral template.xml>
+4. (optional) Apply-SPOProvisioningTemplate <path to DataTemplates/templateX.xml if tour should be prepoulated>
+
+### Apply a tour ###
 1. Connect-SPOOnline
-2. Apply-SPOProvisioningTemplate <path to template.xml>
-3. (optional) Apply-SPOProvisioningTemplate <path to DataTemplates/templateX.xml if tour should be prepoulated>
+2. Apply-SPOProvisioningTemplate <path to Tour template.xml>
 
 ### Necessary manual configuration ###
 In the web where you installed the tour, go to Lists/TourLog and configure permissions of the list the follow ways. This is necessary in order to persist that people have watched the tour.

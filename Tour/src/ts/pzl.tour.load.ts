@@ -8,22 +8,22 @@ namespace Pzl.Office365Tour.DependencyLoader {
         }
     }
     export module References {
-        var SCRIPTLOCATION = (_spPageContextInfo.webServerRelativeUrl !== '/' ? _spPageContextInfo.webServerRelativeUrl : '') + '/SiteAssets/pzl-tour/js';
-        var STYLELOCATION = (_spPageContextInfo.webServerRelativeUrl !== '/' ? _spPageContextInfo.webServerRelativeUrl : '') + '/SiteAssets/pzl-tour/css';
+        var CDN_SCRIPTLOCATION = '/sites/tour-central/SiteAssets/pzl-tour/js';
+        var CDN_STYLELOCATION = '/sites/tour-central/SiteAssets/pzl-tour/css';
 
         function ReferenceCss() {
             if (!Util.IsPageADialog()) {
-                registerCssLink(STYLELOCATION + '/fabric.min.css');
-                registerCssLink(STYLELOCATION + '/fabric.components.css');
-                registerCssLink(STYLELOCATION + '/bootstrap-tour-standalone.css');
-                registerCssLink(STYLELOCATION + '/pzl.tour.css');
+                registerCssLink(CDN_STYLELOCATION + '/fabric.min.css');
+                registerCssLink(CDN_STYLELOCATION + '/fabric.components.css');
+                registerCssLink(CDN_STYLELOCATION + '/bootstrap-tour-standalone.css');
+                registerCssLink(CDN_STYLELOCATION + '/pzl.tour.css');
             };
         }
         function ReferenceJs() {
-            SP.SOD.registerSod('jquery.min.js', SCRIPTLOCATION + '/jquery.min.js');
-            SP.SOD.registerSod('bootstrap-tour-standalone.js', SCRIPTLOCATION + '/bootstrap-tour-standalone.js');
-            SP.SOD.registerSod('fabric.js', SCRIPTLOCATION + '/fabric.js');
-            SP.SOD.registerSod('pzl.tour.js', SCRIPTLOCATION + '/pzl.tour.js');
+            SP.SOD.registerSod('jquery.min.js', CDN_SCRIPTLOCATION + '/jquery.min.js');
+            SP.SOD.registerSod('bootstrap-tour-standalone.js', CDN_SCRIPTLOCATION + '/bootstrap-tour-standalone.js');
+            SP.SOD.registerSod('fabric.js', CDN_SCRIPTLOCATION + '/fabric.js');
+            SP.SOD.registerSod('pzl.tour.js', CDN_SCRIPTLOCATION + '/pzl.tour.js');
 
             SP.SOD.registerSodDep('bootstrap-tour-standalone.js', 'jquery.min.js');
             SP.SOD.registerSodDep('pzl.tour.js', 'jquery.min.js');

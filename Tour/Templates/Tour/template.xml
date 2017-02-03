@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+  <pnp:Preferences>
+  </pnp:Preferences>
+  <pnp:Templates ID="CONTAINER-TEMPLATE-OFFICE365-TOUR">
+    <pnp:ProvisioningTemplate ID="OFFICE365-TOUR" Version="1">
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Objects/CustomActions.xml" />
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

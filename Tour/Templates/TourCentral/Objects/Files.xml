@@ -1,0 +1,18 @@
+<pnp:Files 
+        xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/css" Overwrite="true" Src="..\..\node_modules\office-ui-fabric-js\dist\css\fabric.min.css" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/css" Overwrite="true" Src="..\..\node_modules\office-ui-fabric-js\dist\css\fabric.components.css" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/css" Overwrite="true" Src="..\..\node_modules\bootstrap-tour\build\css\bootstrap-tour-standalone.css" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/js" Overwrite="true" Src="..\..\node_modules\bootstrap-tour\build\js\bootstrap-tour-standalone.js" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/js" Overwrite="true" Src="..\..\node_modules\jquery\dist\jquery.min.js" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/js" Overwrite="true" Src="..\..\node_modules\office-ui-fabric-js\dist\js\fabric.js" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/js" Overwrite="true" Src="..\..\dist\js\pzl.tour.js" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/js" Overwrite="true" Src="..\..\dist\js\pzl.tour.load.js" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/css" Overwrite="true" Src="..\..\dist\css\pzl.tour.css" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/html" Overwrite="true" Src="..\..\dist\html\tour.splash.txt" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/images" Overwrite="true" Src="..\..\dist\images\tour_16x16.png" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/config" Overwrite="true" Src="..\..\dist\config\tour.txt" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/config" Overwrite="true" Src="..\..\dist\config\tour.resources.txt" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/config" Overwrite="true" Src="..\..\dist\config\tour.resources.1033.txt" />
+        <pnp:File Folder="{site}/SiteAssets/pzl-tour/config" Overwrite="true" Src="..\..\dist\config\tour.resources.1044.txt" />
+</pnp:Files>

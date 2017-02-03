@@ -1,6 +1,7 @@
 /// <reference path="pzl.tour.ts" />
 
 module Pzl.Office365Tour.Resources {
+    export const TOUR_CENTRAL_URL = '/sites/tour-central';
     export class Provider {
         private _resources: { [key: string]: string; };
 
@@ -22,10 +23,10 @@ module Pzl.Office365Tour.Resources {
         var fallbackFileName = 'tour.resources.txt';
         var currentLanguageFileName = String.format('tour.resources.{0}.txt', locale);
 
-        jQuery.getJSON(_spPageContextInfo.webAbsoluteUrl + '/SiteAssets/pzl-tour/config/' + currentLanguageFileName).then((data) => {
+        jQuery.getJSON(Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL + '/SiteAssets/pzl-tour/config/' + currentLanguageFileName).then((data) => {
             deferred.resolve(data);
         }).fail(() => {
-            jQuery.getJSON(_spPageContextInfo.webAbsoluteUrl + '/SiteAssets/pzl-tour/config/' + fallbackFileName).then((data) => {
+            jQuery.getJSON(Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL + '/SiteAssets/pzl-tour/config/' + fallbackFileName).then((data) => {
                 deferred.resolve(data);
             }).fail(() => {
                 deferred.resolve(null);
