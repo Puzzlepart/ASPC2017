@@ -7,6 +7,11 @@
       <pnp:RegionalSettings AdjustHijriDays="0" AlternateCalendarType="None" CalendarType="Gregorian" Collation="25" FirstDayOfWeek="Monday" FirstWeekOfYear="2" LocaleId="2057" ShowWeeks="false" Time24="true" TimeZone="4" WorkDayEndHour="5:00PM" WorkDays="62" WorkDayStartHour="8:00AM" />
       <pnp:WebSettings SiteLogo="/sites/pzl-CDN/SiteAssets/CDN/img/pzl-logo.png" />
       <pnp:ComposedLook Name="Pzl Site Branding" ColorFile="{sitecollection}/_catalogs/Theme/15/pzl.spcolor" FontFile="{sitecollection}/_catalogs/Theme/15/pzl.spfont" BackgroundFile="" Version="0" />
+      <pnp:CustomActions>
+        <pnp:SiteCustomActions>
+          <pnp:CustomAction Name="pzl-global-scriptdependencies" Location="ScriptLink" Sequence="1" ScriptBlock="SP.SOD.registerSod('scriptloader.js', '/sites/pzl-cdn/SiteAssets/CDN/js/scriptloader.js?rev=' + new Date().getDate());LoadSodByKey('scriptloader.js');"></pnp:CustomAction>
+        </pnp:SiteCustomActions>
+      </pnp:CustomActions>
       <pnp:Navigation>
         <pnp:CurrentNavigation NavigationType="StructuralLocal">
           <pnp:StructuralNavigation RemoveExistingNodes="true">
@@ -32,7 +37,7 @@
                   <Title>About</Title>
                   <FrameType>None</FrameType>
                   <ContentLink 
-                    xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{site}/SiteAssets/html/aboutpage.txt
+                    xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{site}/SiteAssets/html/aboutpage.txt                  
                   </ContentLink>
                   <Content 
                     xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">
