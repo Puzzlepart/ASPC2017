@@ -1,21 +1,34 @@
-﻿using System.Net;
+﻿#r "GraphFunctions.dll"
+using System;
+using System.Net;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
     log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
         .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
         .Value;
 
+    string email = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "email", true) == 0)
+        .Value;
+
+    string groupName = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "group", true) == 0)
+        .Value;
+
     // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
+    //dynamic data = await req.Content.ReadAsAsync<object>();
 
-    // Set name to query string or body data
-    name = name ?? data?.name;
+    if (name == null)
+    {
+        return req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body");
+    }
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    await GraphFunctions.GroupsHelper.InviteToGroup(name, email, groupName);
+
+    return req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
 }
