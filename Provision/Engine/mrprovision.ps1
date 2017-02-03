@@ -1,6 +1,19 @@
 param(
     [switch]$Force
 )
+$ProgressPreference = "SilentlyContinue"
+$WarningPreference = "SilentlyContinue"
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.Taxonomy.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.DocumentManagement.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.WorkflowServices.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.Search.dll -ErrorAction SilentlyContinue
+
+Add-Type -Path $PSScriptRoot\bundle\Newtonsoft.Json.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.IdentityModel.Extensions.dll -ErrorAction SilentlyContinue
+Import-Module $PSScriptRoot\bundle\SharePointPnPPowerShellOnline.psd1 -ErrorAction SilentlyContinue
+
+Set-PnPTraceLog -Off
+#Set-PnPTraceLog -On -Level Debug -LogFile .\pnp.log
 
 $siteMetadataToPersist = @([pscustomobject]@{DisplayName = "-SiteDirectory_BusinessOwner-"; InternalName = "$($columnPrefix)BusinessOwner"},
     [pscustomobject]@{DisplayName = "-SiteDirectory_BusinessUnit-"; InternalName = "$($columnPrefix)BusinessUnit"},
@@ -66,27 +79,6 @@ function GetMailContent{
     return ([IO.File]::ReadAllText($filename)).Split("|")
 }
 
-function SetRequestAccessEmail([string]$url, [string]$ownersEmail) {
-    Connect -Url $url
-    $emails = Get-PnPRequestAccessEmails
-    if($emails -ne $ownersEmail) {
-        Write-Output "`tSetting site request e-mail to $ownersEmail"    
-        Set-PnPRequestAccessEmails -Emails $ownersEmail
-    }
-}
-
-function DisableMemberSharing([string]$url){
-    Connect -Url $url
-    $web = Get-PnPWeb
-    $canShare = Get-PnPProperty -ClientObject $web -Property MembersCanShare
-    if($canShare) {
-        Write-Output "`tDisabling members from sharing"
-        $web.MembersCanShare = $false
-        $web.Update()
-        $web.Context.ExecuteQuery()
-    }
-}
-
 function GetUniqueUrlFromName($title) {
     Connect -Url $tenantAdminUrl
     $cleanName = $title -replace '[^a-z0-9]'
@@ -133,7 +125,7 @@ function EnsureSite{
         if ($owner -and $owner.Email) {
             $siteCollectionAdminToUse = $owner.Email
         }
-        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdminToUse -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0" -RemoveDeletedSite:$true 
+        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdminToUse -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0" -RemoveDeletedSite:$true -ResourceQuota 0
         if( $? -eq $false) {
             # send e-mail
             $mailHeadBody = GetMailContent -email $owner.Email -mailFile "fail"
@@ -298,7 +290,7 @@ function SyncMetadata($siteItem, $siteUrl, $urlToDirectory, $title, $description
 
 function SetSiteUrl($siteItem, $siteUrl, $title) {
     Connect -Url "$tenantURL$siteDirectorySiteUrl"
-    Write-Output "Setting site URL to $siteUrl"
+    Write-Output "`tSetting site URL to $siteUrl"
     Set-PnPListItem -List $siteDirectoryList -Identity $siteItem["ID"] -Values @{"$($columnPrefix)SiteURL" = "$siteUrl, $title"} -ErrorAction SilentlyContinue >$null 2>&1
 }
 
@@ -323,7 +315,7 @@ function SendReadyEmail(){
 }
 
 
-function Apply-TemplateConfigurations($url, $siteItem, $templateConfigurationItems, $baseModuleItems, $subModuleItems) {
+function ApplyTemplateConfigurations($url, $siteItem, $templateConfigurationItems, $baseModuleItems, $subModuleItems) {
     Connect -Url $url
     $templateConfig = $siteItem["$($columnPrefix)TemplateConfig"]
     $subModules = $siteItem["$($columnPrefix)SubModules"]
@@ -475,13 +467,8 @@ foreach ($siteItem in $siteDirectoryItems) {
     if ($? -eq $true -and ($editor -ne "SharePoint App" -or $Force)) {        
         EnsureSecurityGroups -url $siteUrl -title $title -owners $owners -members $members -visitors $visitors
         SetSiteUrl -siteItem $siteItem -siteUrl $siteUrl -title $title        
-        Apply-TemplateConfigurations -url $siteUrl -siteItem $siteItem -templateConfigurationItems $templateConfigurationItems -baseModuleItems $baseModuleItems -subModuleItems $subModuleItems
+        ApplyTemplateConfigurations -url $siteUrl -siteItem $siteItem -templateConfigurationItems $templateConfigurationItems -baseModuleItems $baseModuleItems -subModuleItems $subModuleItems
         UpdateStatus -id $siteItem["ID"] -status 'Provisioned'
-
-        SetRequestAccessEmail -url $siteUrl -ownersEmail ($ownerEmailAddresses -join ',')
-
-        DisableMemberSharing -url $siteUrl
-
         SyncMetadata -siteItem $siteItem -siteUrl $siteUrl -urlToDirectory $urlToSiteDirectory -title $title -description $description
 
         if($siteStatus -ne 'Provisioned'){
