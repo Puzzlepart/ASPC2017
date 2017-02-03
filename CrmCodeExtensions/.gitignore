@@ -9,5 +9,7 @@ releases/
 /Releases/*
 Icon?
 .vs
+obj/
+bin/
 env.json
 **/node_modules/
