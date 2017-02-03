@@ -5,7 +5,7 @@
   <pnp:Templates ID="CONTAINER-TEMPLATE-PZL-TEAMSITE">
     <pnp:ProvisioningTemplate ID="TEMPLATE-PZL-TEAMSITE" Version="1" BaseSiteTemplate="STS#0">
       <pnp:RegionalSettings AdjustHijriDays="0" AlternateCalendarType="None" CalendarType="Gregorian" Collation="25" FirstDayOfWeek="Monday" FirstWeekOfYear="2" LocaleId="2057" ShowWeeks="false" Time24="true" TimeZone="4" WorkDayEndHour="5:00PM" WorkDays="62" WorkDayStartHour="8:00AM" />
-      <pnp:WebSettings SiteLogo="/sites/pzl-CDN/SiteAssets/CDN/img/pzl-logo.jpg" />
+      <pnp:WebSettings SiteLogo="/sites/pzl-CDN/SiteAssets/CDN/img/pzl-logo.png" />
       <pnp:ComposedLook Name="Pzl Site Branding" ColorFile="{sitecollection}/_catalogs/Theme/15/pzl.spcolor" FontFile="{sitecollection}/_catalogs/Theme/15/pzl.spfont" BackgroundFile="" Version="0" />
       <pnp:Navigation>
         <pnp:CurrentNavigation NavigationType="StructuralLocal">
@@ -51,45 +51,6 @@
       <pnp:Pages>
         <pnp:Page Url="{site}/SitePages/Home.aspx" Overwrite="true" Layout="Custom">
           <pnp:WebParts>
-            <pnp:WebPart Title="Get started with your site" Row="1" Column="1">
-              <pnp:Contents>
-                <webParts>
-                  <webPart 
-                    xmlns="http://schemas.microsoft.com/WebPart/v3">
-                    <metaData>
-                      <type name="Microsoft.SharePoint.WebPartPages.GettingStartedWebPart, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
-                      <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
-                    </metaData>
-                    <data>
-                      <properties>
-                        <property name="AllowZoneChange" type="bool">True</property>
-                        <property name="HelpUrl" type="string" />
-                        <property name="Hidden" type="bool">False</property>
-                        <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
-                        <property name="Description" type="string" />
-                        <property name="BaseViewID" type="string">2</property>
-                        <property name="AllowHide" type="bool">True</property>
-                        <property name="AllowMinimize" type="bool">True</property>
-                        <property name="Title" type="string">Get started with your site</property>
-                        <property name="TitleUrl" type="string" />
-                        <property name="ExportMode" type="exportmode">All</property>
-                        <property name="ChromeType" type="chrometype">None</property>
-                        <property name="AllowConnect" type="bool">True</property>
-                        <property name="Width" type="string" />
-                        <property name="Height" type="string" />
-                        <property name="CatalogIconImageUrl" type="string" />
-                        <property name="HelpMode" type="helpmode">Modeless</property>
-                        <property name="AllowEdit" type="bool">True</property>
-                        <property name="TitleIconImageUrl" type="string" />
-                        <property name="Direction" type="direction">NotSet</property>
-                        <property name="AllowClose" type="bool">True</property>
-                        <property name="ChromeState" type="chromestate">Normal</property>
-                      </properties>
-                    </data>
-                  </webPart>
-                </webParts>
-              </pnp:Contents>
-            </pnp:WebPart>
             <pnp:WebPart Title="Recently modified documents" Row="1" Column="1">
               <pnp:Contents>
                 <webParts>

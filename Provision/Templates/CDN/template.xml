@@ -13,7 +13,7 @@
         <pnp:File Folder="{site}/SiteAssets/CDN/libs/js" Overwrite="true" Src="..\..\node_modules\jquery\dist\jquery.min.js" />
         <!-- Solution custom -->
         <pnp:File Folder="{site}/SiteAssets/CDN/img" Overwrite="true" Src="..\..\dist\img\favicon.ico" />
-        <pnp:File Folder="{site}/SiteAssets/CDN/img" Overwrite="true" Src="..\..\dist\img\pzl-logo.jpg" />
+        <pnp:File Folder="{site}/SiteAssets/CDN/img" Overwrite="true" Src="..\..\dist\img\pzl-logo.png" />
         <pnp:File Folder="{site}/SiteAssets/CDN/img" Overwrite="true" Src="..\..\dist\img\pzl-logo-O365-64x64.png" />
         <pnp:File Folder="{site}/SiteAssets/CDN/css" Overwrite="true" Src="..\..\dist\css\pzl-branding.css" />
         <pnp:File Folder="{site}/SiteAssets/CDN/js" Overwrite="true" Src="..\..\dist\js\resources.js" />
