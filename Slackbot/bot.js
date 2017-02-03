@@ -1,7 +1,13 @@
 //===
 // White Rabbit, the Slack bot v0.1 February 2017
-// Last updated 02.02.2017 by @damsleth
+// Last updated 03.02.2017 by @damsleth
 //===
+
+//TODO
+//GET MESSAGE.USER VALUES - ALL OF THEM
+//
+//
+//
 
 //Check if there's a slack token, if not, we're probably debugging, so load dotenv
 if (!process.env.SLACK_TOKEN) {
@@ -39,36 +45,58 @@ setInterval(function () {
 }, 300000);
 
 
+
+//=======================
+// CONFIG
+//=======================
+
+var __config = {
+    CreateCRMLead: ["firstname", "lastname", "email", "city", "country", "phone", "handle"],
+    CreateSite: ["title", "description"],
+}
+
+var createRequestPayload = function (requestType, uri, query) {
+    var q = query.split(',');
+    var payloadObj = {};
+    var payloadArr = q.map((r, i) => {
+        payloadObj[__config[requestType][i]] = r;
+    });
+    payload = JSON.stringify(payloadObj);
+    return JSON.stringify(payloadObj);
+}
+
 //=======================
 // SHAREPOINT INTEGRATION
-//=====================
+//=======================
 
 //Create SPSite
-controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)", "Create site (.*)"], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
     var q = message.match[1];
-    if (q && q.length > 3) {
-        var siteTitle = q.split(',')[0];
-        var siteDesc = q.split(',')[1];
-        if (siteTitle && siteDesc) {
-            var options = {
-                headers: { 'content-type': 'application/json' },
-                uri: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
-                method: 'POST',
-                json: {
-                    "title": siteTitle,
-                    "description": siteDesc
-                }
-            };
-            request(options, function (error, response, body) {
-                if (!error) {
-                    console.log(response.statusCode.toString());
-                }
-                else {
-                    console.log(error.toString());
-                }
-                bot.reply(message, "Site " + siteTitle + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
-            });
-        }
+    if (q) {
+        var q = query.split(',');
+        var payloadObj = {};
+        var payloadArr = q.map((r, i) => {
+            payloadObj[__config.CreateSite[i]] = r;
+        });
+        var jsonPayload = JSON.stringify(payloadObj);
+
+        var options = {
+            headers: { 'content-type': 'application/json' },
+            uri: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
+            method: 'POST',
+            json: {
+                jsonPayload
+            }
+        };
+        request(options, function (error, response, body) {
+            if (!error) {
+                console.log(response.statusCode.toString());
+            }
+            else {
+                console.log(error.toString());
+            }
+            bot.reply(message, "Site " + siteTitle + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
+        });
     }
     else {
         bot.reply(message, "*Create-SPSite* \n" +
@@ -77,30 +105,28 @@ controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)"], ['direct_message
 });
 
 //Create SPSite Helper
-controller.hears(["Create-SPSite", "help Create-SPSite", "man Create-SPSite", "create-spsite help"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["Create-SPSite", "help Create-SPSite", "man Create-SPSite", "create-spsite help"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     bot.reply(message, "*Create-SPSite* \n" +
         "*Usage:* Create-SPSite [Title], [Description]");
 });
 
 
 //Create CRM Lead
-controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    var q = message.match[1];
-    if (q) {
-        var crmLead = q.split(',');
-        if (crmLead && crmLead.length == 7) {
+controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    if (message.match[1]) {
+        var q = message.match[1].split(',');
+        var payloadObj = {};
+        var payloadArr = q.map((r, i) => {
+            payloadObj[__config.CreateCRMLead[i]] = r;
+        });
+        var jsonPayload = JSON.stringify(payloadObj);
+        if (crmLead && crmLead.length >= 1) {
             var options = {
                 headers: { 'content-type': 'application/json' },
                 uri: 'https://prod-26.westeurope.logic.azure.com:443/workflows/f5467c0caf5f4b2c89c99d0cc178c450/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mmepSJpLDsrmRA8DpRYQoc_dlSXXL3qNHEn4NkdVToA',
                 method: 'POST',
                 json: {
-                    "firstname": crmLead[0],
-                    "lastname": crmLead[1],
-                    "email": crmLead[2],
-                    "city": crmLead[3],
-                    "country": crmLead[4],
-                    "phone": crmLead[5],
-                    "handle": crmLead[6]
+                    jsonPayload
                 }
             };
             request(options, function (error, response, body) {
@@ -112,7 +138,6 @@ controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], [
                     console.log(error.toString());
                     bot.reply(message, "Sorry, couldn't create a CRM lead. Remember all values are required:\n Firstname,lastname,email,city,country,phone,handle");
                 }
-                bot.reply(message, "Not really sure what happened. Tail the log for details \n (heroku logs --tail --app white-rabbit)");
             });
         }
     }
@@ -123,7 +148,7 @@ controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], [
 });
 
 //Create CRM Lead Helper
-controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead", "Create-CRMLead help"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead", "Create-CRMLead help"], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
     bot.reply(message, "*Create-CRMLead* \n" +
         "*Usage:* Create-CRMLead [Firstname],[Lastname],[Email],[City],[Country],[Phone],[Handle]");
 });
