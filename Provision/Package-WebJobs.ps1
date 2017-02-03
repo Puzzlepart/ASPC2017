@@ -3,8 +3,7 @@ Add-Type -assembly "System.IO.Compression.FileSystem"
 Write-Host "------------------------------------------------------------"
 Write-Host "| Creating WebJob zip files"
 Write-Host "------------------------------------------------------------"
-$webJobs = @("governance-daily","governance-monthly","provisioning","provisioning-force")
-#$webJobs = @("governance-daily")
+$webJobs = @("provisioning","provisioning-force")
 $dir = $(Get-Location).Path 
 foreach( $webJob in $webJobs){   
     $zipFile = "$($dir)\$($webJob).zip"
