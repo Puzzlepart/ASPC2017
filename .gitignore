@@ -11,3 +11,9 @@ Icon?
 .vs
 env.json
 **/node_modules/
+/AddExternalUserPoC/packages
+/AddExternalUserPoC/GraphFunctions/bin/Debug
+/AddExternalUserPoC/GraphFunctions/obj/Debug
+/AddExternalUserPoC/AddExternalUserPoC/bin/Debug
+/AddExternalUserPoC/AddExternalUserPoC/obj/Debug
+/AddExternalUserPoC/AddExternalUserPoC/App.config

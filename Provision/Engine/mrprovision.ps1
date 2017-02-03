@@ -1,6 +1,19 @@
 param(
     [switch]$Force
 )
+$ProgressPreference = "SilentlyContinue"
+$WarningPreference = "SilentlyContinue"
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.Taxonomy.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.DocumentManagement.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.WorkflowServices.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.SharePoint.Client.Search.dll -ErrorAction SilentlyContinue
+
+Add-Type -Path $PSScriptRoot\bundle\Newtonsoft.Json.dll -ErrorAction SilentlyContinue
+Add-Type -Path $PSScriptRoot\bundle\Microsoft.IdentityModel.Extensions.dll -ErrorAction SilentlyContinue
+Import-Module $PSScriptRoot\bundle\SharePointPnPPowerShellOnline.psd1 -ErrorAction SilentlyContinue
+
+Set-PnPTraceLog -Off
+#Set-PnPTraceLog -On -Level Debug -LogFile .\pnp.log
 
 $siteMetadataToPersist = @([pscustomobject]@{DisplayName = "-SiteDirectory_BusinessOwner-"; InternalName = "$($columnPrefix)BusinessOwner"},
     [pscustomobject]@{DisplayName = "-SiteDirectory_BusinessUnit-"; InternalName = "$($columnPrefix)BusinessUnit"},
@@ -112,7 +125,7 @@ function EnsureSite{
         if ($owner -and $owner.Email) {
             $siteCollectionAdminToUse = $owner.Email
         }
-        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdminToUse -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0" -RemoveDeletedSite:$true 
+        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdminToUse -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0" -RemoveDeletedSite:$true -ResourceQuota 0
         if( $? -eq $false) {
             # send e-mail
             $mailHeadBody = GetMailContent -email $owner.Email -mailFile "fail"
