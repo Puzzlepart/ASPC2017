@@ -66,18 +66,6 @@ function GetMailContent{
     return ([IO.File]::ReadAllText($filename)).Split("|")
 }
 
-function DisableMemberSharing([string]$url){
-    Connect -Url $url
-    $web = Get-PnPWeb
-    $canShare = Get-PnPProperty -ClientObject $web -Property MembersCanShare
-    if($canShare) {
-        Write-Output "`tDisabling members from sharing"
-        $web.MembersCanShare = $false
-        $web.Update()
-        $web.Context.ExecuteQuery()
-    }
-}
-
 function GetUniqueUrlFromName($title) {
     Connect -Url $tenantAdminUrl
     $cleanName = $title -replace '[^a-z0-9]'
@@ -289,7 +277,7 @@ function SyncMetadata($siteItem, $siteUrl, $urlToDirectory, $title, $description
 
 function SetSiteUrl($siteItem, $siteUrl, $title) {
     Connect -Url "$tenantURL$siteDirectorySiteUrl"
-    Write-Output "Setting site URL to $siteUrl"
+    Write-Output "`tSetting site URL to $siteUrl"
     Set-PnPListItem -List $siteDirectoryList -Identity $siteItem["ID"] -Values @{"$($columnPrefix)SiteURL" = "$siteUrl, $title"} -ErrorAction SilentlyContinue >$null 2>&1
 }
 
@@ -314,7 +302,7 @@ function SendReadyEmail(){
 }
 
 
-function Apply-TemplateConfigurations($url, $siteItem, $templateConfigurationItems, $baseModuleItems, $subModuleItems) {
+function ApplyTemplateConfigurations($url, $siteItem, $templateConfigurationItems, $baseModuleItems, $subModuleItems) {
     Connect -Url $url
     $templateConfig = $siteItem["$($columnPrefix)TemplateConfig"]
     $subModules = $siteItem["$($columnPrefix)SubModules"]
@@ -466,11 +454,8 @@ foreach ($siteItem in $siteDirectoryItems) {
     if ($? -eq $true -and ($editor -ne "SharePoint App" -or $Force)) {        
         EnsureSecurityGroups -url $siteUrl -title $title -owners $owners -members $members -visitors $visitors
         SetSiteUrl -siteItem $siteItem -siteUrl $siteUrl -title $title        
-        Apply-TemplateConfigurations -url $siteUrl -siteItem $siteItem -templateConfigurationItems $templateConfigurationItems -baseModuleItems $baseModuleItems -subModuleItems $subModuleItems
+        ApplyTemplateConfigurations -url $siteUrl -siteItem $siteItem -templateConfigurationItems $templateConfigurationItems -baseModuleItems $baseModuleItems -subModuleItems $subModuleItems
         UpdateStatus -id $siteItem["ID"] -status 'Provisioned'
-
-        DisableMemberSharing -url $siteUrl
-
         SyncMetadata -siteItem $siteItem -siteUrl $siteUrl -urlToDirectory $urlToSiteDirectory -title $title -description $description
 
         if($siteStatus -ne 'Provisioned'){
