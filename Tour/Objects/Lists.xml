@@ -1,0 +1,83 @@
+<pnp:Lists 
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:ListInstance Title="Tour" TemplateType="100" Url="Lists/Tour" EnableFolderCreation="false" ContentTypesEnabled="true" RemoveExistingContentTypes="true" EnableAttachments="false">
+        <pnp:ContentTypeBindings >
+            <pnp:ContentTypeBinding ContentTypeID="0x010065E476A07636422796BEA2359D0E3AE8"/>
+        </pnp:ContentTypeBindings>
+        <pnp:Views RemoveExistingViews="true">
+            <View Name="{72e03c60-decf-4615-9908-7d216fd6b9bf}" MobileView="TRUE" DefaultMobileView="TRUE" Type="HTML" DefaultView="FALSE" DisplayName="Grouped by url" Url="/Lists/Tour/GroupedByUrl.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=43">
+                <Query>
+                    <GroupBy>
+                        <FieldRef Name="PzlTourRelativeUrl" />
+                    </GroupBy>
+                    <OrderBy>
+                        <FieldRef Name="PzlTourSortOrder" />
+                        <FieldRef Name="ID" />
+                    </OrderBy>
+                </Query>
+                <ViewFields>
+                    <FieldRef Name="PzlTourSortOrder" />
+                    <FieldRef Name="LinkTitle" />
+                    <FieldRef Name="TourElement" />
+                    <FieldRef Name="TourContent" />
+                    <FieldRef Name="TourPlacement" />
+                    <FieldRef Name="TourOrphan" />
+                    <FieldRef Name="TourBackdrop" />
+                    <FieldRef Name="Editor" />
+                    <FieldRef Name="Modified" />
+                </ViewFields>
+                <RowLimit Paged="TRUE">100</RowLimit>
+                <Aggregations Value="Off" />
+                <JSLink>clienttemplates.js</JSLink>
+            </View>
+            <View Name="{27f64345-4266-4125-976f-ca96aeec5785}" MobileView="TRUE" Type="HTML" DefaultView="TRUE" DisplayName="Quick editable" Url="/Lists/Tour/QuickEditTour.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=43">
+                <Query>
+                    <OrderBy>
+                        <FieldRef Name="PzlTourRelativeUrl" />
+                        <FieldRef Name="PzlTourSortOrder" />
+                        <FieldRef Name="ID" />
+                    </OrderBy>
+                </Query>
+                <ViewFields>
+                    <FieldRef Name="PzlTourSortOrder" />
+                    <FieldRef Name="PzlTourRelativeUrl" />
+                    <FieldRef Name="LinkTitle" />
+                    <FieldRef Name="TourElement" />
+                    <FieldRef Name="TourContent" />
+                    <FieldRef Name="TourPlacement" />
+                    <FieldRef Name="TourOrphan" />
+                    <FieldRef Name="TourBackdrop" />
+                </ViewFields>
+                <RowLimit Paged="TRUE">100</RowLimit>
+                <Aggregations Value="Off" />
+                <JSLink>clienttemplates.js</JSLink>
+            </View>
+        </pnp:Views>
+    </pnp:ListInstance>
+    <pnp:ListInstance Title="Tour Log" TemplateType="100" Url="Lists/TourLog" Hidden="true" EnableFolderCreation="false" ContentTypesEnabled="true" RemoveExistingContentTypes="true" EnableAttachments="false">
+        <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x010032074C5C448D447891E7117B5B37CEA9"/>
+        </pnp:ContentTypeBindings>
+        <pnp:Views RemoveExistingViews="true">
+            <View Name="{17f92d1c-485b-4df3-b970-923820b8ea83}" MobileView="TRUE" Type="HTML" DefaultView="TRUE" DisplayName="All items" Url="/Lists/TourLog/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=43">
+                <Query>
+                    <OrderBy>
+                        <FieldRef Name="ID" />
+                    </OrderBy>
+                </Query>
+                <ViewFields>
+                    <FieldRef Name="LinkTitle" />
+                    <FieldRef Name="PzlTourRelativeUrl" />
+                    <FieldRef Name="PzlTourWatchter" />
+                    <FieldRef Name="PzlTourModified" />
+                    <FieldRef Name="PzlTourStepOnEnd" />
+                    <FieldRef Name="Editor" />
+                    <FieldRef Name="Modified" />
+                </ViewFields>
+                <RowLimit Paged="TRUE">100</RowLimit>
+                <Aggregations Value="Off" />
+                <JSLink>clienttemplates.js</JSLink>
+            </View>
+        </pnp:Views>
+    </pnp:ListInstance>
+</pnp:Lists>
