@@ -66,15 +66,6 @@ function GetMailContent{
     return ([IO.File]::ReadAllText($filename)).Split("|")
 }
 
-function SetRequestAccessEmail([string]$url, [string]$ownersEmail) {
-    Connect -Url $url
-    $emails = Get-PnPRequestAccessEmails
-    if($emails -ne $ownersEmail) {
-        Write-Output "`tSetting site request e-mail to $ownersEmail"    
-        Set-PnPRequestAccessEmails -Emails $ownersEmail
-    }
-}
-
 function DisableMemberSharing([string]$url){
     Connect -Url $url
     $web = Get-PnPWeb
@@ -477,8 +468,6 @@ foreach ($siteItem in $siteDirectoryItems) {
         SetSiteUrl -siteItem $siteItem -siteUrl $siteUrl -title $title        
         Apply-TemplateConfigurations -url $siteUrl -siteItem $siteItem -templateConfigurationItems $templateConfigurationItems -baseModuleItems $baseModuleItems -subModuleItems $subModuleItems
         UpdateStatus -id $siteItem["ID"] -status 'Provisioned'
-
-        SetRequestAccessEmail -url $siteUrl -ownersEmail ($ownerEmailAddresses -join ',')
 
         DisableMemberSharing -url $siteUrl
 
