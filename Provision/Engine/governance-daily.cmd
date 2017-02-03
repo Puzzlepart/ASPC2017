@@ -1,1 +1,0 @@
-PowerShell.exe -ExecutionPolicy RemoteSigned -NonInteractive -File mrgovernance.ps1 -verifyBusinessOwner -irm
