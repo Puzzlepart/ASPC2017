@@ -94,7 +94,7 @@ controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)", "Create site (.*)
             else {
                 console.log(error.toString());
             }
-            bot.reply(message, "Site " + siteTitle + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
+            bot.reply(message, "Site " + q[0] + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
         });
     }
     else {
