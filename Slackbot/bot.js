@@ -130,7 +130,7 @@ controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], [
         request(options, function (error, response, body) {
             if (!error) {
                 console.log(response.statusCode.toString());
-                bot.reply(message, "Lead for " + crmLead[6] + " Created!\nAsk @agur where it went.");
+                bot.reply(message, "Lead for " + q[0] + " Created!\nAsk @agur where it went.");
             }
             else {
                 console.log(error.toString());
