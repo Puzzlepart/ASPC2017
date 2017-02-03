@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "fcca034c-233e-410a-8684-77512e92f80e",
+  "alias": "PageRedirectWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "fcca034c-233e-410a-8684-77512e92f80e",
+    "group": { "default": "Under Development" },
+    "title": { "default": "PageRedirect" },
+    "description": { "default": "Redirect to another page" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "PageRedirect"
+    }
+  }]
+}
