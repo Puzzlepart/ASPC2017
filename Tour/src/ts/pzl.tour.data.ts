@@ -48,7 +48,7 @@ module Pzl.Office365Tour.Data {
 	}
 	function GetBaseConfiguration() {
 		var deferred = jQuery.Deferred();
-		jQuery.getJSON(_spPageContextInfo.webAbsoluteUrl + '/SiteAssets/pzl-tour/config/tour.txt').then((data) => {
+		jQuery.getJSON(Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL + '/SiteAssets/pzl-tour/config/tour.txt').then((data) => {
 			data['onEnd'] = function (tour) { Pzl.Office365Tour.EndTour(tour); };
 			data['template'] = function (i, step) {
 				return GetStepMarkup(i, step);
@@ -92,7 +92,7 @@ module Pzl.Office365Tour.Data {
 
 		var pageRelativeUrl = GetPageRelativeUrl();
 		var pageRelativeUrlForRest = pageRelativeUrl ? '\'' + encodeURIComponent(pageRelativeUrl) + '\'' : 'null';
-		var currentUserWatchedUrl = String.format('{0}/_api/web/Lists/GetByTitle(\'{1}\')/Items?$top=500&$filter=PzlTourRelativeUrl eq {2} and PzlTourWatchterId eq \'{3}\'', _spPageContextInfo.webAbsoluteUrl, 'Tour Log', pageRelativeUrlForRest, _spPageContextInfo.userId);
+		var currentUserWatchedUrl = String.format('{0}/_api/web/Lists/GetByTitle(\'{1}\')/Items?$top=500&$filter=PzlTourRelativeUrl eq {2} and PzlTourWatchterId eq \'{3}\'', Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL, 'Tour Log', pageRelativeUrlForRest, _spPageContextInfo.userId);
 
 		var digest = jQuery('#__REQUESTDIGEST').val();
 		jQuery.ajax({
@@ -113,7 +113,7 @@ module Pzl.Office365Tour.Data {
 
 		var pageRelativeUrl = GetPageRelativeUrl();
 		var pageRelativeUrlForRest = pageRelativeUrl ? '\'' + encodeURIComponent(pageRelativeUrl) + '\'' : 'null';
-		var tourServiceUrl = String.format('{0}/_api/web/Lists/GetByTitle(\'{1}\')/Items?$top=500&$filter=PzlTourRelativeUrl eq {2}&$orderby=PzlTourSortOrder,ID', _spPageContextInfo.webAbsoluteUrl, 'Tour', pageRelativeUrlForRest);
+		var tourServiceUrl = String.format('{0}/_api/web/Lists/GetByTitle(\'{1}\')/Items?$top=500&$filter=PzlTourRelativeUrl eq {2}&$orderby=PzlTourSortOrder,ID', Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL, 'Tour', pageRelativeUrlForRest);
 
 		var digest = jQuery('#__REQUESTDIGEST').val();
 		jQuery.ajax({
@@ -212,7 +212,7 @@ module Pzl.Office365Tour.Data {
 		}
 		var deferred = jQuery.Deferred();
 		jQuery.ajax({
-			url: `${_spPageContextInfo.webAbsoluteUrl}/_api/web/lists/getbytitle('${listName}')/items${updateRestAppendix}`,
+			url: `${Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL}/_api/web/lists/getbytitle('${listName}')/items${updateRestAppendix}`,
 			type: 'POST',
 			contentType: 'application/json;odata=verbose',
 			data: JSON.stringify(item),

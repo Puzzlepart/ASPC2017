@@ -17,3 +17,6 @@ env.json
 /AddExternalUserPoC/AddExternalUserPoC/bin/Debug
 /AddExternalUserPoC/AddExternalUserPoC/obj/Debug
 /AddExternalUserPoC/AddExternalUserPoC/App.config
+/AddExternalUserPoC/AddExternalUserPoC/obj/Release
+/AddExternalUserPoC/GraphFunctions/obj/Release
+/AddExternalUserPoC/OnBoardGroup/obj/PublishTemp

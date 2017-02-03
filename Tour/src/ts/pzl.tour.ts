@@ -15,7 +15,7 @@ module Pzl.Office365Tour {
 		Pzl.Office365Tour.Log('Showing splash - ' + (tourUpdated ? 'tour updated' : 'tour first run'));
 		jQuery('<div id="pzl-tour-splash-container"></div>').prependTo('#s4-bodyContainer');
 
-		jQuery.get(_spPageContextInfo.webAbsoluteUrl + '/SiteAssets/pzl-tour/html/tour.splash.txt', function (data) {
+		jQuery.get(Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL + '/SiteAssets/pzl-tour/html/tour.splash.txt', function (data) {
 			var tourTitle = tourUpdated ? RESOURCEPROVIDER.getResource('SPLASH_TOUR_UPDATED_DEFAULT_TITLE') : RESOURCEPROVIDER.getResource('SPLASH_DEFAULT_TITLE');
 			var startTourBtn = tourUpdated ? RESOURCEPROVIDER.getResource('SPLASH_TOUR_UPDATED_DEFAULT_START_BTN_LABEL') : RESOURCEPROVIDER.getResource('SPLASH_DEFAULT_START_BTN_LABEL');
 			var tourIntroText = RESOURCEPROVIDER.getResource('SPLASH_DEFAULT_INTRO_TEXT');
