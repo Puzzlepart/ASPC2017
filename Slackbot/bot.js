@@ -158,16 +158,118 @@ controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead",
 
 
 //list all props
-controller.hears(["whoami", "currentuserinfo", "_spPageContextInfo.CurrentUser"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    var allUserProps = JSON.stringify(message);
-    var userID = JSON.stringify(message.user);
-    bot.reply(message, "*OK, this is what I have on you* \n" + allUserProps);
+controller.hears(["currentuserinfo", "_spPageContextInfo.CurrentUser"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    helpers.getUserInfoBlob(bot, message);
+});
+
+//list props nicely
+controller.hears(["whoami", "who am i"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    helpers.getUserInfo(bot, message);
 });
 
 
+controller.hears(["Matrix"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    request.get(`https://slack.com/api/users.info?user=${message.user}&token=${process.env.SLACK_TOKEN}`, function (error, response, body) {
+        if (!error) {
+            var b = JSON.parse(body);
+            var firstName = b.user.profile.first_name;
+            bot.startConversation(message, function (err, convo) {
+                if (!err) {
+
+                    convo.on('end', function (convo) {
+                        if (convo.status == 'completed') {
+                            // bot.reply(message, `Run, ${firstName}!`);
+                        } else {
+                            //This happens if the conversation ended prematurely for some reason
+                            bot.reply(message, 'Ignorance is bliss...');
+                        }
+                    });
+
+                    convo.release = function (convo) {
+                        bot.reply(message, `So, you're ready to see how deep the rabbit hole goes?`);
+                    }
+
+                    convo.say(`Wake up, ${firstName}...`);
+                    convo.ask(`The Matrix has you...`, [
+                        {
+                            pattern: 'release me',
+                            callback: function (response, convo) {
+                                //trigger release me function
+                                convo.release();
+                            }
+                        },
+                        {
+                            default: true,
+                            callback: function (response, convo) {
+                                convo.say(`Run, ${firstName}!`);
+                                convo.next();
+                            }
+                        }
+                    ]);
+                    convo.say(`Follow the white rabbit`);
+                }
+            });
+        }
+    });
+});
+
+// RELEASE ME CONVO
+controller.hears(["release me", "i want out"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    request.get(`https://slack.com/api/users.info?user=${message.user}&token=${process.env.SLACK_TOKEN}`, function (error, response, body) {
+        var b = JSON.parse(body);
+        var firstName = b.user.profile.first_name;
+        bot.startConversation(message, function (err, convo) {
+            if (!err) {
+                convo.say(`So, ${firstName} are you ready to see how deep the rabbit hole goes?`);
+                convo.ask(`This is your last chance.\nAfter this, there is no turning back.\nYou take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe.\nYou take the red pill - _you stay in Wonderland and I show you how deep the rabbit-hole goes._`, function (response, convo) {
+                    convo.ask(`So, red pill or blue pill, ${firstName}?`, [
+                        {
+                            pattern: 'red',
+                            callback: function (response, convo) {
+                                convo.next();
+                            }
+                        },
+                        {
+                            pattern: 'blue',
+                            callback: function (response, convo) {
+                                convo.stop();
+                            }
+                        },
+                        {
+                            default: true,
+                            callback: function (response, convo) {
+                                convo.repeat();
+                                convo.next();
+                            }
+                        }
+                    ]);
+                    convo.next();
+                });
+
+                convo.on('end', function (convo) {
+                    if (convo.status == 'completed') {
+                        bot.reply(message, `The pill you took is part of a trace program.\nIt's designed to disrupt your input/output carrier signal so we can pinpoint your location.`);
+                        bot.reply(message, `It means fasten your seat belt Dorothy, 'cause Kansas is going bye-bye.`);
+                    } else {
+                        //This happens if the conversation ended prematurely for some reason
+                        bot.reply(message, 'Ignorance is bliss...');
+                    }
+                });
+            }
+        });
+    });
+});
+
+
+
+
 //===
-//bot commands
+// generic bot commands
 //===
+
+controller.hears(["is this the real life"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    bot.reply(message, "is this just fantasy?")
+});
 
 //Say Hi
 controller.hears(['hello', 'hey', 'hi', 'hei', 'sup', 'wassup', 'hola'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
@@ -340,7 +442,7 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message,direct_men
 });
 
 //Return name from storage
-controller.hears(['what is my name', 'who am i', 'whats my name', 'whoami'], 'direct_message,direct_mention,mention', function (bot, message) {
+controller.hears(['what is my name', 'whats my name'], 'direct_message,direct_mention,mention', function (bot, message) {
 
     controller.storage.users.get(message.user, function (err, user) {
         if (user && user.name) {

@@ -203,6 +203,30 @@ helpers.giphy = function (query, bot, message) {
     });
 }
 
+// Gets user info
+helpers.getUserInfoBlob = function (bot,message) {
+    request.get(`https://slack.com/api/users.info?user=${message.user}&token=${process.env.SLACK_TOKEN}`, function (error, response, body) {
+        console.log(response);
+        if(!error){
+        var data = JSON.stringify(body);
+        bot.reply(message, `Here's your info: \n ${data}`);
+    }
+    else{bot.reply(message,"Something went wrong... \n*Error:*"+error);}
+    });
+}
+
+// Gets user info
+helpers.getUserInfo = function (bot,message) {
+    request.get(`https://slack.com/api/users.info?user=${message.user}&token=${process.env.SLACK_TOKEN}`, function (error, response, body) {
+        console.log(response);
+        if(!error){
+        var data = JSON.stringify(body);
+        bot.reply(message, `Here's your info: \n ${data}`);
+    }
+    else{bot.reply(message,"Something went wrong... \n*Error:*"+error);}
+    });
+}
+
 // Creates an SPSite
 helpers.createSite = function (siteTitle, siteDesc, bot, message) {
     var options = {
