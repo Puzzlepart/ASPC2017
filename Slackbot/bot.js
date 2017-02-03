@@ -71,9 +71,8 @@ var createRequestPayload = function (requestType, uri, query) {
 
 //Create SPSite
 controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)", "Create site (.*)"], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    var q = message.match[1];
-    if (q) {
-        var q = query.split(',');
+    if (message.match[1]) {
+        var q = message.match[1].split(',');
         var payloadObj = {};
         var payloadArr = q.map((r, i) => {
             payloadObj[__config.CreateSite[i]] = r;
