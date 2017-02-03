@@ -14,7 +14,7 @@
     "description": { "default": "Redirect to another page" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "PageRedirect"
+      "redirecturl": ""
     }
   }]
 }

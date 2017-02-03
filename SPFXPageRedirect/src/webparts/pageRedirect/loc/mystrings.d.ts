@@ -1,7 +1,5 @@
 declare interface IPageRedirectStrings {
-  PropertyPaneDescription: string;
-  BasicGroupName: string;
-  DescriptionFieldLabel: string;
+
 }
 
 declare module 'pageRedirectStrings' {

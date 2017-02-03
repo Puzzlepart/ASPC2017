@@ -1,3 +1,3 @@
 export interface IPageRedirectProps {
-  description: string;
+  redirecturl: string;
 }

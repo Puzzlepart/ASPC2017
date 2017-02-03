@@ -1,3 +1,3 @@
 export interface IPageRedirectWebPartProps {
-  description: string;
+  redirecturl: string;
 }

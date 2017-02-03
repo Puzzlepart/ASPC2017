@@ -1,28 +1,39 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import { Version, DisplayMode } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'pageRedirectStrings';
 import PageRedirect from './components/PageRedirect';
+import EditMode from './components/EditMode';
 import { IPageRedirectProps } from './components/IPageRedirectProps';
 import { IPageRedirectWebPartProps } from './IPageRedirectWebPartProps';
 
 export default class PageRedirectWebPart extends BaseClientSideWebPart<IPageRedirectWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IPageRedirectProps > = React.createElement(
+    const elementView: React.ReactElement<IPageRedirectProps> = React.createElement(
       PageRedirect,
       {
-        description: this.properties.description
+        redirecturl: this.properties.redirecturl
       }
     );
 
-    ReactDom.render(element, this.domElement);
+    const elementEdit: React.ReactElement<IPageRedirectProps> = React.createElement(
+      EditMode,
+      {
+        redirecturl: this.properties.redirecturl
+      }
+    );
+
+    if (this.displayMode == DisplayMode.Read) {
+      ReactDom.render(elementView, this.domElement);
+    } else {
+      ReactDom.render(elementEdit, this.domElement);
+    }
   }
 
   protected get dataVersion(): Version {
@@ -33,15 +44,12 @@ export default class PageRedirectWebPart extends BaseClientSideWebPart<IPageRedi
     return {
       pages: [
         {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: "Settings",
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('redirecturl', {
+                  label: "Redirect URL"
                 })
               ]
             }
