@@ -32,7 +32,7 @@
                   <Title>About</Title>
                   <FrameType>None</FrameType>
                   <ContentLink 
-                    xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{site}/SiteAssets/html/aboutpage.txt                                                                                                                                                                  
+                    xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{site}/SiteAssets/html/aboutpage.txt
                   </ContentLink>
                   <Content 
                     xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">
@@ -182,56 +182,6 @@
           </pnp:Fields>
         </pnp:Page>
       </pnp:Pages>
-      <pnp:Lists 
-        xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
-        <pnp:ListInstance Title="Documents" Description="" DocumentTemplate="{site}/Shared Documents/Forms/template.dotx" TemplateType="101" Url="Shared Documents" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="10" DraftVersionVisibility="0" ContentTypesEnabled="true" EnableAttachments="false">
-          <pnp:ContentTypeBindings>
-            <pnp:ContentTypeBinding ContentTypeID="0x010100D6680B47A1D9FC4F8B383FDE800F458701" Default="true" />
-            <pnp:ContentTypeBinding ContentTypeID="0x010100D6680B47A1D9FC4F8B383FDE800F458703" />
-            <pnp:ContentTypeBinding ContentTypeID="0x010100D6680B47A1D9FC4F8B383FDE800F458704" />
-            <pnp:ContentTypeBinding ContentTypeID="0x0101" Remove="true" />
-            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
-          </pnp:ContentTypeBindings>
-          <pnp:Views RemoveExistingViews="true">
-            <View Name="{68142F90-47C8-4890-BEE8-2F54AB2D07F9}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="FALSE" Type="HTML" DisplayName="All Documents" Url="/teams/pzl-test/TestDoc/Forms/AllItems.aspx" Level="1" BaseViewID="2" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
-              <Query>
-                <OrderBy>
-                  <FieldRef Name="FileLeafRef" />
-                </OrderBy>
-              </Query>
-              <ViewFields>
-                <FieldRef Name="DocIcon" />
-                <FieldRef Name="LinkFilename" />
-                <FieldRef Name="Modified" />
-                <FieldRef Name="Editor" />
-              </ViewFields>
-              <RowLimit Paged="TRUE">30</RowLimit>
-              <JSLink>clienttemplates.js</JSLink>
-            </View>
-            <View Name="{1CA1335C-8364-495F-A92F-96550E66E8C7}" DefaultView="FALSE" MobileDefaultView="FALSE" MobileView="TRUE" Type="HTML" Scope="Recursive" DisplayName="Recently modified documents" Url="/teams/pzl-test/TestDoc/Forms/Recently modified documents.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
-              <Query>
-                <OrderBy>
-                  <FieldRef Name="Modified" Ascending="FALSE" />
-                </OrderBy>
-              </Query>
-              <ViewFields>
-                <FieldRef Name="DocIcon" />
-                <FieldRef Name="LinkFilename" />
-                <FieldRef Name="Modified" />
-                <FieldRef Name="Editor" />
-              </ViewFields>
-              <RowLimit Paged="TRUE">30</RowLimit>
-              <Aggregations Value="Off" />
-              <JSLink>clienttemplates.js</JSLink>
-            </View>
-          </pnp:Views>
-          <pnp:FieldRefs>
-            <pnp:FieldRef ID="85ca8205-4466-4134-ad6d-34e276430222" Name="{parameter:GenericFieldsPrefix}Description" />
-            <pnp:FieldRef ID="d667bbbb-75f2-4f97-b373-4a4f958eb34f" Name="{parameter:GenericFieldsPrefix}BaseModule" />
-            <pnp:FieldRef ID="5f56a87f-be15-4a28-8596-ada81c39fbaa" Name="{parameter:GenericFieldsPrefix}SubModules" />
-          </pnp:FieldRefs>
-        </pnp:ListInstance>
-      </pnp:Lists>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
 </pnp:Provisioning>
