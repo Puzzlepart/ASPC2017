@@ -2,8 +2,8 @@
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
   <pnp:Preferences>
   </pnp:Preferences>
-  <pnp:Templates ID="CONTAINER-TEMPLATE-OFFICE365-TOUR-CENTRAL">
-    <pnp:ProvisioningTemplate ID="OFFICE365-TOUR-CENTRAL" Version="1">
+  <pnp:Templates ID="CONTAINER-TEMPLATE-OFFICE365-directory">
+    <pnp:ProvisioningTemplate ID="OFFICE365-directory" Version="1">
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Objects/SiteFields.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Objects/ContentTypes.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Objects/Lists.xml" />
