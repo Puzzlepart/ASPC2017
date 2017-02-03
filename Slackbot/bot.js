@@ -70,7 +70,7 @@ var createRequestPayload = function (requestType, uri, query) {
 //=======================
 
 //Create SPSite
-controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)", "Create site (.*)"], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)", "Create site (.*)"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     if (message.match[1]) {
         var q = message.match[1].split(',');
         var payloadObj = {};
@@ -119,26 +119,24 @@ controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], [
             payloadObj[__config.CreateCRMLead[i]] = r;
         });
         var jsonPayload = JSON.stringify(payloadObj);
-        if (crmLead && crmLead.length >= 1) {
-            var options = {
-                headers: { 'content-type': 'application/json' },
-                uri: 'https://prod-26.westeurope.logic.azure.com:443/workflows/f5467c0caf5f4b2c89c99d0cc178c450/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mmepSJpLDsrmRA8DpRYQoc_dlSXXL3qNHEn4NkdVToA',
-                method: 'POST',
-                json: {
-                    jsonPayload
-                }
-            };
-            request(options, function (error, response, body) {
-                if (!error) {
-                    console.log(response.statusCode.toString());
-                    bot.reply(message, "Lead for " + crmLead[6] + " Created!\nAsk @agur where it went.");
-                }
-                else {
-                    console.log(error.toString());
-                    bot.reply(message, "Sorry, couldn't create a CRM lead. Remember all values are required:\n Firstname,lastname,email,city,country,phone,handle");
-                }
-            });
-        }
+        var options = {
+            headers: { 'content-type': 'application/json' },
+            uri: 'https://prod-26.westeurope.logic.azure.com:443/workflows/f5467c0caf5f4b2c89c99d0cc178c450/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mmepSJpLDsrmRA8DpRYQoc_dlSXXL3qNHEn4NkdVToA',
+            method: 'POST',
+            json: {
+                jsonPayload
+            }
+        };
+        request(options, function (error, response, body) {
+            if (!error) {
+                console.log(response.statusCode.toString());
+                bot.reply(message, "Lead for " + crmLead[6] + " Created!\nAsk @agur where it went.");
+            }
+            else {
+                console.log(error.toString());
+                bot.reply(message, "Sorry, couldn't create a CRM lead. Remember all values are required:\n Firstname,lastname,email,city,country,phone,handle");
+            }
+        });
     }
     else {
         bot.reply(message, "*Create-CRMLead* \n" +
@@ -147,7 +145,7 @@ controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], [
 });
 
 //Create CRM Lead Helper
-controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead", "Create-CRMLead help"], ['ambient','direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead", "Create-CRMLead help"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
     bot.reply(message, "*Create-CRMLead* \n" +
         "*Usage:* Create-CRMLead [Firstname],[Lastname],[Email],[City],[Country],[Phone],[Handle]");
 });
