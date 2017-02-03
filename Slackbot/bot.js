@@ -152,6 +152,17 @@ controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead",
 
 
 
+// 8==============D
+// WHO AM I
+// 8==============D
+
+
+//list all props
+controller.hears(["whoami", "currentuserinfo", "_spPageContextInfo.CurrentUser"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+    var allUserProps = JSON.stringify(message.user);
+    bot.reply(message, "*OK, this is what I have on you* \n" + allUserProps);
+});
+
 
 //===
 //bot commands
