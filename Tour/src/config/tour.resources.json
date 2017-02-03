@@ -1,0 +1,13 @@
+{
+    "SPLASH_DEFAULT_TITLE": "Tour available",
+    "SPLASH_DEFAULT_INTRO_TEXT": "A tour is available for this site. This can be helpful to better learn about the site's features",
+    "SPLASH_DEFAULT_START_BTN_LABEL": "Start tour",
+    "SPLASH_DEFAULT_SKIP_BTN_LABEL": "Skip for now",
+    "SPLASH_TOUR_UPDATED_DEFAULT_TITLE": "Updated tour available",
+    "SPLASH_TOUR_UPDATED_DEFAULT_START_BTN_LABEL": "Start updated tour",
+    "EMBEDDED_START_TOUR_LABEL": "Start tour for this page",
+    "TOUR_NEXT_STEP_LABEL": "Next",
+    "TOUR_PREV_STEP_LABEL": "Prev",
+    "TOUR_PAUSE_STEP_LABEL": "Pause",
+    "TOUR_LAST_STEP_LABEL": "I got it!"
+}

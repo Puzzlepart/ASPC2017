@@ -1,0 +1,26 @@
+<pnp:SiteFields 
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <Field Type="Text" DisplayName="Relative url" Description="The site-relative URL to the page where the tour step should show" Required="FALSE" ID="{8c28e917-7ef0-4904-a436-ab2b20081629}" StaticName="PzlTourRelativeUrl" Name="PzlTourRelativeUrl" Group="Office 365 Tour" />
+    <Field Type="Number" DisplayName="Sort order" Required="FALSE" ID="{afb8b098-db17-4a69-b5f9-eba4dcf687ad}" StaticName="PzlTourSortOrder" Name="PzlTourSortOrder" Group="Office 365 Tour" />
+    <Field Type="Text" DisplayName="Language" Description="For multi-lingual steps. Reserved for future use." Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" ID="{055afa2b-ac03-4347-b906-78a39504bcee}" StaticName="PzlTourLanguage" Name="PzlTourLanguage" Group="Office 365 Tour" />
+    <Field Type="Text" DisplayName="Element" Description="The CSS selector that identifies the element to highlight. If orphan below is unchecked, this option is required" Required="FALSE" ID="{28d175ef-876f-4ced-8064-418043441a54}" StaticName="TourElement" Name="TourElement" Group="Office 365 Tour" />
+    <Field Type="Note" DisplayName="Content" Required="FALSE" ID="{2b1a4944-ab4d-4878-bc64-c368e87bf04d}" StaticName="TourContent" Name="TourContent" Group="Office 365 Tour" />
+    <Field Type="Choice" DisplayName="Placement" Format="Dropdown" Required="FALSE" ID="{244836d1-70dc-4787-b219-1c2690e4658a}" StaticName="TourPlacement" Name="TourPlacement" Group="Office 365 Tour">
+        <CHOICES>
+            <CHOICE>top</CHOICE>
+            <CHOICE>right</CHOICE>
+            <CHOICE>bottom</CHOICE>
+            <CHOICE>left</CHOICE>
+            <CHOICE>auto</CHOICE>
+        </CHOICES>
+        <Default>auto</Default>
+    </Field>
+    <Field Type="Boolean" DisplayName="Orphan" Description="Toggling this will ignore the element-identifier and float the tip in the middle of the page." ID="{cf2f4012-7e7e-4bb9-b802-c566297e7869}" StaticName="TourOrphan" Name="TourOrphan" Group="Office 365 Tour" />
+    <Field Type="Boolean" DisplayName="Backdrop" Description="Toggling this will fade the background when the step is visible" ID="{3c645ee3-0c30-464b-9df5-88e2fa77f867}" StaticName="TourBackdrop" Name="TourBackdrop" Group="Office 365 Tour">
+        <Default>1</Default>
+    </Field>
+    <Field Type="Boolean" DisplayName="Large step" Description="If your step will include large elements like images and iframes, consider checking this option." Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" ID="{03071a15-09af-4ac2-9daf-c95403140925}" StaticName="PzlTourLargeStep" Name="PzlTourLargeStep" Group="Office 365 Tour" />
+    <Field Type="User" DisplayName="Watcher User" Description="The user that has taken the tour for that page" Required="FALSE" ID="{42996adc-17b8-420d-b5d6-5eb7b0cc7a3d}" StaticName="PzlTourWatchter" Name="PzlTourWatchter" Group="Office 365 Tour" />
+    <Field Type="DateTime" DisplayName="Tour Modified" Description="" Required="FALSE" ID="{a469db10-67f3-4382-a65b-1ae347eaac18}" StaticName="PzlTourModified" Name="PzlTourModified" Group="Office 365 Tour" />
+    <Field Type="Integer" DisplayName="Tour Step On End" Description="" Required="FALSE" ID="{ca634e65-78db-4a7e-a2ca-e66d17fbb6c2}" StaticName="PzlTourStepOnEnd" Name="PzlTourStepOnEnd" Group="Office 365 Tour" />
+</pnp:SiteFields>

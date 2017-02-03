@@ -1,0 +1,6 @@
+<pnp:CustomActions 
+        xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+        <pnp:WebCustomActions>
+                <pnp:CustomAction Name="pzl-tour-scripts" Location="ScriptLink" Sequence="1" ScriptBlock="SP.SOD.registerSod('pzl.tour.load.js', (_spPageContextInfo.webServerRelativeUrl !== '/' ? _spPageContextInfo.webServerRelativeUrl : '') + '/SiteAssets/pzl-tour/js/pzl.tour.load.js?rev=' + new Date().getDate());LoadSodByKey('pzl.tour.load.js');"></pnp:CustomAction>
+        </pnp:WebCustomActions>
+</pnp:CustomActions>

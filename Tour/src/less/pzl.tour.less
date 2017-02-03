@@ -1,0 +1,110 @@
+#o365cs-flexpane-overlay #O365fpcontainerid button.pzl-start-tour {
+    margin-bottom: 20px;
+}
+
+#pzl-tour-splash-container {
+    #pzl-tour-splash.ms-Dialog {
+        z-index: 999;
+        .ms-Button {
+            margin-right: 5px;
+        }
+    }
+    .ms-Overlay {
+        z-index: 998;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.popover.tour-pzl-tour {
+    border-radius: 0;
+    min-width: 340px;
+    font-family: "Segoe UI", "Segoe", Tahoma, Helvetica, Arial, sans-serif;
+    &.large-step {
+        width: 700px !important;
+    }
+    .tour-end-btn {
+        margin: 0;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+        color: #a6a6a6;
+        z-index: 110;
+        min-width: 0;
+    }
+    h3.popover-title {
+        font-family: Segoe UI Semilight WestEuropean, Segoe UI Semilight, Segoe WP Semilight, Segoe UI, Segoe WP, Tahoma, Arial, sans-serif;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.2em;
+        margin: 0;
+        padding: 18px 30px 18px 24px;
+        border-bottom: 0;
+        border-radius: 0;
+        background-color: transparent;
+        color: #000;
+    }
+    .popover-content {
+        padding: 0 24px 8px 24px;
+        font-family: Segoe UI Regular WestEuropean, Segoe UI, Segoe WP, Tahoma, Arial, sans-serif;
+        color: #333;
+        font-size: 12px;
+        iframe, img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .tour-progress-indicator {
+        list-style: none;
+        list-style-type: none;
+        margin: 8px 0 8px 0;
+        padding: 0 24px 0 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        li {
+            margin: 0 8px 0 0;
+            padding: 0;
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+            background-color: #c8c8c8;
+            &.current {
+                background-color: #666;
+            }
+        }
+    }
+    .popover-navigation {
+        margin-top: 0;
+        padding: 12px;
+        background-color: #f8f8f8;
+        border-top: 1px solid #c8c8c8;
+        overflow: auto;
+        .btn-group {
+            float: right;
+            .ms-Button {
+                background-color: #c8c8c8;
+                border-color: #c8c8c8;
+                .ms-Button-label {
+                    font-family: Segoe UI Semibold WestEuropean, Segoe UI Semibold, Segoe WP Semibold, Segoe UI, Segoe WP, Tahoma, Arial, sans-serif;
+                    font-size: 14px;
+                }
+                &.ms-Button--primary {
+                    background-color: #0078d7;
+                    border-color: #0078d7;
+                }
+            }
+            .ms-Button + .ms-Button {
+                margin-left: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<pnp:ContentTypes 
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:ContentType ID="0x010065E476A07636422796BEA2359D0E3AE8" Name="Tour Step" Description="" Group="Office 365 Tour">
+        <pnp:FieldRefs>
+            <pnp:FieldRef ID="{8c28e917-7ef0-4904-a436-ab2b20081629}" Name="PzlTourRelativeUrl" />
+            <pnp:FieldRef ID="{afb8b098-db17-4a69-b5f9-eba4dcf687ad}" Name="PzlTourSortOrder" />
+            <pnp:FieldRef ID="{28d175ef-876f-4ced-8064-418043441a54}" Name="TourElement" />
+            <pnp:FieldRef ID="{2b1a4944-ab4d-4878-bc64-c368e87bf04d}" Name="TourContent" />
+            <pnp:FieldRef ID="{244836d1-70dc-4787-b219-1c2690e4658a}" Name="TourPlacement" />
+            <pnp:FieldRef ID="{cf2f4012-7e7e-4bb9-b802-c566297e7869}" Name="TourOrphan" />
+            <pnp:FieldRef ID="{3c645ee3-0c30-464b-9df5-88e2fa77f867}" Name="TourBackdrop" />
+            <pnp:FieldRef ID="{03071a15-09af-4ac2-9daf-c95403140925}" Name="PzlTourLargeStep" Hidden="true" />
+            <pnp:FieldRef ID="{055afa2b-ac03-4347-b906-78a39504bcee}" Name="PzlTourLanguage" Hidden="true" />
+        </pnp:FieldRefs>
+    </pnp:ContentType>
+    <pnp:ContentType ID="0x010032074C5C448D447891E7117B5B37CEA9" Name="Tour Log Entry" Description="" Group="Office 365 Tour">
+        <pnp:FieldRefs>
+            <pnp:FieldRef ID="{8c28e917-7ef0-4904-a436-ab2b20081629}" Name="PzlTourRelativeUrl" />
+            <pnp:FieldRef ID="{42996adc-17b8-420d-b5d6-5eb7b0cc7a3d}" Name="PzlTourWatchter" />
+            <pnp:FieldRef ID="{a469db10-67f3-4382-a65b-1ae347eaac18}" Name="PzlTourModified" />
+            <pnp:FieldRef ID="{ca634e65-78db-4a7e-a2ca-e66d17fbb6c2}" Name="PzlTourStepOnEnd" />
+        </pnp:FieldRefs>
+    </pnp:ContentType>
+</pnp:ContentTypes>

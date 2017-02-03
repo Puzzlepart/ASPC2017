@@ -2,7 +2,7 @@
     xmlns:s="http://schemas.microsoft.com/sharepoint/">
     <s:fontSlots>
         <s:fontSlot name="title">
-            <s:latin typeface="MaxLight" eotsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxWeb-Light.eot" woffsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxWeb-Light.woff" ttfsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxComp-Light.ttf" svgsrc="" largeimgsrc="" smallimgsrc="" />
+            <s:latin typeface="MATRIX" eotsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.eot" woffsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.woff" ttfsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.ttf" svgsrc="" largeimgsrc="" smallimgsrc="" />
             <s:ea typeface="" />
             <s:cs typeface="" />
         </s:fontSlot>
@@ -17,12 +17,12 @@
             <s:cs typeface="Verdana" />
         </s:fontSlot>-->
         <s:fontSlot name="heading">
-            <s:latin typeface="MaxLight" eotsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxWeb-Light.eot" woffsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxWeb-Light.woff" ttfsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxComp-Light.ttf" svgsrc="" largeimgsrc="" smallimgsrc=""/>
+            <s:latin typeface="MATRIX" eotsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.eot" woffsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.woff" ttfsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.ttf" svgsrc="" largeimgsrc="" smallimgsrc=""/>
             <s:ea typeface="" />
-            <s:cs typeface="Vedana" />
+            <s:cs typeface="Verdana" />
         </s:fontSlot>
         <s:fontSlot name="large-heading">
-            <s:latin typeface="MaxLight" eotsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxWeb-Light.eot" woffsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxWeb-Light.woff" ttfsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MaxComp-Light.ttf" svgsrc="" largeimgsrc="" smallimgsrc=""/>
+            <s:latin typeface="MATRIX" eotsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.eot" woffsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.woff" ttfsrc="/sites/pzl-cdn/SiteAssets/CDN/fonts/MATRIX.ttf" svgsrc="" largeimgsrc="" smallimgsrc=""/>
             <s:ea typeface="" />
             <s:cs typeface="" />
         </s:fontSlot>

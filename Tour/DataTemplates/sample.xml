@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+  <pnp:Preferences>
+  </pnp:Preferences>
+  <pnp:Templates ID="CONTAINER-TEMPLATE-OFFICE365-TOUR">
+    <pnp:ProvisioningTemplate ID="OFFICE365-TOUR-SAMPLE-DATA" Version="1">
+        <pnp:Lists xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+            <pnp:ListInstance Title="Tour" TemplateType="100" Url="Lists/Tour" EnableFolderCreation="false" >
+                <pnp:DataRows>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">-1</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Tour available</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Throughout these pages a tour will be available to let you learn about this feature.</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">10</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">The first step of the tour</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">You have a lot to learn young paddawan</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement"></pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">auto</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">1</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">10</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">The second step of the tour</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">You have learned everything young paddawan</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement"></pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">auto</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">1</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">0</pnp:DataValue>
+                    </pnp:DataRow>
+                </pnp:DataRows>
+            </pnp:ListInstance>
+        </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

@@ -8,6 +8,7 @@ releases/
 **/bower_components/
 /Releases/*
 Icon?
+.vs
 env.json
 **/node_modules/
 /AddExternalUserPoC/packages
