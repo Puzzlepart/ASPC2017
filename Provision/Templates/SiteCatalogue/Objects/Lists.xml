@@ -14,11 +14,11 @@
 				</Query>
 				<ViewFields>
 					<FieldRef Name="LinkTitle" />
+					<FieldRef Name="PZL_SiteURL" />
 					<FieldRef Name="PZL_BusinessOwner" />
 					<FieldRef Name="Editor" />
 					<FieldRef Name="Modified" />
 					<FieldRef Name="PZL_ProjectDescription" />
-					<FieldRef Name="PZL_SiteURL" />
 					<FieldRef Name="PZL_TemplateConfig" />
 					<FieldRef Name="PZL_SubModules" />
 				</ViewFields>
@@ -40,11 +40,11 @@
 				</Query>
 				<ViewFields>
 					<FieldRef Name="LinkTitle" />
+					<FieldRef Name="PZL_SiteURL" />
 					<FieldRef Name="PZL_BusinessOwner" />
 					<FieldRef Name="Editor" />
 					<FieldRef Name="Modified" />
 					<FieldRef Name="PZL_ProjectDescription" />
-					<FieldRef Name="PZL_SiteURL" />
 					<FieldRef Name="PZL_TemplateConfig" />
 					<FieldRef Name="PZL_SubModules" />
 					<FieldRef Name="PZL_SiteStatus" />
@@ -67,11 +67,11 @@
 				</Query>
 				<ViewFields>
 					<FieldRef Name="LinkTitle" />
+					<FieldRef Name="PZL_SiteURL" />
 					<FieldRef Name="PZL_BusinessOwner" />
 					<FieldRef Name="Editor" />
 					<FieldRef Name="Modified" />
 					<FieldRef Name="PZL_ProjectDescription" />
-					<FieldRef Name="PZL_SiteURL" />
 					<FieldRef Name="PZL_TemplateConfig" />
 					<FieldRef Name="PZL_SubModules" />
 					<FieldRef Name="PZL_SiteStatus" />

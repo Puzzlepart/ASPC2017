@@ -2,18 +2,90 @@ param(
     [switch]$Force
 )
 
-. ./shared.ps1
-
 $siteMetadataToPersist = @([pscustomobject]@{DisplayName = "-SiteDirectory_BusinessOwner-"; InternalName = "$($columnPrefix)BusinessOwner"},
     [pscustomobject]@{DisplayName = "-SiteDirectory_BusinessUnit-"; InternalName = "$($columnPrefix)BusinessUnit"},
     [pscustomobject]@{DisplayName = "-SiteDirectory_InformationClassification-"; InternalName = "$($columnPrefix)InformationClassification"})
 
 $templateConfigurationsList = '/Lists/Templates'
-$baseModulesLibrary = 'BaseModules'
-$subModulesLibrary = 'AppsModules'
+$siteDirectoryList = '/Lists/Sites'
+$baseModulesLibrary = 'Modules'
+$subModulesLibrary = 'Apps'
 $timerIntervalMinutes = 30;
 $propBagTemplateInfoStampKey = "_PnP_AppliedTemplateInfo"
 $propBagMetadataStampKey = "ProjectMetadata"
+$managedPath = 'teams' # sites/teams
+$columnPrefix = 'PZL_'
+$Global:lastContextUrl = ''
+
+$siteDirectorySiteUrl = ([environment]::GetEnvironmentVariable("APPSETTING_SiteDirectoryUrl"))
+$fallbackSiteCollectionAdmin = ([environment]::GetEnvironmentVariable("APPSETTING_PrimarySiteCollectionOwnerEmail"))
+$tenantURL = ([environment]::GetEnvironmentVariable("APPSETTING_TenantURL"))
+$uri = [Uri]$tenantURL
+$tenantUrl = $uri.Scheme + "://" + $uri.Host
+$tenantAdminUrl = $tenantUrl.Replace(".sharepoint", "-admin.sharepoint")
+
+#Azure appsettings variables - remove prefix when adding in azure
+$appId = ([environment]::GetEnvironmentVariable("APPSETTING_AppId"))
+if(!$appId){
+    $appId = ([environment]::GetEnvironmentVariable("APPSETTING_ClientId"))
+}
+
+$appSecret = ([environment]::GetEnvironmentVariable("APPSETTING_AppSecret"))
+if(!$appSecret){
+    $appSecret = ([environment]::GetEnvironmentVariable("APPSETTING_ClientSecret"))
+}
+
+function Connect([string]$Url){
+    if($Url -eq $Global:lastContextUrl){
+        return
+    }
+    if ($appId -ne $null -and $appSecret -ne $null) {
+        #Write-Output "Connecting to $Url using AppId $appId" 
+        Connect-PnPOnline -Url $Url -AppId $appId -AppSecret $appSecret
+    } else {
+        #Write-Output "AppId or AppSecret not defined, try connecting using stored credentials" -ForegroundColor Yellow
+        Connect-PnPOnline -Url $Url
+    }
+    $Global:lastContextUrl = $Url
+}
+
+function GetMailContent{
+    Param(
+        [string]$email,
+        [string]$mailFile
+    )
+    $ext = "en";
+    if($mail) {
+        $ext = $email.Substring($email.LastIndexOf(".")+1)
+    }
+    $filename = "$PSScriptRoot/resources/$mailFile-mail-$ext.txt"
+    if(-not (Test-Path $filename)) {
+        $ext = "en"
+        $filename = "$PSScriptRoot/resources/$mailFile-mail-$ext.txt"
+    }
+    return ([IO.File]::ReadAllText($filename)).Split("|")
+}
+
+function SetRequestAccessEmail([string]$url, [string]$ownersEmail) {
+    Connect -Url $url
+    $emails = Get-PnPRequestAccessEmails
+    if($emails -ne $ownersEmail) {
+        Write-Output "`tSetting site request e-mail to $ownersEmail"    
+        Set-PnPRequestAccessEmails -Emails $ownersEmail
+    }
+}
+
+function DisableMemberSharing([string]$url){
+    Connect -Url $url
+    $web = Get-PnPWeb
+    $canShare = Get-PnPProperty -ClientObject $web -Property MembersCanShare
+    if($canShare) {
+        Write-Output "`tDisabling members from sharing"
+        $web.MembersCanShare = $false
+        $web.Update()
+        $web.Context.ExecuteQuery()
+    }
+}
 
 function GetUniqueUrlFromName($title) {
     Connect -Url $tenantAdminUrl
@@ -55,7 +127,13 @@ function EnsureSite{
     $site = Get-PnPTenantSite -Url $url -ErrorAction SilentlyContinue
     if( $? -eq $false) {
         Write-Output "Site at $url does not exist - let's create it"
-        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdmin -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0" -RemoveDeletedSite:$true
+
+        $siteCollectionAdminToUse = $siteCollectionAdmin
+
+        if ($owner -and $owner.Email) {
+            $siteCollectionAdminToUse = $owner.Email
+        }
+        $site = New-PnPTenantSite -Title $title -Url $url -Owner $siteCollectionAdminToUse -TimeZone 3 -Description $description -Lcid 1033 -Template "STS#0" -RemoveDeletedSite:$true 
         if( $? -eq $false) {
             # send e-mail
             $mailHeadBody = GetMailContent -email $owner.Email -mailFile "fail"
@@ -365,7 +443,13 @@ foreach ($siteItem in $siteDirectoryItems) {
     $members = @($siteItem["$($columnPrefix)SiteMembers"]) | select -ExpandProperty LookupValue
     $visitors = @($siteItem["$($columnPrefix)SiteVisitors"]) | select -ExpandProperty LookupValue
     $ownerAccount = $siteItem["$($columnPrefix)BusinessOwner"].LookupValue
-    $ownerAccount = New-PnPUser -LoginName $ownerAccount 
+
+    if ($ownerAccount -eq $null) {
+        Write-Output "`nError: No valid owner set in the list item $title. Using fallback-admin"
+        $ownerAccount = New-PnPUser -LoginName $fallbackSiteCollectionAdmin 
+    } else {
+        $ownerAccount = New-PnPUser -LoginName $ownerAccount 
+    }
     
     if( $siteItem["$($columnPrefix)SiteURL"] -eq $null) {
         $siteUrl = GetUniqueUrlFromName -title $title
@@ -395,11 +479,7 @@ foreach ($siteItem in $siteDirectoryItems) {
         UpdateStatus -id $siteItem["ID"] -status 'Provisioned'
 
         SetRequestAccessEmail -url $siteUrl -ownersEmail ($ownerEmailAddresses -join ',')
-        if($siteStatus -ne 'Provisioned') {
-            EnableIRM -classification $siteItem["$($columnPrefix)InformationClassification"].Label -siteUrl $siteUrl
-        } else {
-            EnableIRM -ownerEmail $businessOwnerEmailAddress -classification $siteItem["$($columnPrefix)InformationClassification"].Label -siteUrl $siteUrl
-        }
+
         DisableMemberSharing -url $siteUrl
 
         SyncMetadata -siteItem $siteItem -siteUrl $siteUrl -urlToDirectory $urlToSiteDirectory -title $title -description $description

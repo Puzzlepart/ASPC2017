@@ -5,7 +5,7 @@ interface Window {
 
 declare var window: Window;
 
-module ResourceHelper {
+module Pzl.ResourceHelper {
     function startsWith(input: string, searchString: string, position?: number): boolean {
         position = position || 0;
         return input.substr(position, searchString.length) === searchString;
