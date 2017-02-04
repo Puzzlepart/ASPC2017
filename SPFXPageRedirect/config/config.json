@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/pageRedirect/PageRedirectWebPart.js",
+      "manifest": "./src/webparts/pageRedirect/PageRedirectWebPart.manifest.json",
+      "outputPath": "./dist/page-redirect.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "pageRedirectStrings": "webparts/pageRedirect/loc/{locale}.js"
+  }
+}
