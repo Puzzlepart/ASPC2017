@@ -27,17 +27,16 @@ You're good to go!
 ## Installation ##
 
 ### Create Tour Central ###
-1. Create site collection with url /site/tour-central
+1. Create site collection with url /site/directory
 2. Connect-SPOOnline
 3. Apply-SPOProvisioningTemplate <path to TourCentral template.xml>
-4. (optional) Apply-SPOProvisioningTemplate <path to DataTemplates/templateX.xml if tour should be prepoulated>
 
 ### Apply a tour ###
 1. Connect-SPOOnline
 2. Apply-SPOProvisioningTemplate <path to Tour template.xml>
 
 ### Necessary manual configuration ###
-In the web where you installed the tour, go to Lists/TourLog and configure permissions of the list the follow ways. This is necessary in order to persist that people have watched the tour.
+In the web where you installed the tour central, go to Lists/TourLog and configure permissions of the list the follow ways. This is necessary in order to persist that people have watched the tour.
 
 1. Go to list settings --> Permissions --> Add everyone with edit access. Suggest to also cleanup all other groups, but leave the owner group.
 2. Go to list settings --> Advanced settings --> Item-level settings --> Check 'Read items that were created by the user' and check 'Create items and edit items that were created by the user' 

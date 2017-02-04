@@ -8,8 +8,8 @@ namespace Pzl.Office365Tour.DependencyLoader {
         }
     }
     export module References {
-        var CDN_SCRIPTLOCATION = '/sites/tour-central/SiteAssets/pzl-tour/js';
-        var CDN_STYLELOCATION = '/sites/tour-central/SiteAssets/pzl-tour/css';
+        var CDN_SCRIPTLOCATION = '/sites/directory/SiteAssets/pzl-tour/js';
+        var CDN_STYLELOCATION = '/sites/directory/SiteAssets/pzl-tour/css';
 
         function ReferenceCss() {
             if (!Util.IsPageADialog()) {

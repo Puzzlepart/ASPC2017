@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<pnp:Provisioning 
+  xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.11.1701.0, Culture=neutral, PublicKeyToken=null">
+    <pnp:Parameters>
+      <pnp:Parameter Key="CDN-URL">https://publiccdn.sharepointonline.com/appsters2017.sharepoint.com/14550064ec12c5e40d0535ecbda631e812ec4521a87d3e6f671ce5681cc98e91cdf1aa4b</pnp:Parameter>
+    </pnp:Parameters>
+  </pnp:Preferences>
+  <pnp:Templates ID="CONTAINER-TEMPLATE-PZL-ARCHITECT">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-PZL-ARCHITECT" Version="1" BaseSiteTemplate="STS#0">
+      <pnp:ComposedLook Name="Pzl Site Branding" ColorFile="{sitecollection}/_catalogs/Theme/15/architect.spcolor" FontFile="{sitecollection}/_catalogs/Theme/15/architect.spfont" BackgroundFile="" Version="0" />
+      <pnp:Files>
+        <pnp:File Folder="_catalogs/Theme/15" Overwrite="true" Src="ComposedLook\architect.spcolor" />
+        <pnp:File Folder="_catalogs/Theme/15" Overwrite="true" Src="ComposedLook\architect.spfont" />
+      </pnp:Files>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

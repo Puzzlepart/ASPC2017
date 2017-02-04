@@ -2,8 +2,6 @@
     <ul class="project-metadata-list">
     </ul>
 </div>
-<script type="text/javascript" src="/sites/pzl-CDN/SiteAssets/CDN/js/aboutpage.js"></script>
-<script type="text/javascript" src="/sites/pzl-CDN/SiteAssets/CDN/js/projectportal-shared.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         Portal.About.RenderMetadata();

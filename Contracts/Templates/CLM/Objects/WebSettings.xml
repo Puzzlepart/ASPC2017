@@ -1,0 +1,5 @@
+<pnp:WebSettings xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
+        AlternateCSS=""
+        MasterPageUrl="{masterpagecatalog}/seattle.master"
+        CustomMasterPageUrl="{masterpagecatalog}/seattle.master"
+/>

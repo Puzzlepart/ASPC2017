@@ -1,0 +1,230 @@
+<pnp:SiteFields xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+  <Field
+    ID="{ee4484a8-a781-4fd6-ac6e-537445fbec00}"
+    Name="{parameter:GenericFieldsPrefix}ContractType"
+    StaticName="{parameter:GenericFieldsPrefix}ContractType"
+    DisplayName="Contract Type"
+    Type="Choice"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Use customer contract where we are the vendor. Use vendor contracts where we are the customer.">
+        <CHOICES>
+            <CHOICE>Customer Contract</CHOICE>
+            <CHOICE>Vendor Contract</CHOICE>
+            <CHOICE>Employee Contract</CHOICE>
+            <CHOICE>NDA</CHOICE>
+            <CHOICE>Frame Agreement</CHOICE>
+            <CHOICE>Other</CHOICE>
+        </CHOICES>
+        <Default>Other</Default>
+  </Field>
+  <Field
+    ID="{84623b4a-c08e-4e9a-bb78-9b04aa507cc4}"
+    Name="{parameter:GenericFieldsPrefix}ContractDate"
+    StaticName="{parameter:GenericFieldsPrefix}ContractDate"
+    DisplayName="Contract Date"
+    Type="DateTime"
+    Format="DateOnly"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="The date stated in the contract. Typically the signature date.">
+  </Field>
+  <Field
+    ID="{58c3ad71-0564-495f-99a1-2252f42122ec}"
+    Name="{parameter:GenericFieldsPrefix}ToDate"
+    StaticName="{parameter:GenericFieldsPrefix}ToDate"
+    DisplayName="To Date"
+    Type="DateTime"
+    Format="DateOnly"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Date when the contract expires.">
+  </Field>
+  <Field
+    ID="{9325f664-8125-4663-8552-87b66ca577c7}"
+    Name="{parameter:GenericFieldsPrefix}FromDate"
+    StaticName="{parameter:GenericFieldsPrefix}FromDate"
+    DisplayName="From Date"
+    Type="DateTime"
+    Format="DateOnly"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Date when the contract goes into effect.">
+  </Field>
+  <Field
+    ID="{610275b7-d1b1-4dea-865b-59adaef2dc60}"
+    Name="{parameter:GenericFieldsPrefix}OrgParty"
+    StaticName="{parameter:GenericFieldsPrefix}OrgParty"
+    DisplayName="Organization contract party"
+    Type="Text"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Internal organization unit or company name.">
+  </Field>
+  <Field
+    ID="{02354619-ba16-40b1-ad86-523b796a02bb}"
+    Name="{parameter:GenericFieldsPrefix}Owner"
+    StaticName="{parameter:GenericFieldsPrefix}Owner"
+    DisplayName="Owner"
+    Type="User"
+    ShowField="NameWithPictureAndDetails"
+    UserSelectionMode="PeopleOnly"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Internal person responsible for the contract.">
+  </Field>
+  <Field
+    ID="{58dae962-14dc-47f3-8233-a1c7c4014840}"
+    Name="{parameter:GenericFieldsPrefix}ExternalParty"
+    StaticName="{parameter:GenericFieldsPrefix}ExternalParty"
+    DisplayName="External Party"
+    Type="Text"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="External organization or company name.">
+  </Field>
+  <Field
+    ID="{6bb90a43-40c9-40ef-9d1e-a3b94ab6ee72}"
+    Name="{parameter:GenericFieldsPrefix}ExternalContact"
+    StaticName="{parameter:GenericFieldsPrefix}ExternalContact"
+    DisplayName="External Contact"
+    Type="Text"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="External contract responsible.">
+  </Field>
+  <Field
+    ID="{686f0472-2c9e-4708-8f77-9d97589917fd}"
+    Name="{parameter:GenericFieldsPrefix}Industry"
+    StaticName="{parameter:GenericFieldsPrefix}Industry"
+    DisplayName="Contract Category"
+    Type="Choice"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Category of the contract party.">
+        <CHOICES>
+            <CHOICE>Aluminium products</CHOICE>
+            <CHOICE>Aluminium raw material</CHOICE>
+            <CHOICE>CAPEX</CHOICE>
+            <CHOICE>Chemicals</CHOICE>
+            <CHOICE>Coating raw material</CHOICE>
+            <CHOICE>Coating services</CHOICE>
+            <CHOICE>Concrete products</CHOICE>
+            <CHOICE>Electrical components</CHOICE>
+            <CHOICE>Energy and utilities</CHOICE>
+            <CHOICE>Facilities</CHOICE>
+            <CHOICE>Geosynthetics</CHOICE>
+            <CHOICE>Glass products</CHOICE>
+            <CHOICE>ICT</CHOICE>
+            <CHOICE>Leasing</CHOICE>
+            <CHOICE>Marketing</CHOICE>
+            <CHOICE>MRO - Consumables</CHOICE>
+            <CHOICE>MRO - Services</CHOICE>
+            <CHOICE>Office</CHOICE>
+            <CHOICE>Operating services</CHOICE>
+            <CHOICE>Other metal products</CHOICE>
+            <CHOICE>Packaging</CHOICE>
+            <CHOICE>Plastic products</CHOICE>
+            <CHOICE>Plastic raw material</CHOICE>
+            <CHOICE>Steel products</CHOICE>
+            <CHOICE>Steel raw material</CHOICE>
+            <CHOICE>Transport - Ocean</CHOICE>
+            <CHOICE>Transport - Other</CHOICE>
+            <CHOICE>Transport - Road</CHOICE>
+            <CHOICE>Travel</CHOICE>
+            <CHOICE>Water and sewage products</CHOICE>
+            <CHOICE>Zinc</CHOICE>
+        </CHOICES>
+        <Default>Aluminium products</Default>
+  </Field>
+  <Field
+    ID="{7e757b67-dc2c-4ee3-9dc3-d9e5f4a9ed6a}"
+    Name="{parameter:GenericFieldsPrefix}Jurisdiction"
+    StaticName="{parameter:GenericFieldsPrefix}Jurisdiction"
+    DisplayName="Jurisdiction"
+    Type="MultiChoice"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Jurisdiction where the contract applies.">
+        <CHOICES>
+            <CHOICE>Nordics</CHOICE>
+            <CHOICE>EU</CHOICE>
+            <CHOICE>Austria</CHOICE>
+            <CHOICE>Belarus</CHOICE>
+            <CHOICE>Bulgaria</CHOICE>
+            <CHOICE>China</CHOICE>
+            <CHOICE>Czech Republic</CHOICE>
+            <CHOICE>Denmark</CHOICE>
+            <CHOICE>Estonia</CHOICE>
+            <CHOICE>Finland</CHOICE>
+            <CHOICE>Germany</CHOICE>
+            <CHOICE>Hungary</CHOICE>
+            <CHOICE>Latvia</CHOICE>
+            <CHOICE>Lithuania</CHOICE>
+            <CHOICE>Netherlands</CHOICE>
+            <CHOICE>Norway</CHOICE>
+            <CHOICE>Poland</CHOICE>
+            <CHOICE>Romania</CHOICE>
+            <CHOICE>Slovakia</CHOICE>
+            <CHOICE>Sweden</CHOICE>
+            <CHOICE>Turkey</CHOICE>
+            <CHOICE>Ukraina</CHOICE>
+            <CHOICE>United Kingdom</CHOICE>
+        </CHOICES>
+        <Default>Nordics</Default>
+  </Field>
+  <Field
+    ID="{cd47c6d9-883f-410c-a9b5-de643d5c4538}"
+    Name="{parameter:GenericFieldsPrefix}AnnualValue"
+    StaticName="{parameter:GenericFieldsPrefix}AnnualValue"
+    DisplayName="Annual Value"
+    Type="Number"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Value of the contract per year.">
+  </Field>
+  <Field
+    ID="{7d8b31b0-8e0c-4ff4-b4e6-1253a314b961}"
+    Name="{parameter:GenericFieldsPrefix}AnnualValueCurrency"
+    StaticName="{parameter:GenericFieldsPrefix}AnnualValueCurrency"
+    DisplayName="Annual Value Currency"
+    Type="Choice"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Currency used to pay for work done by this contract.">
+        <CHOICES>
+            <CHOICE>NOK</CHOICE>
+            <CHOICE>SEK</CHOICE>
+            <CHOICE>DKK</CHOICE>
+            <CHOICE>EUR</CHOICE>
+            <CHOICE>PKN</CHOICE>
+            <CHOICE>GBP</CHOICE>
+            <CHOICE>USD</CHOICE>
+        </CHOICES>
+        <Default>NOK</Default>
+  </Field>
+  <Field
+    ID="{2ec8958e-7125-4834-ba80-4ec04162d753}"
+    Name="{parameter:GenericFieldsPrefix}NextAttentionDate"
+    StaticName="{parameter:GenericFieldsPrefix}NextAttentionDate"
+    DisplayName="Next Attention Date"
+    Type="DateTime"
+    Format="DateOnly"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Indicates when this contract needs attention next. Typically renegotiation, renewal, contractually stipulated term etc..">
+  </Field>
+  <Field
+    ID="{5ef40b17-2079-4296-b623-8f02857cff76}"
+    Name="{parameter:GenericFieldsPrefix}ContractStatus"
+    StaticName="{parameter:GenericFieldsPrefix}ContractStatus"
+    DisplayName="Contract Status"
+    Type="Choice"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="The contracts state in the lifecycle.">
+        <CHOICES>
+            <CHOICE>Draft</CHOICE>
+            <CHOICE>In Effect</CHOICE>
+            <CHOICE>Expired</CHOICE>
+            <CHOICE>Closed</CHOICE>
+        </CHOICES>
+        <Default></Default>
+  </Field>
+  <Field
+    ID="{c5444fb2-cdd5-4804-8172-f50813894014}"
+    Name="{parameter:GenericFieldsPrefix}ContractNotes"
+    StaticName="{parameter:GenericFieldsPrefix}ContractNotes"
+    DisplayName="Contact Notes"
+    Type="Note"
+    UnlimitedLengthInDocumentLibrary="TRUE"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="Notes about the contract.">
+  </Field>
+</pnp:SiteFields>

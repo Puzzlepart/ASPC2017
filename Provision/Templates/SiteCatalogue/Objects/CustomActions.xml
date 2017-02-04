@@ -1,6 +1,6 @@
 <pnp:CustomActions 
     xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
     <pnp:SiteCustomActions>
-        <pnp:CustomAction Name="pzl-scriptdependencies" Location="ScriptLink" Sequence="1" ScriptBlock="SP.SOD.registerSod('scriptloader.js', '/sites/pzl-cdn/SiteAssets/CDN/js/scriptloader.js?rev=' + new Date().getDate());LoadSodByKey('scriptloader.js');"></pnp:CustomAction>
+        <pnp:CustomAction Name="pzl-global-scriptdependencies" Location="ScriptLink" Sequence="1" ScriptBlock="SP.SOD.registerSod('scriptloader.js', '{parameter:CDN-URL}/js/scriptloader.js?rev=' + new Date().getDate());LoadSodByKey('scriptloader.js');"></pnp:CustomAction>
     </pnp:SiteCustomActions>
 </pnp:CustomActions>

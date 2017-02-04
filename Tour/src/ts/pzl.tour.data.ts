@@ -181,50 +181,75 @@ module Pzl.Office365Tour.Data {
 		}
 		return latestDate;
 	}
+	export function GetFormDigestForSite(url) {
+		var deferred = jQuery.Deferred();
+
+		jQuery.ajax({
+			type: 'POST',
+			headers: {
+				'Accept': 'application/json;odata=verbose'
+			},
+			url: url + '/_api/contextinfo',
+			contentType: 'text/html; charset=utf-8',
+			dataType: 'html',
+			success: function (data, status) {
+				var contextInfo = JSON.parse(data);
+				deferred.resolve(contextInfo.d.GetContextWebInformation.FormDigestValue);
+			},
+			error: function (xmlReq) {
+				console.log('error: ' + xmlReq.status + ' \n\r ' + xmlReq.statusText + '\n\r' + xmlReq.responseText);
+				deferred.reject();
+			}
+		});
+		return deferred.promise();
+	};
 	export function PersistTourWatched(tour, existingTourWatched) {
+		var deferred = jQuery.Deferred();
 		var listName = 'Tour Log';
 
 		var pageRelativeUrl = GetPageRelativeUrl();
 		var lastModified = GetLatestDateOfCollection(tour._options.steps, 'modified');
 
 		var itemType = GetItemTypeForListName(listName);
-		var item = {
-			'__metadata': { 'type': itemType },
-			'Title': 'Tour watched',
-			'PzlTourRelativeUrl': pageRelativeUrl,
-			'PzlTourWatchterId': _spPageContextInfo.userId,
-			'PzlTourModified': lastModified,
-			'PzlTourStepOnEnd': tour._state.current_step
-		};
-		var updateRestAppendix = '';
-		var createHeaders = {
-			'Accept': 'application/json;odata=verbose',
-			'X-RequestDigest': jQuery('#__REQUESTDIGEST').val()
-		};
-		if (existingTourWatched && existingTourWatched.ID) {
-			updateRestAppendix = `(${existingTourWatched.ID})`;
-			var updateHeaders = {
-				'Accept': 'application/json;odata=verbose',
-				'X-RequestDigest': jQuery('#__REQUESTDIGEST').val(),
-				'X-HTTP-Method': 'MERGE',
-				'If-Match': '*'
+
+		jQuery.when(GetFormDigestForSite(Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL)).then(formDigestValue => {
+			var item = {
+				'__metadata': { 'type': itemType },
+				'Title': 'Tour watched',
+				'PzlTourRelativeUrl': pageRelativeUrl,
+				'PzlTourWatchterId': _spPageContextInfo.userId,
+				'PzlTourModified': lastModified,
+				'PzlTourStepOnEnd': tour._state.current_step
 			};
-		}
-		var deferred = jQuery.Deferred();
-		jQuery.ajax({
-			url: `${Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL}/_api/web/lists/getbytitle('${listName}')/items${updateRestAppendix}`,
-			type: 'POST',
-			contentType: 'application/json;odata=verbose',
-			data: JSON.stringify(item),
-			headers: updateHeaders ? updateHeaders : createHeaders,
-			success: function (data) {
-				Pzl.Office365Tour.Log('Persisted tour watched for current user');
-				deferred.resolve(data);
-			},
-			error: function (data) {
-				Pzl.Office365Tour.Log('Unable to persist tour watched for current user');
-				deferred.resolve(data);
+			var updateRestAppendix = '';
+			var createHeaders = {
+				'Accept': 'application/json;odata=verbose',
+				'X-RequestDigest': formDigestValue
+			};
+			if (existingTourWatched && existingTourWatched.ID) {
+				updateRestAppendix = `(${existingTourWatched.ID})`;
+				var updateHeaders = {
+					'Accept': 'application/json;odata=verbose',
+					'X-RequestDigest': formDigestValue,
+					'X-HTTP-Method': 'MERGE',
+					'If-Match': '*'
+				};
 			}
+			jQuery.ajax({
+				url: `${Pzl.Office365Tour.Resources.TOUR_CENTRAL_URL}/_api/web/lists/getbytitle('${listName}')/items${updateRestAppendix}`,
+				type: 'POST',
+				contentType: 'application/json;odata=verbose',
+				data: JSON.stringify(item),
+				headers: updateHeaders ? updateHeaders : createHeaders,
+				success: function (data) {
+					Pzl.Office365Tour.Log('Persisted tour watched for current user');
+					deferred.resolve(data);
+				},
+				error: function (data) {
+					Pzl.Office365Tour.Log('Unable to persist tour watched for current user');
+					deferred.resolve(data);
+				}
+			});
 		});
 		return deferred.promise();
 	}

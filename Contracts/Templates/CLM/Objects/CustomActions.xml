@@ -1,0 +1,13 @@
+<pnp:CustomActions xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:SiteCustomActions>
+        <pnp:CustomAction Name="clm-branding-css" Location="ScriptLink" Sequence="20"
+            ScriptBlock="document.write('&lt;link rel=&quot;stylesheet&quot; After=&quot;Corev15.css&quot; type=&quot;text/css&quot; href=&quot;~sitecollection/SiteAssets/contracts/css/clm.main.css&quot;&gt;&lt;/' + 'link&gt;');">
+        </pnp:CustomAction>
+        <pnp:CustomAction Name="clm-material-css" Location="ScriptLink" Sequence="25"
+            ScriptBlock="document.write('&lt;link rel=&quot;stylesheet&quot; After=&quot;Corev15.css&quot; type=&quot;text/css&quot; href=&quot;~sitecollection/SiteAssets/contracts/css/material-design-icons.css&quot;&gt;&lt;/' + 'link&gt;');">
+        </pnp:CustomAction>
+        <pnp:CustomAction Name="clm-jquery-js" Location="ScriptLink" Sequence="30" ScriptSrc="~sitecollection/SiteAssets/contracts/js/libs/jquery.min.js"></pnp:CustomAction>
+        <pnp:CustomAction Name="clm-global-js" Location="ScriptLink" Sequence="50" ScriptSrc="~sitecollection/SiteAssets/contracts/js/clm.global.js"></pnp:CustomAction>
+    </pnp:SiteCustomActions>
+</pnp:CustomActions>
+

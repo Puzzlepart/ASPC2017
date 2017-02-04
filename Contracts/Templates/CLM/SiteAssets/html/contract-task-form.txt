@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    "use strict";
+    (function($) {
+        function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName;
+
+            for (var i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        }
+
+        function init() {
+            jQuery(document).ready(function() {
+                var relatedContractUrl = getUrlParameter("url");
+                var contractTitle = getUrlParameter("title");
+                var dueDate = getUrlParameter("duedate");
+                jQuery("[id^='CLMRelatedContract'][id$='TextField']").val(relatedContractUrl);
+                jQuery("[id^='Title'][id$='TextField']").val(contractTitle);
+                jQuery("[id^='DueDate'][id$='DateTimeFieldDate']").val(dueDate);
+            });
+        }
+        ExecuteOrDelayUntilBodyLoaded(function() {
+            init();
+        });
+    })(jQuery);
+</script>

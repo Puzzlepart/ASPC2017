@@ -1,0 +1,1 @@
+Get-ChildItem ".\Templates\CLM\Resources\DefaultMetadata\" -Recurse -Exclude *-tokens* -File | Remove-Item

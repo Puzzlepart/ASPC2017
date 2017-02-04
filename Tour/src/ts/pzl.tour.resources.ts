@@ -1,7 +1,7 @@
 /// <reference path="pzl.tour.ts" />
 
 module Pzl.Office365Tour.Resources {
-    export const TOUR_CENTRAL_URL = '/sites/tour-central';
+    export const TOUR_CENTRAL_URL = '/sites/directory';
     export class Provider {
         private _resources: { [key: string]: string; };
 

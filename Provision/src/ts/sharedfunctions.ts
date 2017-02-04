@@ -1,10 +1,9 @@
 namespace Pzl.SharedResources {
     export module CDN {
         export const SITECOL_SERVER_RELATIVE_URL = '/sites/pzl-cdn';
-        export const ROOT_FOLDER = SITECOL_SERVER_RELATIVE_URL + '/SiteAssets/CDN';
+        export const ROOT_FOLDER = 'https://publiccdn.sharepointonline.com/appsters2017.sharepoint.com/14550064ec12c5e40d0535ecbda631e812ec4521a87d3e6f671ce5681cc98e91cdf1aa4b';
         export const DIRECTIVES_FOLDER = ROOT_FOLDER + '/html';
         export const IMAGES_FOLDER = ROOT_FOLDER + '/img';
-        export const SOURCELOGOS_FOLDER = IMAGES_FOLDER + '/sourcelogos';
         export const CSS_FOLDER = ROOT_FOLDER + '/css';
         export const LIBS_FOLDER = ROOT_FOLDER + '/libs';
         export const SCRIPT_FOLDER = ROOT_FOLDER + '/js';
