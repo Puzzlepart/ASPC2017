@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "spfx-page-redirect-client-side-solution",
+    "id": "d49bd798-ee2c-401b-8509-6e9a6f3b702d",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-page-redirect.sppkg"
+  }
+}
