@@ -1,0 +1,21 @@
+<pnp:ContentTypes xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:ContentType ID="0x0101001EF5C4B485214A23BE827166FAEBCBD2" Name="Contract" Description="" Group="{parameter:GenericContentTypesGroup}">
+        <pnp:FieldRefs>
+            <pnp:FieldRef ID="ee4484a8-a781-4fd6-ac6e-537445fbec00" Name="{parameter:GenericFieldsPrefix}ContractType" />
+            <pnp:FieldRef ID="84623b4a-c08e-4e9a-bb78-9b04aa507cc4" Name="{parameter:GenericFieldsPrefix}ContractDate" />
+            <pnp:FieldRef ID="9325f664-8125-4663-8552-87b66ca577c7" Name="{parameter:GenericFieldsPrefix}FromDate" />
+            <pnp:FieldRef ID="58c3ad71-0564-495f-99a1-2252f42122ec" Name="{parameter:GenericFieldsPrefix}ToDate" />
+            <pnp:FieldRef ID="610275b7-d1b1-4dea-865b-59adaef2dc60" Name="{parameter:GenericFieldsPrefix}OrgParty" />
+            <pnp:FieldRef ID="02354619-ba16-40b1-ad86-523b796a02bb" Name="{parameter:GenericFieldsPrefix}Owner" />
+            <pnp:FieldRef ID="58dae962-14dc-47f3-8233-a1c7c4014840" Name="{parameter:GenericFieldsPrefix}ExternalParty" />
+            <pnp:FieldRef ID="6bb90a43-40c9-40ef-9d1e-a3b94ab6ee72" Name="{parameter:GenericFieldsPrefix}ExternalContact" />
+            <pnp:FieldRef ID="686f0472-2c9e-4708-8f77-9d97589917fd" Name="{parameter:GenericFieldsPrefix}Industry" />
+            <pnp:FieldRef ID="7e757b67-dc2c-4ee3-9dc3-d9e5f4a9ed6a" Name="{parameter:GenericFieldsPrefix}Jurisdiction" />
+            <pnp:FieldRef ID="cd47c6d9-883f-410c-a9b5-de643d5c4538" Name="{parameter:GenericFieldsPrefix}AnnualValue" />
+            <pnp:FieldRef ID="7d8b31b0-8e0c-4ff4-b4e6-1253a314b961" Name="{parameter:GenericFieldsPrefix}AnnualValueCurrency" />
+            <pnp:FieldRef ID="2ec8958e-7125-4834-ba80-4ec04162d753" Name="{parameter:GenericFieldsPrefix}NextAttentionDate" />
+            <pnp:FieldRef ID="5ef40b17-2079-4296-b623-8f02857cff76" Name="{parameter:GenericFieldsPrefix}ContractStatus" />
+            <pnp:FieldRef ID="c5444fb2-cdd5-4804-8172-f50813894014" Name="{parameter:GenericFieldsPrefix}ContractNotes" />
+         </pnp:FieldRefs>
+    </pnp:ContentType>
+</pnp:ContentTypes>

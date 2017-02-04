@@ -1,0 +1,703 @@
+ <pnp:Files xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:File Folder="SiteAssets/contracts/css" Overwrite="true" Src="..\..\node_modules\material-design-icons-iconfont\dist\material-design-icons.css" />
+    <pnp:File Folder="SiteAssets/contracts/css/fonts" Overwrite="true" Src="..\..\node_modules\material-design-icons-iconfont\dist\fonts\MaterialIcons-Regular.eot" />
+    <pnp:File Folder="SiteAssets/contracts/css/fonts" Overwrite="true" Src="..\..\node_modules\material-design-icons-iconfont\dist\fonts\MaterialIcons-Regular.ijmap" />
+    <pnp:File Folder="SiteAssets/contracts/css/fonts" Overwrite="true" Src="..\..\node_modules\material-design-icons-iconfont\dist\fonts\MaterialIcons-Regular.svg" />
+    <pnp:File Folder="SiteAssets/contracts/css/fonts" Overwrite="true" Src="..\..\node_modules\material-design-icons-iconfont\dist\fonts\MaterialIcons-Regular.ttf" />
+    <pnp:File Folder="SiteAssets/contracts/css/fonts" Overwrite="true" Src="..\..\node_modules\material-design-icons-iconfont\dist\fonts\MaterialIcons-Regular.woff" />
+    <pnp:File Folder="SiteAssets/contracts/css/fonts" Overwrite="true" Src="..\..\node_modules\material-design-icons-iconfont\dist\fonts\MaterialIcons-Regular.woff2" />
+    <pnp:File Folder="SiteAssets/contracts/js/libs" Overwrite="true" Src="..\..\node_modules\jquery\dist\jquery.min.js" />
+    <pnp:File Folder="SiteAssets/contracts/js/libs" Overwrite="true" Src="..\..\node_modules\moment\min\moment.min.js" />
+    <pnp:File Folder="SiteAssets/contracts/img" Overwrite="true" Src="SiteAssets\img\contracts-logo.png" />
+    <pnp:File Folder="SiteAssets/contracts/css" Overwrite="true" Src="SiteAssets\css\clm.main.css" />
+    <pnp:File Folder="SiteAssets/contracts/js" Overwrite="true" Src="SiteAssets\js\clm.global.js" />
+    <pnp:File Folder="SiteAssets/contracts/js" Overwrite="true" Src="SiteAssets\js\clm.discover.js" />
+    <pnp:File Folder="SiteAssets/contracts/html" Overwrite="true" Src="SiteAssets\html\clm-browse-box.txt" />
+    <pnp:File Folder="SiteAssets/contracts/html" Overwrite="true" Src="SiteAssets\html\clm-discover-box.txt" />
+    <pnp:File Folder="SiteAssets/contracts/html" Overwrite="true" Src="SiteAssets\html\clm-discover-inject.txt" />
+    <pnp:File Folder="SiteAssets/contracts/html" Overwrite="true" Src="SiteAssets\html\clm-tasks-box.txt" />
+    <pnp:File Folder="SiteAssets/contracts/html" Overwrite="true" Src="SiteAssets\html\contract-task-form.txt" />
+    <!-- Demo Contract -->
+    <pnp:File Folder="CentralLibrary" Overwrite="true" Src="DemoDocument\DemoContract.docx">
+        <pnp:Properties>
+            <pnp:Property Key="Title" Value="Demo Contract" />
+            <pnp:Property Key="CLMOrgParty" Value="Puzzlepart" />
+            <pnp:Property Key="CLMExternalParty" Value="Crayon" />
+        </pnp:Properties>
+    </pnp:File>
+    <!-- Master Page Gallery -->
+    <pnp:File Folder="_catalogs/masterpage/Display Templates/Content Web Parts" Src="DisplayTemplates\Item_CLM_Browse.html" Overwrite="true"></pnp:File>
+    <pnp:File Folder="_catalogs/masterpage/Display Templates/Content Web Parts" Src="DisplayTemplates\Item_CLM_Discover.html" Overwrite="true"></pnp:File>
+    <pnp:File Folder="_catalogs/masterpage/Display Templates/Content Web Parts" Src="DisplayTemplates\Control_CLM_Browse.html" Overwrite="true"></pnp:File>
+    <pnp:File Folder="_catalogs/masterpage/Display Templates/Content Web Parts" Src="DisplayTemplates\Control_CLM_Discover.html" Overwrite="true"></pnp:File>
+    <!-- Site Pages -->
+    <pnp:File Folder="SitePages" Overwrite="true" Src="SitePages\Contracts.aspx">
+        <pnp:Properties>
+            <pnp:Property Key="Title" Value="Contracts" />
+        </pnp:Properties>
+        <pnp:WebParts>
+            <pnp:WebPart Title="Browse Contracts" Order="0" Zone="TopLeftColumn">
+                <pnp:Contents>
+                    <WebPart xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/WebPart/v2">
+                    <Title>Browse Contracts</Title>
+                    <FrameType>None</FrameType>
+                    <Description>Allows authors to enter rich text content.</Description>
+                    <IsIncluded>true</IsIncluded>
+                    <ZoneID>TopLeftColumn</ZoneID>
+                    <PartOrder>0</PartOrder>
+                    <FrameState>Normal</FrameState>
+                    <Height />
+                    <Width />
+                    <AllowRemove>true</AllowRemove>
+                    <AllowZoneChange>true</AllowZoneChange>
+                    <AllowMinimize>true</AllowMinimize>
+                    <AllowConnect>true</AllowConnect>
+                    <AllowEdit>true</AllowEdit>
+                    <AllowHide>true</AllowHide>
+                    <IsVisible>true</IsVisible>
+                    <DetailLink />
+                    <HelpLink />
+                    <HelpMode>Modeless</HelpMode>
+                    <Dir>Default</Dir>
+                    <PartImageSmall />
+                    <MissingAssembly>Cannot import this Web Part.</MissingAssembly>
+                    <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>
+                    <IsIncludedFilter />
+                    <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>
+                    <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>
+                    <ContentLink xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{sitecollection}/SiteAssets/contracts/html/clm-browse-box.txt</ContentLink>
+                    <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    <PartStorage xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    </WebPart>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Manage tasks" Order="0" Zone="TopMiddleColumn">
+                <pnp:Contents>
+                    <WebPart xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/WebPart/v2">
+                    <Title>Manage tasks</Title>
+                    <FrameType>None</FrameType>
+                    <Description>Allows authors to enter rich text content.</Description>
+                    <IsIncluded>true</IsIncluded>
+                    <ZoneID>TopMiddleColumn</ZoneID>
+                    <PartOrder>0</PartOrder>
+                    <FrameState>Normal</FrameState>
+                    <Height />
+                    <Width />
+                    <AllowRemove>true</AllowRemove>
+                    <AllowZoneChange>true</AllowZoneChange>
+                    <AllowMinimize>true</AllowMinimize>
+                    <AllowConnect>true</AllowConnect>
+                    <AllowEdit>true</AllowEdit>
+                    <AllowHide>true</AllowHide>
+                    <IsVisible>true</IsVisible>
+                    <DetailLink />
+                    <HelpLink />
+                    <HelpMode>Modeless</HelpMode>
+                    <Dir>Default</Dir>
+                    <PartImageSmall />
+                    <MissingAssembly>Cannot import this Web Part.</MissingAssembly>
+                    <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>
+                    <IsIncludedFilter />
+                    <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>
+                    <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>
+                    <ContentLink xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{sitecollection}/SiteAssets/contracts/html/clm-tasks-box.txt</ContentLink>
+                    <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    <PartStorage xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    </WebPart>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Discover Contracts" Order="0" Zone="TopRightColumn">
+                <pnp:Contents>
+                    <WebPart xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/WebPart/v2">
+                    <Title>Discover Contracts</Title>
+                    <FrameType>None</FrameType>
+                    <Description>Allows authors to enter rich text content.</Description>
+                    <IsIncluded>true</IsIncluded>
+                    <ZoneID>TopRightColumn</ZoneID>
+                    <PartOrder>0</PartOrder>
+                    <FrameState>Normal</FrameState>
+                    <Height />
+                    <Width />
+                    <AllowRemove>true</AllowRemove>
+                    <AllowZoneChange>true</AllowZoneChange>
+                    <AllowMinimize>true</AllowMinimize>
+                    <AllowConnect>true</AllowConnect>
+                    <AllowEdit>true</AllowEdit>
+                    <AllowHide>true</AllowHide>
+                    <IsVisible>true</IsVisible>
+                    <DetailLink />
+                    <HelpLink />
+                    <HelpMode>Modeless</HelpMode>
+                    <Dir>Default</Dir>
+                    <PartImageSmall />
+                    <MissingAssembly>Cannot import this Web Part.</MissingAssembly>
+                    <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>
+                    <IsIncludedFilter />
+                    <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>
+                    <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>
+                    <ContentLink xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{sitecollection}/SiteAssets/contracts/html/clm-discover-box.txt</ContentLink>
+                    <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    <PartStorage xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    </WebPart>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Contract Tasks" Order="0" Zone="MainColumn">
+                <pnp:Contents>
+                    <webParts>
+                        <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+                            <metaData>
+                            <type name="Microsoft.SharePoint.WebPartPages.XsltListViewWebPart, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+                            <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                            </metaData>
+                            <data>
+                            <properties>
+                                <property name="ShowWithSampleData" type="bool">False</property>
+                                <property name="Default" type="string" />
+                                <property name="NoDefaultStyle" type="string" />
+                                <property name="CacheXslStorage" type="bool">True</property>
+                                <property name="ViewContentTypeId" type="string" />
+                                <property name="XmlDefinitionLink" type="string" />
+                                <property name="ManualRefresh" type="bool">False</property>
+                                <property name="ListUrl" type="string" null="true" />
+                                <property name="ListId" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">{listid:Contract Tasks}</property>
+                                <property name="TitleUrl" type="string">{site}/Lists/ContractTasks</property>
+                                <property name="EnableOriginalValue" type="bool">False</property>
+                                <property name="Direction" type="direction">NotSet</property>
+                                <property name="ServerRender" type="bool">False</property>
+                                <property name="ViewFlags" type="Microsoft.SharePoint.SPViewFlags, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">Html, TabularView, Hidden, Mobile</property>
+                                <property name="AllowConnect" type="bool">True</property>
+                                <property name="ListName" type="string">{{listid:Contract Tasks}}</property>
+                                <property name="ListDisplayName" type="string" null="true" />
+                                <property name="AllowZoneChange" type="bool">True</property>
+                                <property name="ChromeState" type="chromestate">Normal</property>
+                                <property name="DisableSaveAsNewViewButton" type="bool">False</property>
+                                <property name="ViewFlag" type="string" />
+                                <property name="DataSourceID" type="string" />
+                                <property name="ExportMode" type="exportmode">All</property>
+                                <property name="AutoRefresh" type="bool">False</property>
+                                <property name="FireInitialRow" type="bool">True</property>
+                                <property name="AllowEdit" type="bool">True</property>
+                                <property name="Description" type="string" />
+                                <property name="HelpMode" type="helpmode">Modeless</property>
+                                <property name="BaseXsltHashKey" type="string" null="true" />
+                                <property name="AllowMinimize" type="bool">True</property>
+                                <property name="CacheXslTimeOut" type="int">86400</property>
+                                <property name="ChromeType" type="chrometype">Default</property>
+                                <property name="Xsl" type="string" null="true" />
+                                <property name="JSLink" type="string" null="true" />
+                                <property name="CatalogIconImageUrl" type="string">/_layouts/15/images/ittask.png?rev=43</property>
+                                <property name="SampleData" type="string" null="true" />
+                                <property name="UseSQLDataSourcePaging" type="bool">True</property>
+                                <property name="TitleIconImageUrl" type="string" />
+                                <property name="PageSize" type="int">-1</property>
+                                <property name="ShowTimelineIfAvailable" type="bool">True</property>
+                                <property name="Width" type="string" />
+                                <property name="DataFields" type="string" />
+                                <property name="Hidden" type="bool">False</property>
+                                <property name="Title" type="string" />
+                                <property name="PageType" type="Microsoft.SharePoint.PAGETYPE, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">PAGE_NORMALVIEW</property>
+                                <property name="DataSourcesString" type="string" />
+                                <property name="AllowClose" type="bool">True</property>
+                                <property name="InplaceSearchEnabled" type="bool">True</property>
+                                <property name="WebId" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">00000000-0000-0000-0000-000000000000</property>
+                                <property name="Height" type="string" />
+                                <property name="GhostedXslLink" type="string">main.xsl</property>
+                                <property name="DisableViewSelectorMenu" type="bool">False</property>
+                                <property name="DisplayName" type="string" />
+                                <property name="IsClientRender" type="bool">False</property>
+                                <property name="XmlDefinition" type="string">&lt;View Name="{43878C19-CA09-4943-B12D-DECD23812F85}" MobileView="TRUE" Type="HTML" Hidden="TRUE" DisplayName="" Url="{site}/SitePages/Home.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/issuelst.png?rev=43" &gt;&lt;ViewFields&gt;&lt;FieldRef Name="Checkmark"/&gt;&lt;FieldRef Name="LinkTitle"/&gt;&lt;FieldRef Name="DueDate"/&gt;&lt;FieldRef Name="AssignedTo"/&gt;&lt;/ViewFields&gt;&lt;RowLimit Paged="TRUE"&gt;100&lt;/RowLimit&gt;&lt;JSLink&gt;hierarchytaskslist.js&lt;/JSLink&gt;&lt;XslLink Default="TRUE"&gt;main.xsl&lt;/XslLink&gt;&lt;Toolbar Type="Standard"/&gt;&lt;/View&gt;</property>
+                                <property name="InitialAsyncDataFetch" type="bool">False</property>
+                                <property name="AllowHide" type="bool">True</property>
+                                <property name="ParameterBindings" type="string">&lt;ParameterBinding Name="dvt_sortdir" Location="Postback;Connection"/&gt;
+                                    &lt;ParameterBinding Name="dvt_sortfield" Location="Postback;Connection"/&gt;
+                                    &lt;ParameterBinding Name="dvt_startposition" Location="Postback" DefaultValue=""/&gt;
+                                    &lt;ParameterBinding Name="dvt_firstrow" Location="Postback;Connection"/&gt;
+                                    &lt;ParameterBinding Name="OpenMenuKeyAccessible" Location="Resource(wss,OpenMenuKeyAccessible)" /&gt;
+                                    &lt;ParameterBinding Name="open_menu" Location="Resource(wss,open_menu)" /&gt;
+                                    &lt;ParameterBinding Name="select_deselect_all" Location="Resource(wss,select_deselect_all)" /&gt;
+                                    &lt;ParameterBinding Name="idPresEnabled" Location="Resource(wss,idPresEnabled)" /&gt; &lt;ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" /&gt;
+                                    &lt;ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(core,noXinviewofY_DEFAULT)" /&gt;
+                                    &lt;ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" /&gt;
+                                    &lt;ParameterBinding Name="MoreAnnouncements" Location="Resource(wss,moreItemsParen)" /&gt;
+                                </property>
+                                <property name="DataSourceMode" type="Microsoft.SharePoint.WebControls.SPDataSourceMode, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">List</property>
+                                <property name="AutoRefreshInterval" type="int">60</property>
+                                <property name="AsyncRefresh" type="bool">False</property>
+                                <property name="HelpUrl" type="string" />
+                                <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
+                                <property name="XslLink" type="string" null="true" />
+                                <property name="SelectParameters" type="string" />
+                                <property name="HasClientDataSource" type="bool">False</property>
+                            </properties>
+                            </data>
+                        </webPart>
+                    </webParts>
+                </pnp:Contents>
+            </pnp:WebPart>
+        </pnp:WebParts>
+    </pnp:File>
+    <pnp:File Folder="SitePages" Overwrite="true" Src="SitePages\Discover.aspx">
+        <pnp:Properties>
+            <pnp:Property Key="Title" Value="Discover" />
+        </pnp:Properties>
+        <pnp:WebParts>
+            <pnp:WebPart Title="Refine Contracts" Order="0" Zone="LeftColumn">
+                <pnp:Contents>
+                    <webParts>
+                        <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+                            <metaData>
+                            <type name="Microsoft.Office.Server.Search.WebControls.RefinementScriptWebPart, Microsoft.Office.Server.Search, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+                            <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                            </metaData>
+                            <data>
+                            <properties>
+                                <property name="HelpUrl" type="string" />
+                                <property name="UseManagedNavigationRefiners" type="bool">False</property>
+                                <property name="TitleUrl" type="string" />
+                                <property name="Hidden" type="bool">False</property>
+                                <property name="ChromeType" type="chrometype">None</property>
+                                <property name="AllowClose" type="bool">True</property>
+                                <property name="TitleIconImageUrl" type="string" />
+                                <property name="AllowMinimize" type="bool">True</property>
+                                <property name="AllowEdit" type="bool">True</property>
+                                <property name="Direction" type="direction">NotSet</property>
+                                <property name="Height" type="string" />
+                                <property name="AllowConnect" type="bool">True</property>
+                                <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
+                                <property name="AllowHide" type="bool">True</property>
+                                <property name="Description" type="string">This webpart helps the users to refine search results</property>
+                                <property name="StatesJson" type="string">{}</property>
+                                <property name="QueryGroupName" type="string">Default</property>
+                                <property name="ChromeState" type="chromestate">Normal</property>
+                                <property name="ExportMode" type="exportmode">All</property>
+                                <property name="AllowZoneChange" type="bool">True</property>
+                                <property name="RenderTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Filters/Control_Refinement.js</property>
+                                <property name="CatalogIconImageUrl" type="string" />
+                                <property name="EmitStyleReference" type="bool">True</property>
+                                <property name="HelpMode" type="helpmode">Modeless</property>
+                                <property name="Title" type="string">Refine Contracts</property>
+                                <property name="AlternateErrorMessage" type="string" null="true" />
+                                <property name="Width" type="string" />
+                                <property name="EmptyMessage" type="string" />
+                                <property name="ServerIncludeScriptsJson" type="string">null</property>
+                                <property name="SelectedRefinementControlsJson" type="string">{"refinerConfigurations":[{"propertyName":"FileType","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":21,"displayName":"","useDefaultDateIntervals":false,"aliases":["format"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"contentclass","deepHits":100000,"displayName":null,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","maxNumberRefinementOptions":10,"type":"Text","refinerSpecStringOverride":null,"useDefaultDateIntervals":false,"isInherited":false,"sortBy":0,"sortOrder":0,"intervals":null,"aliases":["DAV:contentclass"]},{"propertyName":"RefinableString04","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_MultiValue.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Site","useDefaultDateIntervals":false,"aliases":["SiteTitleRefinable"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"ContentTypeId","deepHits":100000,"displayName":null,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","maxNumberRefinementOptions":15,"type":"Text","refinerSpecStringOverride":null,"useDefaultDateIntervals":false,"isInherited":false,"sortBy":0,"sortOrder":0,"intervals":null,"aliases":null},{"propertyName":"WebTemplate","deepHits":100000,"displayName":null,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","maxNumberRefinementOptions":10,"type":"Text","refinerSpecStringOverride":null,"useDefaultDateIntervals":false,"isInherited":false,"sortBy":0,"sortOrder":0,"intervals":null,"aliases":null},{"propertyName":"DisplayAuthor","deepHits":100000,"displayName":null,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","maxNumberRefinementOptions":9,"type":"Text","refinerSpecStringOverride":null,"useDefaultDateIntervals":false,"isInherited":false,"sortBy":0,"sortOrder":0,"intervals":null,"aliases":null},{"propertyName":"LastModifiedTime","deepHits":100000,"displayName":null,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_SliderBarGraph.js","maxNumberRefinementOptions":0,"type":"DateTime","refinerSpecStringOverride":null,"useDefaultDateIntervals":true,"isInherited":false,"sortBy":0,"sortOrder":0,"intervals":null,"aliases":["Write","FileWrite","DAV:getlastmodified"]}]}</property>
+                            </properties>
+                            </data>
+                        </webPart>
+                    </webParts>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Search box" Order="1" Zone="MainColumn">
+                <pnp:Contents>
+                    <webParts>
+                        <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+                            <metaData>
+                            <type name="Microsoft.Office.Server.Search.WebControls.SearchBoxScriptWebPart, Microsoft.Office.Server.Search, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+                            <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                            </metaData>
+                            <data>
+                            <properties>
+                                <property name="ChromeType" type="chrometype">None</property>
+                                <property name="QuerySuggestionMinimumPrefixLength" type="int">2</property>
+                                <property name="Height" type="string" />
+                                <property name="AdvancedSearchPageAddress" type="string">advanced.aspx</property>
+                                <property name="AllowEmptySearch" type="bool">False</property>
+                                <property name="AllowZoneChange" type="bool">True</property>
+                                <property name="AllowEdit" type="bool">True</property>
+                                <property name="ShowPreferencesLink" type="bool">False</property>
+                                <property name="Hidden" type="bool">False</property>
+                                <property name="UpdatePageTitle" type="bool">False</property>
+                                <property name="Width" type="string" />
+                                <property name="Direction" type="direction">NotSet</property>
+                                <property name="UseSharedSettings" type="bool">False</property>
+                                <property name="EmitStyleReference" type="bool">True</property>
+                                <property name="AllowConnect" type="bool">True</property>
+                                <property name="AllowMinimize" type="bool">True</property>
+                                <property name="AllowClose" type="bool">True</property>
+                                <property name="HelpMode" type="helpmode">Modeless</property>
+                                <property name="ShowNavigation" type="bool">False</property>
+                                <property name="ExportMode" type="exportmode">All</property>
+                                <property name="QuerySuggestionsSourceID" type="string" null="true" />
+                                <property name="InitialPrompt" type="string" null="true" />
+                                <property name="QuerySuggestionCount" type="int">5</property>
+                                <property name="ShowPeopleNameSuggestions" type="bool">False</property>
+                                <property name="ChromeState" type="chromestate">Normal</property>
+                                <property name="AllowHide" type="bool">True</property>
+                                <property name="StatesJson" type="string">{}</property>
+                                <property name="RenderTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Search/Control_SearchBox.js</property>
+                                <property name="Title" type="string">Search box</property>
+                                <property name="Description" type="string">Displays a search box that allows users to search for information.</property>
+                                <property name="ServerInitialRender" type="bool">False</property>
+                                <property name="CatalogIconImageUrl" type="string" />
+                                <property name="MsBeforeShowingProgress" type="int">500</property>
+                                <property name="PageTitlePrefix" type="string" />
+                                <property name="ServerIncludeScriptsJson" type="string">null</property>
+                                <property name="TitleUrl" type="string" />
+                                <property name="AlternateErrorMessage" type="string" null="true" />
+                                <property name="ShowQuerySuggestions" type="bool">True</property>
+                                <property name="DefaultDropdownNodeId" type="int">0</property>
+                                <property name="SetFocusOnPageLoad" type="bool">False</property>
+                                <property name="ResultsPageAddress" type="string" null="true" />
+                                <property name="ShowAdvancedLink" type="bool">False</property>
+                                <property name="PersonalResultCount" type="int">3</property>
+                                <property name="TryInplaceQuery" type="bool">True</property>
+                                <property name="MaintainQueryState" type="bool">False</property>
+                                <property name="HelpUrl" type="string" />
+                                <property name="QuerySuggestionCompletionInterval" type="int">100</property>
+                                <property name="QueryGroupNamesJson" type="string">["Default"]</property>
+                                <property name="TitleIconImageUrl" type="string" />
+                                <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
+                            </properties>
+                            </data>
+                        </webPart>
+                    </webParts>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Search results" Order="2" Zone="MainColumn">
+                <pnp:Contents>
+                    <webParts>
+                        <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+                            <metaData>
+                            <type name="Microsoft.Office.Server.Search.WebControls.ContentBySearchWebPart, Microsoft.Office.Server.Search, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+                            <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                            </metaData>
+                            <data>
+                            <properties>
+                                <property name="StatesJson" type="string">{}</property>
+                                <property name="UseSharedDataProvider" type="bool">False</property>
+                                <property name="UseSimplifiedQueryBuilder" type="bool">False</property>
+                                <property name="QueryGroupName" type="string">Default</property>
+                                <property name="LogAnalyticsViewEvent" type="bool">False</property>
+                                <property name="SelectedPropertiesJson" type="string">["ServerRedirectedPreviewURL","PublishingImage","PictureURL","PictureThumbnailURL","Path","Title","sitetitle","write","SecondaryFileExtension","ContentTypeId","EditorOWSUSER","ListItemID","ParentLink","spweburl","ServerRedirectedEmbedURL","CLMNextAttentionDateOWSDATE","CLMContractTypeOWSCHCS","CLMExternalPartyOWSTEXT","CLMIndustryOWSCHCS","CLMToDateOWSDATE","CLMFromDateOWSDATE","CLMOrgPartyOWSTEXT","FileType"]</property>
+                                <property name="PropertyMappings" type="string" />
+                                <property name="ShowAdvancedLink" type="bool">True</property>
+                                <property name="NumberOfItems" type="int">20</property>
+                                <property name="EmitStyleReference" type="bool">True</property>
+                                <property name="ShowPreferencesLink" type="bool">True</property>
+                                <property name="ServerIncludeScriptsJson" type="string">null</property>
+                                <property name="IncludeResultTypeConstraint" type="bool">False</property>
+                                <property name="Height" type="string" />
+                                <property name="MaxPagesBeforeCurrent" type="int">4</property>
+                                <property name="ResultType" type="string" />
+                                <property name="ShowDidYouMean" type="bool">False</property>
+                                <property name="StartingItemIndex" type="int">1</property>
+                                <property name="AlwaysRenderOnServer" type="bool">False</property>
+                                <property name="GroupTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Content Web Parts/Group_Content.js</property>
+                                <property name="ResultTypeId" type="string" />
+                                <property name="ItemTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Content Web Parts/Item_CLM_Discover.js</property>
+                                <property name="AllowConnect" type="bool">True</property>
+                                <property name="HelpUrl" type="string" />
+                                <property name="ResultsPerPage" type="int">20</property>
+                                <property name="RenderTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Content Web Parts/Control_CLM_Discover.js</property>
+                                <property name="AllowEdit" type="bool">True</property>
+                                <property name="AllowZoneChange" type="bool">True</property>
+                                <property name="AddSEOPropertiesFromSearch" type="bool">False</property>
+                                <property name="AdvancedSearchPageAddress" type="string">advanced.aspx</property>
+                                <property name="HitHighlightedPropertiesJson" type="string">["Title","Path","Author","SectionNames","SiteDescription"]</property>
+                                <property name="TitleUrl" type="string" />
+                                <property name="EmptyMessage" type="string" />
+                                <property name="ShowBestBets" type="bool">False</property>
+                                <property name="AllowHide" type="bool">True</property>
+                                <property name="BypassResultTypes" type="bool">True</property>
+                                <property name="Description" type="string">Content Search Web Part will allow you to show items that are results of a search query you specify. When you add it to the page, this Web Part will show recently modified items from the current site. You can change this setting to show items from another site or list by editing the Web Part and changing its search criteria.As new content is discovered by search, this Web Part will display an updated list of items each time the page is viewed.</property>
+                                <property name="ShowSortOptions" type="bool">False</property>
+                                <property name="ExportMode" type="exportmode">All</property>
+                                <property name="AllowMinimize" type="bool">True</property>
+                                <property name="ShowPersonalFavorites" type="bool">False</property>
+                                <property name="ChromeType" type="chrometype">None</property>
+                                <property name="ShowPaging" type="bool">True</property>
+                                <property name="ChromeState" type="chromestate">Normal</property>
+                                <property name="CatalogIconImageUrl" type="string" />
+                                <property name="HelpMode" type="helpmode">Modeless</property>
+                                <property name="TitleIconImageUrl" type="string" />
+                                <property name="ItemBodyTemplateId" type="string" />
+                                <property name="AlternateErrorMessage" type="string" null="true" />
+                                <property name="Hidden" type="bool">False</property>
+                                <property name="TargetResultTable" type="string">RelevantResults</property>
+                                <property name="AllowClose" type="bool">True</property>
+                                <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
+                                <property name="ShowResultCount" type="bool">True</property>
+                                <property name="ShowLanguageOptions" type="bool">True</property>
+                                <property name="ShowUpScopeMessage" type="bool">False</property>
+                                <property name="Width" type="string" />
+                                <property name="RepositionLanguageDropDown" type="bool">False</property>
+                                <property name="Title" type="string">Search results</property>
+                                <property name="ScrollToTopOnRedraw" type="bool">False</property>
+                                <property name="ShowResults" type="bool">True</property>
+                                <property name="ShowAlertMe" type="bool">True</property>
+                                <property name="OverwriteResultPath" type="bool">True</property>
+                                <property name="PreloadedItemTemplateIdsJson" type="string">null</property>
+                                <property name="MaxPagesAfterCurrent" type="int">1</property>
+                                <property name="ShowDefinitions" type="bool">False</property>
+                                <property name="ShouldHideControlWhenEmpty" type="bool">True</property>
+                                <property name="ShowViewDuplicates" type="bool">False</property>
+                                <property name="AvailableSortsJson" type="string">null</property>
+                                <property name="DataProviderJSON" type="string">{"QueryGroupName":"Default","QueryPropertiesTemplateUrl":"sitesearch://webroot","IgnoreQueryPropertiesTemplateUrl":false,"SourceID":"-1","SourceName":"Discover Contracts","SourceLevel":"SPSite","CollapseSpecification":"","QueryTemplate":"","FallbackSort":[],"FallbackSortJson":"[]","RankRules":[],"RankRulesJson":"[]","AsynchronousResultRetrieval":true,"SendContentBeforeQuery":true,"BatchClientQuery":true,"FallbackLanguage":-1,"FallbackRankingModelID":"","EnableStemming":true,"EnablePhonetic":false,"EnableNicknames":false,"EnableInterleaving":false,"EnableQueryRules":true,"EnableOrderingHitHighlightedProperty":false,"HitHighlightedMultivaluePropertyLimit":-1,"IgnoreContextualScope":true,"ScopeResultsToCurrentSite":false,"TrimDuplicates":false,"Properties":{"TryCache":true,"Scope":"{Site.URL}","UpdateLinksForCatalogItems":true,"EnableStacking":true,"ListId":"aa9b66b0-67c8-4ec5-9a64-f2ca86def101","ListItemId":3},"PropertiesJson":"{\"TryCache\":true,\"Scope\":\"{Site.URL}\",\"UpdateLinksForCatalogItems\":true,\"EnableStacking\":true,\"ListId\":\"aa9b66b0-67c8-4ec5-9a64-f2ca86def101\",\"ListItemId\":3}","ClientType":"ContentSearchRegular","ClientFunction":"","ClientFunctionDetails":"","UpdateAjaxNavigate":true,"SummaryLength":180,"DesiredSnippetLength":90,"PersonalizedQuery":false,"FallbackRefinementFilters":null,"IgnoreStaleServerQuery":false,"RenderTemplateId":"DefaultDataProvider","AlternateErrorMessage":null,"Title":""}</property>
+                                <property name="Direction" type="direction">NotSet</property>
+                            </properties>
+                            </data>
+                        </webPart>
+                    </webParts>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Exclude contracts" Order="6" Zone="MainColumn">
+                <pnp:Contents>
+                    <WebPart xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/WebPart/v2">
+                    <Title>Exclude contracts</Title>
+                    <FrameType>None</FrameType>
+                    <Description>Allows authors to enter rich text content.</Description>
+                    <IsIncluded>true</IsIncluded>
+                    <ZoneID>MainColumn</ZoneID>
+                    <PartOrder>6</PartOrder>
+                    <FrameState>Normal</FrameState>
+                    <Height />
+                    <Width />
+                    <AllowRemove>true</AllowRemove>
+                    <AllowZoneChange>true</AllowZoneChange>
+                    <AllowMinimize>true</AllowMinimize>
+                    <AllowConnect>true</AllowConnect>
+                    <AllowEdit>true</AllowEdit>
+                    <AllowHide>true</AllowHide>
+                    <IsVisible>true</IsVisible>
+                    <DetailLink />
+                    <HelpLink />
+                    <HelpMode>Modeless</HelpMode>
+                    <Dir>Default</Dir>
+                    <PartImageSmall />
+                    <MissingAssembly>Cannot import this Web Part.</MissingAssembly>
+                    <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>
+                    <IsIncludedFilter />
+                    <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>
+                    <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>
+                    <ContentLink xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{sitecollection}/SiteAssets/contracts/html/clm-discover-inject.txt</ContentLink>
+                    <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    <PartStorage xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                    </WebPart>
+                </pnp:Contents>
+            </pnp:WebPart>
+        </pnp:WebParts>
+    </pnp:File>
+    <pnp:File Folder="SitePages" Overwrite="true" Src="SitePages\Browse.aspx">
+        <pnp:Properties>
+            <pnp:Property Key="Title" Value="Browse" />
+        </pnp:Properties>
+        <pnp:WebParts>
+            <pnp:WebPart Title="Refine contracts" Order="0" Zone="LeftColumn">
+                <pnp:Contents>
+                    <webParts>
+                        <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+                            <metaData>
+                            <type name="Microsoft.Office.Server.Search.WebControls.RefinementScriptWebPart, Microsoft.Office.Server.Search, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+                            <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                            </metaData>
+                            <data>
+                            <properties>
+                                <property name="HelpUrl" type="string" />
+                                <property name="UseManagedNavigationRefiners" type="bool">False</property>
+                                <property name="TitleUrl" type="string" />
+                                <property name="Hidden" type="bool">False</property>
+                                <property name="ChromeType" type="chrometype">None</property>
+                                <property name="AllowClose" type="bool">True</property>
+                                <property name="TitleIconImageUrl" type="string" />
+                                <property name="AllowMinimize" type="bool">True</property>
+                                <property name="AllowEdit" type="bool">True</property>
+                                <property name="Direction" type="direction">NotSet</property>
+                                <property name="Height" type="string" />
+                                <property name="AllowConnect" type="bool">True</property>
+                                <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
+                                <property name="AllowHide" type="bool">True</property>
+                                <property name="Description" type="string">This webpart helps the users to refine search results</property>
+                                <property name="StatesJson" type="string">{}</property>
+                                <property name="QueryGroupName" type="string">Default</property>
+                                <property name="ChromeState" type="chromestate">Normal</property>
+                                <property name="ExportMode" type="exportmode">All</property>
+                                <property name="AllowZoneChange" type="bool">True</property>
+                                <property name="RenderTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Filters/Control_Refinement.js</property>
+                                <property name="CatalogIconImageUrl" type="string" />
+                                <property name="EmitStyleReference" type="bool">True</property>
+                                <property name="HelpMode" type="helpmode">Modeless</property>
+                                <property name="Title" type="string">Refine contracts</property>
+                                <property name="AlternateErrorMessage" type="string" null="true" />
+                                <property name="Width" type="string" />
+                                <property name="EmptyMessage" type="string" />
+                                <property name="ServerIncludeScriptsJson" type="string">null</property>
+                                <property name="SelectedRefinementControlsJson" type="string">{"refinerConfigurations":[{"propertyName":"RefinableDate10","type":"DateTime","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Next Attention Date","useDefaultDateIntervals":false,"aliases":["NextAttentionDate"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableString23","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_MultiValue.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Industry","useDefaultDateIntervals":false,"aliases":["ContractIndustry"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableString21","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_MultiValue.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"External Party","useDefaultDateIntervals":false,"aliases":["ExternalParty"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableString20","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_MultiValue.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Contract Type","useDefaultDateIntervals":false,"aliases":["ContractType"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableString24","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Jurisdiction","useDefaultDateIntervals":false,"aliases":["ContractJurisdiction"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableInt00","type":"Integer","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Annual Value","useDefaultDateIntervals":false,"aliases":["ContractAnnualValue"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableString22","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_Default.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Status","useDefaultDateIntervals":false,"aliases":["ContractStatus"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableString25","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_MultiValue.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Internal Contract Party","useDefaultDateIntervals":false,"aliases":["ContractOrganizationParty"],"refinerSpecStringOverride":"","intervals":null},{"propertyName":"RefinableString04","type":"Text","sortOrder":0,"displayTemplate":"~sitecollection/_catalogs/masterpage/Display Templates/Filters/Filter_MultiValue.js","sortBy":0,"deepHits":100000,"maxNumberRefinementOptions":15,"displayName":"Site","useDefaultDateIntervals":false,"aliases":["SiteTitleRefinable"],"refinerSpecStringOverride":"","intervals":null}]}</property>
+                            </properties>
+                            </data>
+                        </webPart>
+                    </webParts>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Search box" Order="1" Zone="MainColumn">
+                <pnp:Contents>
+                    <webParts>
+                        <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+                            <metaData>
+                            <type name="Microsoft.Office.Server.Search.WebControls.SearchBoxScriptWebPart, Microsoft.Office.Server.Search, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+                            <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                            </metaData>
+                            <data>
+                            <properties>
+                                <property name="ChromeType" type="chrometype">None</property>
+                                <property name="QuerySuggestionMinimumPrefixLength" type="int">2</property>
+                                <property name="Height" type="string" />
+                                <property name="AdvancedSearchPageAddress" type="string">advanced.aspx</property>
+                                <property name="AllowEmptySearch" type="bool">False</property>
+                                <property name="AllowZoneChange" type="bool">True</property>
+                                <property name="AllowEdit" type="bool">True</property>
+                                <property name="ShowPreferencesLink" type="bool">False</property>
+                                <property name="Hidden" type="bool">False</property>
+                                <property name="UpdatePageTitle" type="bool">False</property>
+                                <property name="Width" type="string" />
+                                <property name="Direction" type="direction">NotSet</property>
+                                <property name="UseSharedSettings" type="bool">False</property>
+                                <property name="EmitStyleReference" type="bool">True</property>
+                                <property name="AllowConnect" type="bool">True</property>
+                                <property name="AllowMinimize" type="bool">True</property>
+                                <property name="AllowClose" type="bool">True</property>
+                                <property name="HelpMode" type="helpmode">Modeless</property>
+                                <property name="ShowNavigation" type="bool">False</property>
+                                <property name="ExportMode" type="exportmode">All</property>
+                                <property name="QuerySuggestionsSourceID" type="string" null="true" />
+                                <property name="InitialPrompt" type="string" null="true" />
+                                <property name="QuerySuggestionCount" type="int">5</property>
+                                <property name="ShowPeopleNameSuggestions" type="bool">False</property>
+                                <property name="ChromeState" type="chromestate">Normal</property>
+                                <property name="AllowHide" type="bool">True</property>
+                                <property name="StatesJson" type="string">{}</property>
+                                <property name="RenderTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Search/Control_SearchBox.js</property>
+                                <property name="Title" type="string">Search box</property>
+                                <property name="Description" type="string">Displays a search box that allows users to search for information.</property>
+                                <property name="ServerInitialRender" type="bool">False</property>
+                                <property name="CatalogIconImageUrl" type="string" />
+                                <property name="MsBeforeShowingProgress" type="int">500</property>
+                                <property name="PageTitlePrefix" type="string" />
+                                <property name="ServerIncludeScriptsJson" type="string">null</property>
+                                <property name="TitleUrl" type="string" />
+                                <property name="AlternateErrorMessage" type="string" null="true" />
+                                <property name="ShowQuerySuggestions" type="bool">True</property>
+                                <property name="DefaultDropdownNodeId" type="int">0</property>
+                                <property name="SetFocusOnPageLoad" type="bool">False</property>
+                                <property name="ResultsPageAddress" type="string" null="true" />
+                                <property name="ShowAdvancedLink" type="bool">False</property>
+                                <property name="PersonalResultCount" type="int">3</property>
+                                <property name="TryInplaceQuery" type="bool">True</property>
+                                <property name="MaintainQueryState" type="bool">False</property>
+                                <property name="HelpUrl" type="string" />
+                                <property name="QuerySuggestionCompletionInterval" type="int">100</property>
+                                <property name="QueryGroupNamesJson" type="string">["Default"]</property>
+                                <property name="TitleIconImageUrl" type="string" />
+                                <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
+                            </properties>
+                            </data>
+                        </webPart>
+                    </webParts>
+                </pnp:Contents>
+            </pnp:WebPart>
+            <pnp:WebPart Title="Search results" Order="2" Zone="MainColumn">
+                <pnp:Contents>
+                    <webParts>
+                        <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+                            <metaData>
+                            <type name="Microsoft.Office.Server.Search.WebControls.ContentBySearchWebPart, Microsoft.Office.Server.Search, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+                            <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+                            </metaData>
+                            <data>
+                            <properties>
+                                <property name="StatesJson" type="string">{}</property>
+                                <property name="UseSharedDataProvider" type="bool">False</property>
+                                <property name="UseSimplifiedQueryBuilder" type="bool">False</property>
+                                <property name="QueryGroupName" type="string">Default</property>
+                                <property name="LogAnalyticsViewEvent" type="bool">False</property>
+                                <property name="SelectedPropertiesJson" type="string">["ServerRedirectedPreviewURL","PublishingImage","PictureURL","PictureThumbnailURL","Path","Title","sitetitle","write","SecondaryFileExtension","ContentTypeId","EditorOWSUSER","ListItemID","ParentLink","spweburl","ServerRedirectedEmbedURL","CLMNextAttentionDateOWSDATE","CLMContractTypeOWSCHCS","CLMExternalPartyOWSTEXT","CLMIndustryOWSCHCS","CLMToDateOWSDATE","CLMFromDateOWSDATE","CLMOrgPartyOWSTEXT"]</property>
+                                <property name="PropertyMappings" type="string" />
+                                <property name="ShowAdvancedLink" type="bool">True</property>
+                                <property name="NumberOfItems" type="int">50</property>
+                                <property name="EmitStyleReference" type="bool">True</property>
+                                <property name="ShowPreferencesLink" type="bool">True</property>
+                                <property name="ServerIncludeScriptsJson" type="string">null</property>
+                                <property name="IncludeResultTypeConstraint" type="bool">False</property>
+                                <property name="Height" type="string" />
+                                <property name="MaxPagesBeforeCurrent" type="int">4</property>
+                                <property name="ResultType" type="string" />
+                                <property name="ShowDidYouMean" type="bool">False</property>
+                                <property name="StartingItemIndex" type="int">1</property>
+                                <property name="AlwaysRenderOnServer" type="bool">False</property>
+                                <property name="GroupTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Content Web Parts/Group_Content.js</property>
+                                <property name="ResultTypeId" type="string" />
+                                <property name="ItemTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Content Web Parts/Item_CLM_Browse.js</property>
+                                <property name="AllowConnect" type="bool">True</property>
+                                <property name="HelpUrl" type="string" />
+                                <property name="ResultsPerPage" type="int">50</property>
+                                <property name="RenderTemplateId" type="string">~sitecollection/_catalogs/masterpage/Display Templates/Content Web Parts/Control_CLM_Browse.js</property>
+                                <property name="AllowEdit" type="bool">True</property>
+                                <property name="AllowZoneChange" type="bool">True</property>
+                                <property name="AddSEOPropertiesFromSearch" type="bool">False</property>
+                                <property name="AdvancedSearchPageAddress" type="string">advanced.aspx</property>
+                                <property name="HitHighlightedPropertiesJson" type="string">["Title","Path","Author","SectionNames","SiteDescription"]</property>
+                                <property name="TitleUrl" type="string" />
+                                <property name="EmptyMessage" type="string" />
+                                <property name="ShowBestBets" type="bool">False</property>
+                                <property name="AllowHide" type="bool">True</property>
+                                <property name="BypassResultTypes" type="bool">True</property>
+                                <property name="Description" type="string">Content Search Web Part will allow you to show items that are results of a search query you specify. When you add it to the page, this Web Part will show recently modified items from the current site. You can change this setting to show items from another site or list by editing the Web Part and changing its search criteria.As new content is discovered by search, this Web Part will display an updated list of items each time the page is viewed.</property>
+                                <property name="ShowSortOptions" type="bool">False</property>
+                                <property name="ExportMode" type="exportmode">All</property>
+                                <property name="AllowMinimize" type="bool">True</property>
+                                <property name="ShowPersonalFavorites" type="bool">False</property>
+                                <property name="ChromeType" type="chrometype">None</property>
+                                <property name="ShowPaging" type="bool">True</property>
+                                <property name="ChromeState" type="chromestate">Normal</property>
+                                <property name="CatalogIconImageUrl" type="string" />
+                                <property name="HelpMode" type="helpmode">Modeless</property>
+                                <property name="TitleIconImageUrl" type="string" />
+                                <property name="ItemBodyTemplateId" type="string" />
+                                <property name="AlternateErrorMessage" type="string" null="true" />
+                                <property name="Hidden" type="bool">False</property>
+                                <property name="TargetResultTable" type="string">RelevantResults</property>
+                                <property name="AllowClose" type="bool">True</property>
+                                <property name="MissingAssembly" type="string">Cannot import this Web Part.</property>
+                                <property name="ShowResultCount" type="bool">True</property>
+                                <property name="ShowLanguageOptions" type="bool">True</property>
+                                <property name="ShowUpScopeMessage" type="bool">False</property>
+                                <property name="Width" type="string" />
+                                <property name="RepositionLanguageDropDown" type="bool">False</property>
+                                <property name="Title" type="string">Search results</property>
+                                <property name="ScrollToTopOnRedraw" type="bool">False</property>
+                                <property name="ShowResults" type="bool">True</property>
+                                <property name="ShowAlertMe" type="bool">True</property>
+                                <property name="OverwriteResultPath" type="bool">True</property>
+                                <property name="PreloadedItemTemplateIdsJson" type="string">null</property>
+                                <property name="MaxPagesAfterCurrent" type="int">1</property>
+                                <property name="ShowDefinitions" type="bool">False</property>
+                                <property name="ShouldHideControlWhenEmpty" type="bool">True</property>
+                                <property name="ShowViewDuplicates" type="bool">False</property>
+                                <property name="AvailableSortsJson" type="string">null</property>
+                                <property name="DataProviderJSON" type="string">{"QueryGroupName":"Default","QueryPropertiesTemplateUrl":"sitesearch://webroot","IgnoreQueryPropertiesTemplateUrl":false,"SourceID":"-1","SourceName":"Browse Contracts","SourceLevel":"SPSite","CollapseSpecification":"","QueryTemplate":"","FallbackSort":[],"FallbackSortJson":"[]","RankRules":[],"RankRulesJson":"[]","AsynchronousResultRetrieval":false,"SendContentBeforeQuery":true,"BatchClientQuery":true,"FallbackLanguage":-1,"FallbackRankingModelID":"","EnableStemming":true,"EnablePhonetic":false,"EnableNicknames":false,"EnableInterleaving":false,"EnableQueryRules":true,"EnableOrderingHitHighlightedProperty":false,"HitHighlightedMultivaluePropertyLimit":-1,"IgnoreContextualScope":true,"ScopeResultsToCurrentSite":false,"TrimDuplicates":false,"Properties":{"TryCache":true,"Scope":"{Site.URL}","UpdateLinksForCatalogItems":true,"EnableStacking":true,"ListId":"aa9b66b0-67c8-4ec5-9a64-f2ca86def101","ListItemId":4},"PropertiesJson":"{\"TryCache\":true,\"Scope\":\"{Site.URL}\",\"UpdateLinksForCatalogItems\":true,\"EnableStacking\":true,\"ListId\":\"aa9b66b0-67c8-4ec5-9a64-f2ca86def101\",\"ListItemId\":4}","ClientType":"ContentSearchRegular","ClientFunction":"","ClientFunctionDetails":"","UpdateAjaxNavigate":true,"SummaryLength":180,"DesiredSnippetLength":90,"PersonalizedQuery":false,"FallbackRefinementFilters":null,"IgnoreStaleServerQuery":false,"RenderTemplateId":"DefaultDataProvider","AlternateErrorMessage":null,"Title":""}</property>
+                                <property name="Direction" type="direction">NotSet</property>
+                            </properties>
+                            </data>
+                        </webPart>
+                        </webParts>
+                </pnp:Contents>
+            </pnp:WebPart>
+        </pnp:WebParts>
+    </pnp:File>
+    <pnp:File Folder="Lists/ContractTasks" Overwrite="false" Src="Forms\NewForm.aspx">
+        <pnp:WebParts>
+        <pnp:WebPart Title="contract-task-form.txt" Order="2" Zone="Main">
+            <pnp:Contents>
+            <WebPart xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/WebPart/v2">
+                <Title>contract-task-form.txt</Title>
+                <FrameType>None</FrameType>
+                <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>
+                <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>
+                <ContentLink xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">{sitecollection}/SiteAssets/contracts/html/contract-task-form.txt</ContentLink>
+                <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                <PartStorage xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+            </WebPart>
+            </pnp:Contents>
+        </pnp:WebPart>
+        </pnp:WebParts>
+    </pnp:File>
+</pnp:Files>

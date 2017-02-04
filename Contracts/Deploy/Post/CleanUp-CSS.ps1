@@ -1,0 +1,1 @@
+Get-ChildItem ".\Templates\CLM\SiteAssets\css\*.css" -Recurse | Remove-Item

@@ -1,0 +1,7 @@
+<div class="clm nav-box" onclick="document.location.href='Browse.aspx'">
+    <div>
+        <h1>Browse contracts</h1>
+        <p>By contract type, author and more</p>
+    </div>
+    <div class="material-icons">insert_drive_file</div>
+</div>

@@ -1,0 +1,7 @@
+<div class="clm nav-box" onclick="document.location.href='Discover.aspx'">
+    <div>
+        <h1>Discover contracts</h1>
+        <p>Get compliant. Get in control.</p>
+    </div>
+    <div class="material-icons">find_in_page</div>
+</div>
