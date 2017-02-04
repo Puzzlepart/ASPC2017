@@ -17,7 +17,6 @@
     <SharePoint:ProjectProperty Property="Title" runat="server" />
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
-    <link rel="stylesheet" type="text/css" href="{parameter:CDN-URL}/css/pzl-branding.css">
     <script type="text/javascript" src="{parameter:CDN-URL}/libs/js/jquery.min.js"></script>
     <script type="text/javascript" src="{parameter:CDN-URL}/js/resources.js"></script>
 </asp:Content>
