@@ -65,7 +65,7 @@ var __config = {
         title: "CreateSite",
         uri: "https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY",
         props: ["title", "description"],
-        triggers: ["new site", "create site", "Create-SPSite"],
+        triggers: ["new site (.*)", "create site (.*)", "Create-SPSite (.*)"],
     }
 }
 
