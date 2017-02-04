@@ -1,0 +1,27 @@
+{
+  "name": "pzl-contracts",
+  "version": "1.0.0",
+  "description": "Contract aggregation solution for SharePoint and Office 365",
+  "main": "Readme.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://tarjeieo@bitbucket.org/puzzlepart/pzl-contracts.git"
+  },
+  "keywords": [
+    "contracts"
+  ],
+  "author": "Tarjei Ormestøyl <tarjeieo@puzzlepart.com>",
+  "license": "UNLICENSED",
+  "homepage": "https://bitbucket.org/puzzlepart/pzl-contracts#readme",
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "less": "^2.7.1",
+    "material-design-icons-iconfont": "^3.0.0",
+    "moment": "^2.15.0",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.3"
+  }
+}

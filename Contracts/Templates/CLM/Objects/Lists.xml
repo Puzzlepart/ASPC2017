@@ -1,0 +1,18 @@
+<pnp:Lists xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:ListInstance Title="Central Library" Url="CentralLibrary" TemplateType="101" EnableMinorVersions="true" ContentTypesEnabled="true" RemoveExistingContentTypes="false" EnableFolderCreation="true">
+        <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101001EF5C4B485214A23BE827166FAEBCBD2"/>
+        </pnp:ContentTypeBindings>
+    </pnp:ListInstance>
+    <pnp:ListInstance Title="Contract Tasks" Url="Lists/ContractTasks" TemplateType="107" EnableMinorVersions="true" ContentTypesEnabled="true" RemoveExistingContentTypes="true" EnableFolderCreation="false">
+        <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x010800901F574D0E3A4B7584026614F20F80BA"/>
+        </pnp:ContentTypeBindings>
+    </pnp:ListInstance>
+    <pnp:ListInstance Title="NotContract" Url="Lists/NotContract" TemplateType="100" EnableMinorVersions="true" ContentTypesEnabled="false" EnableFolderCreation="false" Hidden="true">
+        <pnp:Fields>
+            <Field ID="{8d172291-5b62-4245-b146-957887755833}" Name="WorkId" StaticName="WorkId" DisplayName="WorkId" Type="Text" Group="{parameter:GenericFieldsGroup}" Description="Used for hiding documents from Discover-view." >
+            </Field>
+        </pnp:Fields>
+    </pnp:ListInstance>
+</pnp:Lists>

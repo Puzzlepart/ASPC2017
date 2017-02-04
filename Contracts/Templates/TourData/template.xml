@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+  <pnp:Preferences>
+  </pnp:Preferences>
+  <pnp:Templates ID="CONTAINER-TEMPLATE-CONTRACTS-TOUR-DATA">
+    <pnp:ProvisioningTemplate ID="OFFICE365-TOUR-CONTRACTS-DATA" Version="1">
+        <pnp:Lists>
+            <pnp:ListInstance Title="Tour" TemplateType="100" Url="Lists/Tour" EnableFolderCreation="false" >
+                <pnp:DataRows>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">-1</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Contracts</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">This tour will introduce you to the main functions in this Contract site in a few quick steps. </pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">10</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Browse helps you find Contracts</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Click Browse to find documents classified as contracts. You are allowed to filter for all contract properties and quickly find what you are looking for.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#WebPartWPQ2 > div.ms-rtestate-field > div</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">auto</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">20</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Tasks keep them in control</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Use Manage Tasks to keep your contracts up to date.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#WebPartWPQ3 > div.ms-rtestate-field > div</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">bottom</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">30</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Discover lets you find new ones</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Use discovery to detect possible contracts among all the documents you have permissions to read.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#WebPartWPQ4 > div.ms-rtestate-field > div</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">bottom</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">30</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title"></pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent"></pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement"></pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">bottom</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">35</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Take tours again</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Use the standard help section to re-start tours you have already seen!</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#O365_MainLink_Help</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">bottom</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Contracts.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">40</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Take the next tour too!</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Click here to continue the tour in the Browse section</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#WebPartWPQ2 > div.ms-rtestate-field > div</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">bottom</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Browse.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">-1</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Learn how to Browse Contracts</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">This page displays documents that you have permissions to see in Office 365 are formally classified as contracts. You can display full contract details, or assign a follow-up task.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement"></pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">auto</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">1</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Browse.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">10</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Contract previews</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Choose between previews or tabular view to find the right document. Click the arrow to show a bigger document preview and flip the pages. Protip: Use Zoom in your browser to fit more previews on your screen!</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#ctl00_ctl40_g_905e42ce_33b8_474d_ae72_8c72dff5ea51_csr > ul</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">top</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Browse.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">20</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Use filters to find the right ones</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">You can filter on all formal properties of Contracts. You will only see choices that exists. Use "Clear search" to start from scratch.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#Refinement</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">right</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Browse.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">30</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Search if you know a term</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Search allows you to filter on any word in addition to regular filters.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">#ctl00_ctl40_g_9e692811_5f96_4115_af70_12277eae2292_csr_sboxdiv</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">top</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Browse.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">40</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Add more metadata to your contracts</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">When you see this unfilled box, the contract is missing some important metadata. Click it to fill them out!</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">div.pzl-externalparty.col2:eq(0)</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">right</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Browse.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">50</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Go to the origin!</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Contracts are stored where they belong. Use these links to go to the site or folder where the contract document is located.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">div.pzl-site.col5:eq(0)</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">right</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                    <pnp:DataRow>
+                        <pnp:DataValue FieldName="PzlTourRelativeUrl">/SitePages/Browse.aspx</pnp:DataValue>
+                        <pnp:DataValue FieldName="PzlTourSortOrder">60</pnp:DataValue>
+                        <pnp:DataValue FieldName="Title">Take action!</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourContent">Does this contract need follow-up? Action needed? Click here to quickly assign a task to someone.</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourElement">div.pzl-slideup-title.ms-noWrap:eq(0)</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourPlacement">top</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourOrphan">0</pnp:DataValue>
+                        <pnp:DataValue FieldName="TourBackdrop">1</pnp:DataValue>
+                    </pnp:DataRow>
+                </pnp:DataRows>
+            </pnp:ListInstance>
+        </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

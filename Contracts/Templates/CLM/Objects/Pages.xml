@@ -1,0 +1,4 @@
+<pnp:Pages xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:Page Layout="TwoColumns" Overwrite="false" Url="{site}/SitePages/Help.aspx">
+    </pnp:Page>
+</pnp:Pages>

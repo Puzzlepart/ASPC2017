@@ -1,0 +1,5 @@
+bower_components/*
+node_modules/*
+typings
+Templates/CLM/SiteAssets/css/*.css
+Templates/CLM/SiteAssets/js/*.js

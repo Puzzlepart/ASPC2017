@@ -1,0 +1,7 @@
+<div class="clm nav-box" onclick="document.location.href='../Lists/ContractTasks'">
+    <div>
+        <h1>Manage tasks</h1>
+        <p>Follow up on important contract activities</p>
+    </div>
+    <div class="material-icons">alarm</div>
+</div>

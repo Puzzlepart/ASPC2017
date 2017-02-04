@@ -1,0 +1,36 @@
+[
+{
+    "Page": "Pages/Hjem.aspx",
+    "WebParts": [
+        {
+            "Title": "Snarveier",
+            "List": "Snarveier",
+            "View": {
+                "ViewFields":["URL", "FFLinkCategory"], 
+                "RowLimit":"6",
+                "Paged": false
+            },
+            "JSLink" : "~site/SiteAssets/formue/js/ff-jslink-links.js"
+        },
+        {
+            "Title": "Genväger",
+            "List": "Genväger",
+            "View": {
+                "ViewFields":["URL", "FFLinkCategory"], 
+                "RowLimit":"6",
+                "Paged": false
+            },
+            "JSLink" : "~site/SiteAssets/formue/js/ff-jslink-links.js"
+        },
+        {
+            "Title": "Driftsmeldinger (Norge)", 
+            "List": "Driftsmeldinger",
+            "JSLink" : "~site/SiteAssets/formue/js/ff-jslink-announcements.js" 
+        },
+        {
+            "Title": "Driftsmeldinger (Sverige)",
+            "List": "Driftsmeldinger",
+            "JSLink" : "~site/SiteAssets/formue/js/ff-jslink-announcements.js" 
+        }
+    ] 
+}] 

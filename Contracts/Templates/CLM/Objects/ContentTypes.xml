@@ -1,0 +1,7 @@
+<pnp:ContentTypes xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+    <pnp:ContentType ID="0x010800901F574D0E3A4B7584026614F20F80BA" Name="Contract Task" Description="" Group="{parameter:GenericContentTypesGroup}">
+        <pnp:FieldRefs>
+            <pnp:FieldRef ID="b191b478-b36a-4573-9215-624f24b58aa8" Name="{parameter:GenericFieldsPrefix}RelatedContract" />
+         </pnp:FieldRefs>
+    </pnp:ContentType>
+</pnp:ContentTypes>

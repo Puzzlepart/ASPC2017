@@ -1,0 +1,11 @@
+<pnp:SiteFields xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+  <Field
+    ID="{b191b478-b36a-4573-9215-624f24b58aa8}"
+    Name="{parameter:GenericFieldsPrefix}RelatedContract"
+    StaticName="{parameter:GenericFieldsPrefix}RelatedContract"
+    DisplayName="Related Contract"
+    Type="Text"
+    Group="{parameter:GenericFieldsGroup}"
+    Description="">
+  </Field>
+</pnp:SiteFields>

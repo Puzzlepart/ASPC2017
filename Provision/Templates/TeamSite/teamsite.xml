@@ -13,7 +13,7 @@
       <pnp:ComposedLook Name="Pzl Site Branding" ColorFile="{sitecollection}/_catalogs/Theme/15/pzl.spcolor" FontFile="{sitecollection}/_catalogs/Theme/15/pzl.spfont" BackgroundFile="" Version="0" />
       <pnp:CustomActions>
         <pnp:SiteCustomActions>
-          <pnp:CustomAction Name="pzl-global-scriptdependencies" Location="ScriptLink" Sequence="1" ScriptBlock="SP.SOD.registerSod('scriptloader.js', '{parameter:CDN-URL}/js/scriptloader.js?rev=' + new Date().getDate());LoadSodByKey('scriptloader.js');"></pnp:CustomAction>
+          <pnp:CustomAction Name="pzl-global-scriptdependencies" Location="ScriptLink" Sequence="1" ScriptBlock="SP.SOD.registerSod('scriptloader.js', '{parameter:CDN-URL}/js/scriptloader.js');LoadSodByKey('scriptloader.js');"></pnp:CustomAction>
         </pnp:SiteCustomActions>
       </pnp:CustomActions>
       <pnp:Navigation>
