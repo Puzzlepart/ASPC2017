@@ -1,0 +1,38 @@
+{
+    "QuickLaunch": [
+        {
+            "Title":"Hjem",
+            "Remove": true
+        },  
+        {
+            "Title":"Samhandlingsrom Hjem",
+            "Url":"{site}/"
+        },  
+        {
+            "Title":"Opprett nytt arbeidsrom",
+            "Url":"{site}/SitePages/Opprett%20samhandlingsrom.aspx"
+        },
+        {
+            "Title":"Siste",
+            "Remove": true
+        },
+        {
+            "Title":"Områdeinnhold",
+            "Remove": true 
+        },
+        {
+            "Title":"Notatblokk",
+            "Remove": true
+        },
+        {
+            "Title":"Dokumenter",
+            "Remove": true 
+        },
+        {
+            "Title":"Papirkurv",
+            "Remove": true
+        }
+    ],
+    "TopNavigationBar": [],
+    "SearchNav":[]
+} 

@@ -1,0 +1,277 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <title>Contracts Browse display template</title>
+
+    <!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+    <mso:ManagedPropertyMapping msdt:dt="string">'Card Image'{Card Image}:'ServerRedirectedPreviewURL;PublishingImage;PictureURL;PictureThumbnailURL','Link URL'{Link URL}:'Path','Title'{Title}:'Title','Site'{Site}:'sitetitle','Date'{Date}:'write','SecondaryFileExtension','ContentTypeId','Author'{Author}:'EditorOWSUSER','ListItemID','ParentLink','spweburl','Preview URL'{Preview URL}:'ServerRedirectedEmbedURL','CLMNextAttentionDateOWSDATE','Tag'{Tag}:CLMContractTypeOWSCHCS,'External Party'{External Party}:'CLMExternalPartyOWSTEXT','Industry'{Industry}:'CLMIndustryOWSCHCS','toDate'{toDate}:'CLMToDateOWSDATE','fromDate'{fromDate}:'CLMFromDateOWSDATE','orgParty'{orgParty}:'CLMOrgPartyOWSTEXT','ContractSummaryOWSMTXT'</mso:ManagedPropertyMapping>
+<mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 304x100 picture of the item on top. The title and the default item description will display to the bottom of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+
+    <div id="Item_pzlCLM">
+        <!--#_
+    function formatDateString(date){
+        if( date == null) return "";
+        var formattedDate = new Date(date);
+        var day = formattedDate.getDate();
+        var month = formattedDate.getMonth()+1;
+        var year = formattedDate.getFullYear();
+        date = day + "/" + month + "/" + year;
+        return date;
+    }
+
+    function cleanTag(tag){
+        if(!tag) {
+            return null;
+        }
+        tag = tag.replace(/([a-z](?=[A-Z]))/g, '$1 ');
+        var idx = tag.indexOf(' ');
+        return tag.substr(0,idx);
+    }
+    function getLibraryWebRelativeUrl(parentLink, spWebUrl) {
+        var libLink = parentLink.replace(spWebUrl,'');
+        var delimiter = "/";
+        var tokens = libLink.split(delimiter);
+        if (tokens.length < 2) {
+            return tokens.join(delimiter);
+        } else {
+            if (tokens[1] === "Lists") {
+                return tokens.slice(0,3).join(delimiter);
+            } else {
+                return tokens.slice(0,2).join(delimiter);
+            }
+        }
+    }
+    var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_pictureOnTop_");
+
+    var linkURL = $getItemValue(ctx, "Link URL");
+    linkURL.overrideValueRenderer($urlHtmlEncodeValueObject);
+
+    var title = $getItemValue(ctx, "Title");
+    var editor = $getItemValue(ctx, "Author");
+    var spWebUrl = $getItemValue(ctx,"spweburl").value;
+    var docId = $getItemValue(ctx, "ListItemID").value;
+    var previewUrl = $getItemValue(ctx, "Preview URL").value;
+    var encodepreviewUrl = encodeURIComponent(previewUrl);
+    var parentLink = $getItemValue(ctx, "ParentLink").value;
+    var tag = $getItemValue(ctx, "Tag").value;
+    var industry = $getItemValue(ctx, "Industry").value;
+    var extParty = $getItemValue(ctx, "External Party").value;
+    var orgParty = $getItemValue(ctx, "orgParty").value;
+    var todate = $getItemValue(ctx, "toDate").value;
+    var todateformatted = formatDateString(todate);
+    var fromdate = $getItemValue(ctx, "fromDate").value;
+    var fromdateformatted = formatDateString(fromdate);
+    var summary = $getItemValue(ctx, "ContractSummaryOWSMTXT").value;
+
+    tag = cleanTag(tag);
+
+    var siteLink = spWebUrl;
+    var libraryWebRelativeUrl = getLibraryWebRelativeUrl(parentLink, siteLink);
+    var libraryUrl = spWebUrl + libraryWebRelativeUrl;
+    var detailsLink = libraryUrl + "/Forms/DispForm.aspx?ID=" + docId;
+    var editLink = libraryUrl + "/Forms/EditForm.aspx?ID=" + docId; 
+    var helpLink =_spPageContextInfo.siteAbsoluteUrl + "/SitePages/Help.aspx";
+
+    var email = editor.inputValue;
+    var n = email.indexOf("|");
+    email = email.substring(0, n);
+    var displayName = editor.value[0].entityLabel;
+
+    var userImage = "/_layouts/15/userphoto.aspx?size=M&accountname=" + email;
+
+    var site = $getItemValue(ctx, "Site");
+
+    var date = $getItemValue(ctx, "Date").value;
+    date = formatDateString(date);
+
+    var nextAttentionDate = $getItemValue(ctx, "CLMNextAttentionDateOWSDATE").value;
+    var nextAttentionDateFormatted = formatDateString(nextAttentionDate);
+
+    var pictureURL = $getItemValue(ctx, "Card Image");
+    var pictureId = encodedId + "picture";
+    var pictureMarkup = Srch.ContentBySearch.getPictureMarkup(pictureURL, 304, 100, ctx.CurrentItem, "cbs-pictureOnTopImg", title, pictureId);
+
+    var containerId = encodedId + "container";
+    var pictureLinkId = encodedId + "pictureLink";
+    var pictureContainerId = encodedId + "pictureContainer";
+    var dataContainerId = encodedId + "dataContainer";
+    var titleLinkId = encodedId + "titleLink";
+    var titleId = encodedId + "title";
+    var siteId = encodedId + "site";
+    var dateId = encodedId + "date";
+ _#-->
+        <div class="cbs-pictureOnTopContainer" id="_#= containerId =#_" data-displaytemplate="ItemPictureOnTop">
+            <div class="cbs-pictureOnTopImageContainer" id="_#= pictureContainerId =#_">
+                <a class="cbs-pictureImgLink" onClick="Pzl.showModalDialog('_#= previewUrl =#_','Document Preview', false, '_#= containerId =#_');" title="_#= $htmlEncode(title) =#_" id="_#= pictureLinkId =#_">
+                    _#= pictureMarkup =#_
+                </a>
+                <span onClick="Pzl.showModalDialog('_#= previewUrl =#_','Document Preview', false, '_#= containerId =#_');" title="View Document" class="material-icons pzl-showpreview">launch</span>
+                    <div class="pzl-warning pzl-action col">
+                        <!--<span class="material-icons pzl-warning-icon" title="Upcoming task">report</span>-->
+                        <span class="pzl-warning-date" title="Next attention date">_#= nextAttentionDateFormatted =#_</span>
+                    </div>
+            <!--#_
+            if (!$isEmptyString(ctx.CurrentItem.csr_Icon)) {
+            _#-->
+                <div class="ms-srch-item-icon">
+                    <img id="_#= $htmlEncode(id + Srch.U.Ids.icon) =#_" onload="this.style.display='inline'" src="_#= $urlHtmlEncodeString(ctx.CurrentItem.csr_Icon) =#_" />
+                </div>
+            <!--#_
+            }
+            _#-->
+            </div>
+            <div class="cbs-pictureOnTopDataContainer" id="_#= dataContainerId =#_">
+                <div class="pzl-maincontent">
+                    <a class="cbs-pictureOnTopLine1Link col1" onClick="Pzl.showModalDialog('_#= previewUrl =#_','Document Preview', false);" title="_#= $htmlEncode(title) =#_: _#= summary =#_" id="_#= titleLinkId =#_">
+                        <h2 class="cbs-pictureOnTopLine1 ms-accentText2 ms-noWrap" id="_#= titleId =#_"> _#= title =#_</h2>
+                    </a>
+                    <div class="pzl-externalparty col2">
+                        <span class="material-icons" title="Parties">group</span>
+                        <span class="">
+                            <!--#_
+                            if (!$isEmptyString(extParty)) {
+                            _#-->
+                            _#= extParty =#_
+                             <!--#_
+                             }
+                            else {
+                            _#-->
+                            <a href="#" class="pzl-addproperty" onClick="Pzl.showModalDialog('_#= editLink =#_', 'Details', false, '_#= containerId =#_'); ">+</a>
+                             <!--#_
+                             }
+                            _#-->
+                             -
+                            <!--#_
+                            if (!$isEmptyString(extParty)) {
+                            _#-->
+                            _#= orgParty =#_
+                             <!--#_
+                             }
+                            else {
+                            _#-->
+                            <a href="#" class="pzl-addproperty" onClick="Pzl.showModalDialog('_#= editLink =#_', 'Details', false, '_#= containerId =#_'); ">+</a>
+                             <!--#_
+                             }
+                            _#-->
+                        </span>
+                    </div>
+                    <div class="pzl-contractdate col3">
+                        <span class="material-icons" title="Contract dates">date_range</span>
+                        <span class="">
+                            <!--#_
+                            if (!$isEmptyString(fromdateformatted)) {
+                            _#-->
+                            _#= fromdateformatted =#_
+                             <!--#_
+                             }
+                            else {
+                            _#-->
+                            <a href="#" class="pzl-addproperty" onClick="Pzl.showModalDialog('_#= editLink =#_', 'Details', false, '_#= containerId =#_'); ">+</a>
+                             <!--#_
+                             }
+                            _#-->
+                             -
+                            <!--#_
+                            if (!$isEmptyString(todateformatted)) {
+                            _#-->
+                            _#= todateformatted =#_
+                             <!--#_
+                             }
+                            else {
+                            _#-->
+                            <a href="#" class="pzl-addproperty" onClick="Pzl.showModalDialog('_#= editLink =#_', 'Details', false, '_#= containerId =#_'); ">+</a>
+                             <!--#_
+                             }
+                            _#-->
+                        </span>
+                    </div>
+                    <div class="pzl-industry col4">
+                        <span class="material-icons" title="Category">work</span>
+                        <span class="">
+                            <!--#_
+                            if (!$isEmptyString(industry)) {
+                            _#-->
+                            _#= industry =#_
+                             <!--#_
+                             }
+                            else {
+                            _#-->
+                            <a href="#" class="pzl-addproperty" onClick="Pzl.showModalDialog('_#= editLink =#_', 'Details', false, '_#= containerId =#_'); ">+</a>
+                             <!--#_
+                             }
+                            _#-->
+                        </span>
+                    </div>
+                    <div class="pzl-site ms-noWrap col5" title="Site: _#= siteLink =#_" id="_#= siteId =#_">
+                        <a href="_#= siteLink =#_" target="_blank"><span class="material-icons" title="Site: _#= siteLink =#_">room</span>_#= site =#_</a>
+                         |
+                        <a href="_#= parentLink =#_" class="pzl-libraryLink" title="Folder: _#= parentLink =#_">
+                            <span class="material-icons" target="_blank">folder</span>
+                        </a>
+                    </div>
+                    <div class="pzl-update hide"><span class="material-icons">update</span><span class="pzl-update-info">This item could have been updated.<br><br>Changes normally appear within 5 minutes.</span></div>
+                    <div class="pzl-slideup close col6 ms-noWrap">
+                        <div class="pzl-slideup-title ms-noWrap" onClick="$(this).parent('.pzl-slideup').toggleClass('close open')">Actions <span class="material-icons">expand_less</span></div>
+                        <div class="pzl-slideup-content">
+                            <div class="task-wrapper"><div class="task-button pzl-button" onClick="Pzl.showModalDialog(_spPageContextInfo.webServerRelativeUrl + '/Lists/ContractTasks/NewForm.aspx?url=_#= linkURL =#_&amp;title=Follow up &quot;_#= title =#_&quot;&amp;duedate=_#=nextAttentionDateFormatted=#_', 'Add task', false, '_#= containerId =#_'); ">Assign follow-up task</div><a class="task-help" target="_blank" href="_#= helpLink=#_"><span class="material-icons">help</span></a></div>
+                            <div class="task-wrapper"><div class="task-metadata pzl-button" onClick="Pzl.showModalDialog(_spPageContextInfo.webServerRelativeUrl + '/Lists/ContractTasks/NewForm.aspx?url=_#= linkURL =#_&amp;title=Update metadata for &quot;_#= title =#_&quot;', 'Add task', false, '_#= containerId =#_'); ">Assign metadata task</div><a class="task-help" target="_blank" href="_#= helpLink=#_"><span class="material-icons">help</span></a></div>
+                            <div class="task-wrapper"><div class="pzl-button" onClick="Pzl.showModalDialog('_#= detailsLink =#_', 'Details', false); ">See details</div><a class="task-help" target="_blank" href="_#= helpLink=#_"><span class="material-icons">help</span></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#_
+            AddPostRenderCallback(ctx, function () {
+                // Load next action date from item or TASK list
+                SP.SOD.executeOrDelayUntilScriptLoaded(function(){
+                    var runner = new Pzl.ContractTasks();
+                    runner.loadTask(linkURL)
+                        .done(function(data) {
+                            var item;
+                            if (data.value.length > 0) {
+                                item = data.value[0];
+                            }
+
+
+                            var twoWeeks = (14 * 24 * 60 * 60 * 1000);
+                            var taskDueStamp = new Date().getTime();
+                            var now = new Date().getTime();
+
+                            if(item) {
+                                var title = item.Title;
+                                var dueDate = formatDateString(item.DueDate);
+                                jQuery('#' + containerId + ' .pzl-warning-title').text(title);
+                                jQuery('#' + containerId + ' .pzl-warning-date').text(dueDate);
+
+                                var taskUrl = "Pzl.showModalDialog(_spPageContextInfo.webServerRelativeUrl + '/Lists/ContractTasks/EditForm.aspx?ID=" + item.ID + "','Edit task',true);";
+                                jQuery('#' + containerId + ' .task-button').text("Open follow-up task");
+                                jQuery('#' + containerId + ' .task-button').attr("onclick",taskUrl);
+
+                                taskDueStamp = new Date(item.DueDate).getTime() - twoWeeks;
+                            } else if(nextAttentionDate > 0) {
+                                jQuery('#' + containerId + ' .pzl-warning-title').text("Next attention date");
+                                jQuery('#' + containerId + ' .pzl-warning-date').text(nextAttentionDateFormatted);
+                                taskDueStamp = new Date(nextAttentionDate).getTime() - twoWeeks;
+                            } else {
+                                jQuery('#' + containerId + ' .pzl-warning').css('display', 'none');
+                            }
+                            if(taskDueStamp < now) {
+                                jQuery('#' + containerId).toggleClass('warning');
+                            }
+                    });
+                },'clm.global.js');
+        })
+        _#-->
+    </div>
+</body>
+</html>
