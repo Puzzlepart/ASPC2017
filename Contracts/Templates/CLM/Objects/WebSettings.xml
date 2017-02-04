@@ -1,6 +1,4 @@
 <pnp:WebSettings xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
-        WelcomePage="SitePages/Contracts.aspx"
-        SiteLogo="{site}/SiteAssets/contracts/img/contracts-logo.png"
         AlternateCSS=""
         MasterPageUrl="{masterpagecatalog}/seattle.master"
         CustomMasterPageUrl="{masterpagecatalog}/seattle.master"
