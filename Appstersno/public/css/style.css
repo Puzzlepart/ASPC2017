@@ -1,0 +1,173 @@
+@import url("//fonts.googleapis.com/css?family=Carrois+Gothic");
+body {
+  padding: 50px;
+  font: 14px monospace, "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: monospace !important;
+  color: #008000 !important;
+  font-size: 20px !important;
+  transition: all 3s;
+}
+body.zoomed {
+  transition: all 1s ease-in;
+  transform: scale(10);
+}
+a {
+  color: #00B7FF;
+}
+@font-face {
+  font-family: 'matrix-code';
+  src: url('//neilcarpenter.com/demos/canvas/matrix/font/matrix-code.eot?#iefix') format('embedded-opentype'), url('//neilcarpenter.com/demos/canvas/matrix/font/matrix-code.woff') format('woff'), url('//neilcarpenter.com/demos/canvas/matrix/font/matrix-code.ttf') format('truetype'), url('//neilcarpenter.com/demos/canvas/matrix/font/matrix-code.svg#svgFontName') format('svg');
+}
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  font: normal 12px/14px "Carrois Gothic", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body {
+  background: black;
+}
+#stats {
+  z-index: 100;
+}
+#info {
+  background: transparent;
+  position: fixed;
+  top: 100;
+  left: 0px;
+  width: 400px;
+  padding: 10px 20px 20px;
+  z-index: 100;
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -o-transform-origin: bottom center;
+  transform-origin: bottom center;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  -moz-transition: -moz-transform 0.5s ease-in-out;
+  -o-transition: -o-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+#info #msg,
+#info #header,
+#info #blink {
+  font-family: monospace;
+  color: #008000;
+  font-size: 20px;
+  line-height: 20px;
+  display: inline-block;
+}
+#info #blink {
+  animation: blinker 1s linear infinite;
+  position: relative;
+  top: -15px;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+#info.closed {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.toggle-info {
+  position: absolute;
+  display: block;
+  height: 10px;
+  background: transparent;
+  width: 290px;
+  left: 0;
+  text-align: center;
+  padding: 3px 0 7px;
+  text-decoration: none;
+  color: white;
+  text-shadow: none;
+}
+.toggle-info:hover {
+  background: #000000;
+}
+#close {
+  top: -20px;
+}
+#open {
+  bottom: -20px;
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 0;
+  border-radius: 2px;
+  padding: 7px 10px;
+  box-shadow: 0 0 3px 0px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+p a {
+  color: #fff;
+}
+p a:hover {
+  color: #EFFDEB;
+  text-shadow: 0px 0px 5px #75AD61;
+}
+#releaseform {
+  opacity: 1;
+  transition: all .5s;
+  width: 500px;
+  float: right;
+  height: 100%;
+}
+#releaseform input,
+#releaseform button,
+#releaseform a {
+  margin: 10px;
+  padding: 5px;
+  display: block;
+  width: 250px;
+  background: #999;
+  border: 1px solid #222;
+  font-family: monospace !important;
+  color: #008000 !important;
+  font-size: 16px !important;
+  text-decoration: none;
+}
+#releaseform input:focus,
+#releaseform button:focus,
+#releaseform a:focus,
+#releaseform input:active,
+#releaseform button:active,
+#releaseform a:active {
+  border: 1px solid #008000 !important;
+}
+#releaseform a {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  padding-right: 0px;
+  border: 1px solid #008000;
+  border-radius: 5px;
+}
+#releaseform.active {
+  opacity: 1;
+  transition: all .5s;
+}

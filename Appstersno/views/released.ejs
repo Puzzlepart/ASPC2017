@@ -1,0 +1,31 @@
+<% include header %>
+    <script>
+
+if (annyang) {
+  annyang.addCallback('result', function(phrases) {
+  console.log("Recognized: ", phrases);
+});
+  annyang.start();
+}
+</script>
+
+    <div id="info">
+        <span id="msg"class="yuge"></span><span id="blink">_</span>
+    </div>
+    
+    <div id="releaseform">
+        <ul>
+            <li><a href="https://appsters2017.sharepoint.com/sites/directory">Ship directory</a></li>
+            <li><a href="https://appsters2017-admin.sharepoint.com/">Matrix administration interface AKA O365 Admin</a></li>
+            <li><a href="https://github.com/puzzlepart/ASPC2017">Puzzlepart Appsters on Gitter</a></li>
+            <li><a href="https://github.com/puzzlepart/ASPC2017">Puzzlepart Appsters GitHub Repo</a></li>
+        </ul>
+    </div>
+    
+
+    <canvas id="canvas"></canvas>
+
+    <script type="text/javascript">
+   showText(msg,"The pill you took is part of a trace program.                                   It is designed to disrupt your input/output carrier signal so we can pinpoint your location in the CRM system.                                               It means fasten your seat belt Dorothy, 'cause the ASPC is going bye-bye.                                       CRM Tracking system initiated!",0,30);
+    </script>
+    <% include footer %>

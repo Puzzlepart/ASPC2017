@@ -1,0 +1,50 @@
+<% include header %>
+  <script>
+
+if (annyang) {
+  // Let's define a command. 
+  var commands = {
+    'hello': function() {showText(msg,"Welcome to the Matrix release form system",0,40); },
+    'ok': function() {showText(msg,"Please fill out the form on the right to ensure safe extraction from the matrix",0,40);jQuery("#releaseform").addClass("active"); },
+  };
+ 
+  // Add our commands to annyang 
+  annyang.addCommands(commands);
+
+  annyang.addCallback('result', function(phrases) {
+  console.log("Recognized: ", phrases);
+});
+ 
+  // Start listening. 
+  annyang.start();
+}
+</script>
+  <div id="info">
+    <span id="msg"></span><span id="blink">_</span>
+  </div>
+  <form role="form" id="releaseform" action="/form" method="post">
+    <div>
+      <label for="firstname">first name</label>
+      <input type="text" id="firstname">
+      <label for="lastname">last name</label>
+      <input type="text" id="lastname">
+      <label for="email">email</label>
+      <input type="text" id="email">
+      <label for="phone">phone</label>
+      <input type="text" id="phone">
+      <label for="city">city</label>
+      <input type="text" id="city">
+      <label for="country">country</label>
+      <input type="text" id="country">
+      <label for="handle">handle</label>
+      <input type="text" id="handle">
+      <label for="happyending">happy ending?</label>
+      <input type="checkbox" id="happyending">
+      <button type="submit" id="releasebtn" value="release">Release me!</a>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+
+  <% include footer %>

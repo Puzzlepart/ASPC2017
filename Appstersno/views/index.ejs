@@ -1,0 +1,33 @@
+<% include header %>
+	<script>
+
+if (annyang) {
+  // Let's define a command. 
+  var commands = {
+    'hello': function() {showText(msg,"Wake up, Neo...",0,100); },
+    'what': function() {showText(msg,"The Matrix has you...",0,100); },
+    'the matrix': function() {showText(msg,"Follow the white rabbit",0,100); },
+    'white rabbit':function(){M.init()},
+    'i want out':function(){document.location = "https://localhost:8443/form"},
+  };
+ 
+  // Add our commands to annyang 
+  annyang.addCommands(commands);
+
+  annyang.addCallback('result', function(phrases) {
+  console.log("Recognized: ", phrases);
+});
+ 
+  // Start listening. 
+  annyang.start();
+}
+</script>
+
+	<div id="info">
+		<span id="msg"></span><span id="blink">_</span>
+	</div>
+
+	<canvas id="canvas"></canvas>
+
+
+	<% include footer %>

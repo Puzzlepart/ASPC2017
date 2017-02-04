@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+      <%- title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <% if (ENV_DEVELOPMENT) { %>
+      <% } %>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.4.0/annyang.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="./js/matrix.js"></script>
+        <script>
+          //Hello Neo
+          var showText = function (target, message, index, interval) {   
+            if (index < message.length) {
+              $(target).append(message[index++]);
+              setTimeout(function () { showText(target, message, index, interval); }, interval);
+            }
+            if(index == message.length){
+            $(target).append("<br/>");
+            }
+          }
+
+if (annyang) {
+
+  annyang.addCallback('result', function(phrases) {
+  console.log("Recognized: ", phrases);
+});
+ 
+  // Start listening. 
+  annyang.start();
+}
+</script>
+  </head>
+
+  <body>
