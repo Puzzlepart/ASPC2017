@@ -47,22 +47,38 @@ setInterval(function () {
 
 
 //=======================
-// CONFIG
+// SHAREPOINT REQUEST CONFIGS
 //=======================
-
 var __config = {
-    CreateCRMLead: ["firstname", "lastname", "email", "city", "country", "phone", "handle"],
-    CreateSite: ["title", "description"],
+    Listeners: {
+        All: ["ambient", "direct_message", "direct_mention", "mention"],
+        NonAmbient: ["direct_message", "direct_mention", "mention"],
+    },
+    CreateCRMLead: {
+        title: "CreateCRMLead",
+        uri: "https://prod-26.westeurope.logic.azure.com:443/workflows/f5467c0caf5f4b2c89c99d0cc178c450/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mmepSJpLDsrmRA8DpRYQoc_dlSXXL3qNHEn4NkdVToA",
+        props: ["firstname", "lastname", "email", "city", "country", "phone", "handle"],
+        triggers: ["create lead (.*)", "new lead (.*)", "new recruit (.*)", "Create-CRMLead (.*)", "new lead"],
+        helptext: "*New recruit*\n*Usage:* Create-CRMLead [Firstname],[Lastname],[Email],[City],[Country],[Phone],[Handle]",
+    },
+    CreateSite: {
+        title: "CreateSite",
+        uri: "https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY",
+        props: ["title", "description"],
+        triggers: ["new site", "create site", "Create-SPSite"],
+    }
 }
 
-var createRequestPayload = function (requestType, uri, query) {
+var getRequestPayload = function (requestType, url, query) {
     var q = query.split(',');
-    var payloadObj = {};
-    var payloadArr = q.map((r, i) => {
-        payloadObj[__config[requestType][i]] = r;
-    });
-    payload = JSON.stringify(payloadObj);
-    return JSON.stringify(payloadObj);
+    var json = {};
+    var payloadArr = q.map((r, i) => { json[__config[requestType].props[i]] = r; });
+    return options = {
+        headers: { "content-type": "application/json" },
+        uri: __config[requestType].uri,
+        method: 'POST',
+        json
+    };
 }
 
 //=======================
@@ -70,86 +86,37 @@ var createRequestPayload = function (requestType, uri, query) {
 //=======================
 
 //Create SPSite
-controller.hears(["Create-SPSite (.*)", "Request-SPSite (.*)", "Create site (.*)"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(__config.CreateSite.triggers, __config.Listeners.All, function (bot, message) {
     if (message.match[1]) {
-        var q = message.match[1].split(',');
-        var payloadObj = {};
-        var payloadArr = q.map((r, i) => {
-            payloadObj[__config.CreateSite[i]] = r;
-        });
-        var jsonPayload = JSON.stringify(payloadObj);
-
-        var options = {
-            headers: { 'content-type': 'application/json' },
-            uri: 'https://prod-07.westeurope.logic.azure.com/workflows/09028edc18fd4db490b1c2df8cdf682d/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PiQ1nCxm1uR2_UMFlVE0zsG_AV9VXGKK07zkAcECzVY',
-            method: 'POST',
-            json: {
-                jsonPayload
-            }
-        };
+        var payload = getRequestPayload(__config.CreateSite.title, __config.CreateSite.uri, message.match[1]);
         request(options, function (error, response, body) {
-            if (!error) {
-                console.log(response.statusCode.toString());
-            }
-            else {
-                console.log(error.toString());
-            }
-            bot.reply(message, "Site " + q[0] + " requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status");
+            if (!error) { console.log(response.statusCode.toString()); }
+            else { console.log(error.toString()); }
+            bot.reply(message, `Site ${payload.json.title} requested! \n see https://appsters2017.sharepoint.com/sites/directory/Lists/Sites for status`);
         });
     }
-    else {
-        bot.reply(message, "*Create-SPSite* \n" +
-            "*Usage:* Create-SPSite [Title], [Description]");
-    }
+    else { bot.reply(message, "*Create-SPSite* \n" + "*Usage:* Create-SPSite [Title], [Description]"); }
 });
-
-//Create SPSite Helper
-controller.hears(["Create-SPSite", "help Create-SPSite", "man Create-SPSite", "create-spsite help"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    bot.reply(message, "*Create-SPSite* \n" +
-        "*Usage:* Create-SPSite [Title], [Description]");
-});
-
 
 //Create CRM Lead
-controller.hears(["Create-CRMLead (.*)", "Create lead (.*)", "New lead (.*)"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    if (message.match[1]) {
-        var q = message.match[1].split(',');
-        var payloadObj = {};
-        var payloadArr = q.map((r, i) => {
-            payloadObj[__config.CreateCRMLead[i]] = r;
-        });
-        var jsonPayload = JSON.stringify(payloadObj);
-        var options = {
-            headers: { 'content-type': 'application/json' },
-            uri: 'https://prod-26.westeurope.logic.azure.com:443/workflows/f5467c0caf5f4b2c89c99d0cc178c450/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mmepSJpLDsrmRA8DpRYQoc_dlSXXL3qNHEn4NkdVToA',
-            method: 'POST',
-            json: {
-                jsonPayload
-            }
-        };
-        request(options, function (error, response, body) {
+controller.hears(__config.CreateCRMLead.triggers,__config.Listeners.All, function (bot, message) {
+    if (message.match[1] && message.match[1].length > 1) {
+        var payload = getRequestPayload(__config.CreateCRMLead.title, __config.CreateCRMLead.uri, message.match[1]);
+        request(payload, function (error, response, body) {
             if (!error) {
-                console.log(response.statusCode.toString());
-                bot.reply(message, "Lead for " + q[0] + " Created!\nAsk @agur where it went.");
+                bot.reply(message, `Potential recruit ${payload.json.firstname} ${payload.json.lastname} registered`);
             }
             else {
                 console.log(error.toString());
-                bot.reply(message, "Sorry, couldn't create a CRM lead. Remember all values are required:\n Firstname,lastname,email,city,country,phone,handle");
+                bot.reply(message, "Sorry, couldn't register recruit! Maybe they've changed something? Look for dejavu's!");
+                bot.reply(message, "Sorry, couldn't register recruit! Maybe they've changed something? Look for dejavu's!");
             }
         });
     }
     else {
-        bot.reply(message, "*Create-CRMLead* \n" +
-            "*Usage:* Create-CRMLead [Firstname],[Lastname],[Email],[City],[Country],[Phone],[Handle]");
+        bot.reply(message, __config.CreateCRMLead.helptext);
     }
 });
-
-//Create CRM Lead Helper
-controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead", "Create-CRMLead help"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
-    bot.reply(message, "*Create-CRMLead* \n" +
-        "*Usage:* Create-CRMLead [Firstname],[Lastname],[Email],[City],[Country],[Phone],[Handle]");
-});
-
 
 
 // 8==============D
@@ -158,17 +125,16 @@ controller.hears(["Create-CRMLead", "help Create-CRMLead", "man Create-CRMLead",
 
 
 //list all props
-controller.hears(["currentuserinfo", "_spPageContextInfo.CurrentUser"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["currentuserinfo", "_spPageContextInfo.CurrentUser"],__config.Listeners.All, function (bot, message) {
     helpers.getUserInfoBlob(bot, message);
 });
 
 //list props nicely
-controller.hears(["whoami", "who am i"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["whoami", "who am i"],__config.Listeners.All, function (bot, message) {
     helpers.getUserInfo(bot, message);
 });
 
-
-controller.hears(["Matrix"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["matrix"],__config.Listeners.All, function (bot, message) {
     request.get(`https://slack.com/api/users.info?user=${message.user}&token=${process.env.SLACK_TOKEN}`, function (error, response, body) {
         if (!error) {
             var b = JSON.parse(body);
@@ -214,10 +180,17 @@ controller.hears(["Matrix"], ['ambient', 'direct_message', 'direct_mention', 'me
 });
 
 // RELEASE ME CONVO
-controller.hears(["release me", "i want out"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["release me", "i want out", "get me out of here"], __config.Listeners.NonAmbient, function (bot, message) {
     request.get(`https://slack.com/api/users.info?user=${message.user}&token=${process.env.SLACK_TOKEN}`, function (error, response, body) {
         var b = JSON.parse(body);
         var firstName = b.user.profile.first_name;
+        var lastName = b.user.profile.last_name;
+        var email = b.user.profile.email;
+        var phone = b.user.profile.phone;
+        var handle = b.user.name;
+        var city = "Oslo";
+        var country = "Norway";
+
         bot.startConversation(message, function (err, convo) {
             if (!err) {
                 convo.say(`So, ${firstName} are you ready to see how deep the rabbit hole goes?`);
@@ -248,8 +221,33 @@ controller.hears(["release me", "i want out"], ['direct_message', 'direct_mentio
 
                 convo.on('end', function (convo) {
                     if (convo.status == 'completed') {
-                        bot.reply(message, `The pill you took is part of a trace program.\nIt's designed to disrupt your input/output carrier signal so we can pinpoint your location.`);
-                        bot.reply(message, `It means fasten your seat belt Dorothy, 'cause Kansas is going bye-bye.`);
+                        bot.reply(message, `The pill you took is part of a trace program.\nIt's designed to disrupt your input/output carrier signal so we can pinpoint your location in the CRM system.`);
+                        bot.reply(message, `It means fasten your seat belt Dorothy, 'cause Slack is going bye-bye.`);
+
+                        var options = {
+                            headers: { 'content-type': 'application/json' },
+                            uri: 'https://prod-26.westeurope.logic.azure.com:443/workflows/f5467c0caf5f4b2c89c99d0cc178c450/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mmepSJpLDsrmRA8DpRYQoc_dlSXXL3qNHEn4NkdVToA',
+                            method: 'POST',
+                            json: {
+                                "firstname": firstName,
+                                "lastname": lastName,
+                                "email": email,
+                                "city": city,
+                                "country": country,
+                                "phone": phone,
+                                "handle": handle,
+                            }
+                        };
+                        request(options, function (error, response, body) {
+                            if (!error) {
+                                console.log(response.statusCode.toString());
+                                bot.reply(message, "CRM Tracking system for " + firstName + " " + lastName + " initiated!");
+                            }
+                            else {
+                                console.log(error.toString());
+                            }
+                        });
+
                     } else {
                         //This happens if the conversation ended prematurely for some reason
                         bot.reply(message, 'Ignorance is bliss...');
@@ -267,12 +265,12 @@ controller.hears(["release me", "i want out"], ['direct_message', 'direct_mentio
 // generic bot commands
 //===
 
-controller.hears(["is this the real life"], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["is this the real life"],__config.Listeners.All, function (bot, message) {
     bot.reply(message, "is this just fantasy?")
 });
 
 //Say Hi
-controller.hears(['hello', 'hey', 'hi', 'hei', 'sup', 'wassup', 'hola'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['hello', 'hey', 'hi', 'hei', 'sup', 'wassup', 'hola'], __config.Listeners.NonAmbient, function (bot, message) {
     bot.reply(message, "Hi!");
 });
 
@@ -282,12 +280,12 @@ controller.hears(["Who's yo daddy", "Who owns you", "whos your daddy", "who is y
 });
 
 // 8 ball
-controller.hears(['8ball', '8-ball', '8 ball', 'eightball', 'eight ball'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['8ball', '8-ball', '8 ball', 'eightball', 'eight ball'], __config.Listeners.NonAmbient, function (bot, message) {
     bot.reply(message, helpers.eightBall());
 });
 
 // Jokes
-controller.hears(['tell me a joke'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['tell me a joke'], __config.Listeners.NonAmbient, function (bot, message) {
     bot.reply(message, helpers.getJoke());
 });
 
@@ -320,7 +318,7 @@ var __jiraConfig = {
 };
 
 //Syntax help
-controller.hears(['jira help', 'man jira', 'help jira'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira help', 'man jira', 'help jira'],__config.Listeners.All, function (bot, message) {
     bot.reply(message, "*JIRA COMMANDS* \n" +
         "*Usage:* jira [Options] \n" +
         "*Create issue:* create|new <Project key>; <Issue type>; <Summary>; <Description>  _(Semi colon delimited)_ \n" +
@@ -331,7 +329,7 @@ controller.hears(['jira help', 'man jira', 'help jira'], ['ambient', 'direct_mes
 });
 
 // Create issue
-controller.hears(['jira new (.*)', 'jira create (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira new (.*)', 'jira create (.*)'],__config.Listeners.All, function (bot, message) {
     var parts = message.match[1].split(";").map(function (p) { return p.trim() });
     var projectKey = parts[0], issueType = parts[1], summary = parts[2], description = parts[3];
     var addIssueJSON = {
@@ -358,7 +356,7 @@ controller.hears(['jira new (.*)', 'jira create (.*)'], ['ambient', 'direct_mess
 });
 
 // Find issue
-controller.hears(['jira get (.*)', 'jira find (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira get (.*)', 'jira find (.*)'],__config.Listeners.All, function (bot, message) {
     var issueKey = message.match[1];
     api.findIssue(issueKey).then(function (issue) {
         bot.reply(message, issueKey +
@@ -375,7 +373,7 @@ controller.hears(['jira get (.*)', 'jira find (.*)'], ['ambient', 'direct_messag
 
 
 // Transition issue
-controller.hears(['jira set (.*)', 'jira transition (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira set (.*)', 'jira transition (.*)'],__config.Listeners.All, function (bot, message) {
     var match = message.match[1];
     var issueKey = match.substring(0, match.indexOf(" ")).trim();
     var transitionStr = match.substring(issueKey.length + 1, match.length).trim().toLowerCase();
@@ -397,7 +395,7 @@ controller.hears(['jira set (.*)', 'jira transition (.*)'], ['ambient', 'direct_
 
 
 //Comment on issue
-controller.hears(['jira comment (.*)'], ['ambient', 'direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['jira comment (.*)'],__config.Listeners.All, function (bot, message) {
     var match = message.match[1];
     var issueKey = match.substring(0, match.indexOf(" ")).trim();
     var commentStr = match.substring(issueKey.length + 1, match.length).trim();
@@ -424,6 +422,11 @@ controller.hears(['jira comment (.*)'], ['ambient', 'direct_message', 'direct_me
 //===========
 
 
+
+
+//===========
+// CUSTOM NICKNAMES. NOT WORKING SINCE I HAVENT IMPLEMENTED PERMANENT STORAGE
+//===========
 
 //Call me "name"
 controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message,direct_mention,mention', function (bot, message) {
@@ -528,7 +531,7 @@ controller.hears(['fuck'], ["direct_message", "mention", "direct_mention"], func
 
 
 //GIPHY
-controller.hears(["giphy (.*)", "gif (.*)", "(.*).gif"], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(["giphy (.*)", "gif (.*)", "(.*).gif"], __config.Listeners.NonAmbient, function (bot, message) {
     var q = message.match[1];
     if (q) { helpers.giphy(q, bot, message); }
     else { bot.reply(message, "You gotta specify a keyword for your giphy, dummy"); }
@@ -546,7 +549,7 @@ controller.hears("Svada", ['direct_mention', 'mention'], function (bot, message)
 });
 
 //Throw two Dice
-controller.hears(["two dices", "craps"], ["ambient", "direct_message", "mention", "direct_mention"], function (bot, message) {
+controller.hears(["two dices", "craps"],__config.Listeners.NonAmbient, function (bot, message) {
     var dice1 = Math.floor(6 * Math.random() + 1);
     var dice2 = Math.floor(6 * Math.random() + 1);
     var name = helpers.craps(dice1, dice2);
@@ -561,13 +564,13 @@ controller.hears("dice", "ambient", function (bot, message) {
 });
 
 //Generate guid
-controller.hears(['guid', 'generate guid', 'give me a guid', 'i need a guid'], ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears(['guid', 'generate guid', 'give me a guid', 'i need a guid'], __config.Listeners.NonAmbient, function (bot, message) {
     var uuid = helpers.guid();
     bot.reply(message, "I've got a fresh guid for ya, <@" + message.user + ">: " + uuid);
 });
 
 //Insult user
-controller.hears('insult (.*)', ['direct_message', 'direct_mention', 'mention'], function (bot, message) {
+controller.hears('insult (.*)', __config.Listeners.NonAmbient, function (bot, message) {
     var userToInsult = message.match[1];
     var badname = helpers.randomBadName();
     bot.reply(message, "Hey " + userToInsult + ", you" + badname + ". <@" + message.user + "> sends his regards.")
