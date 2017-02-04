@@ -13,4 +13,3 @@ obj/
 bin/
 env.json
 **/node_modules/
-packages/
