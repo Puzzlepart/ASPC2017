@@ -50,14 +50,31 @@ function EnableIrm([string]$url){
     Connect -Url $url
     Write-Output "IRM ON!"
     $list = Get-PnPList -Identity '/Shared Documents'
-    $list.IrmEnabled = $false
+    $list.IrmEnabled = $true
+
+    #Give the Policy a Name and Description
+    $list.InformationRightsManagementSettings.PolicyTitle = 'Confidential'
+    $list.InformationRightsManagementSettings.PolicyDescription = 'This document is classified as confidential'
+    #Configure the Policy Settings
+    $list.InformationRightsManagementSettings.AllowPrint = $false
+    $list.InformationRightsManagementSettings.AllowScript = $false
+    $list.InformationRightsManagementSettings.AllowWriteCopy = $false
+    $list.InformationRightsManagementSettings.DisableDocumentBrowserView = $true
+    #$list.InformationRightsManagementSettings.DocumentLibraryProtectionExpireDate = #Date
+    $list.InformationRightsManagementSettings.DocumentAccessExpireDays = 1
+    $list.InformationRightsManagementSettings.EnableDocumentAccessExpire = $true
+    #$list.InformationRightsManagementSettings.EnableDocumentBrowserPublishingView = #$true or $false
+    $list.InformationRightsManagementSettings.EnableGroupProtection = $false
+    $list.InformationRightsManagementSettings.EnableLicenseCacheExpire = $true
+    $list.InformationRightsManagementSettings.LicenseCacheExpireDays = 30
+    #$list.InformationRightsManagementSettings.GroupName = #Name of group
     $list.Update()
     $list.Context.ExecuteQuery()
 }
 
-DisableIrm -url https://appsters2017.sharepoint.com/teams/TheArchitect
+#DisableIrm -url https://appsters2017.sharepoint.com/teams/TheArchitect
 
-Start-Sleep -Seconds 60
+#Start-Sleep -Seconds 60
 
 EnableIrm -url https://appsters2017.sharepoint.com/teams/TheArchitect
 
