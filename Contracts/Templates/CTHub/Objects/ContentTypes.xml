@@ -1,5 +1,5 @@
 <pnp:ContentTypes xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
-    <pnp:ContentType ID="0x0101001EF5C4B485214A23BE827166FAEBCBD2" Name="Contract" Description="" Group="{parameter:GenericContentTypesGroup}">
+    <pnp:ContentType ID="0x0101001EF5C4B485214A23BE827166FAEBCBD2" Name="Mission" Description="" Group="{parameter:GenericContentTypesGroup}">
         <pnp:FieldRefs>
             <pnp:FieldRef ID="ee4484a8-a781-4fd6-ac6e-537445fbec00" Name="{parameter:GenericFieldsPrefix}ContractType" />
             <pnp:FieldRef ID="84623b4a-c08e-4e9a-bb78-9b04aa507cc4" Name="{parameter:GenericFieldsPrefix}ContractDate" />

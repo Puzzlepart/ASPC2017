@@ -3,7 +3,7 @@
     ID="{ee4484a8-a781-4fd6-ac6e-537445fbec00}"
     Name="{parameter:GenericFieldsPrefix}ContractType"
     StaticName="{parameter:GenericFieldsPrefix}ContractType"
-    DisplayName="Contract Type"
+    DisplayName="Mission Type"
     Type="Choice"
     Group="{parameter:GenericFieldsGroup}"
     Description="Use customer contract where we are the vendor. Use vendor contracts where we are the customer.">
@@ -21,11 +21,11 @@
     ID="{84623b4a-c08e-4e9a-bb78-9b04aa507cc4}"
     Name="{parameter:GenericFieldsPrefix}ContractDate"
     StaticName="{parameter:GenericFieldsPrefix}ContractDate"
-    DisplayName="Contract Date"
+    DisplayName="Mission Date"
     Type="DateTime"
     Format="DateOnly"
     Group="{parameter:GenericFieldsGroup}"
-    Description="The date stated in the contract. Typically the signature date.">
+    Description="The date stated in the mission. Typically the signature date.">
   </Field>
   <Field
     ID="{58c3ad71-0564-495f-99a1-2252f42122ec}"
@@ -35,7 +35,7 @@
     Type="DateTime"
     Format="DateOnly"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Date when the contract expires.">
+    Description="Date when the mission expires.">
   </Field>
   <Field
     ID="{9325f664-8125-4663-8552-87b66ca577c7}"
@@ -45,13 +45,13 @@
     Type="DateTime"
     Format="DateOnly"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Date when the contract goes into effect.">
+    Description="Date when the mission goes into effect.">
   </Field>
   <Field
     ID="{610275b7-d1b1-4dea-865b-59adaef2dc60}"
     Name="{parameter:GenericFieldsPrefix}OrgParty"
     StaticName="{parameter:GenericFieldsPrefix}OrgParty"
-    DisplayName="Organization contract party"
+    DisplayName="Organization mission party"
     Type="Text"
     Group="{parameter:GenericFieldsGroup}"
     Description="Internal organization unit or company name.">
@@ -65,7 +65,7 @@
     ShowField="NameWithPictureAndDetails"
     UserSelectionMode="PeopleOnly"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Internal person responsible for the contract.">
+    Description="Internal person responsible for the mission.">
   </Field>
   <Field
     ID="{58dae962-14dc-47f3-8233-a1c7c4014840}"
@@ -83,50 +83,23 @@
     DisplayName="External Contact"
     Type="Text"
     Group="{parameter:GenericFieldsGroup}"
-    Description="External contract responsible.">
+    Description="External mission responsible.">
   </Field>
   <Field
     ID="{686f0472-2c9e-4708-8f77-9d97589917fd}"
     Name="{parameter:GenericFieldsPrefix}Industry"
     StaticName="{parameter:GenericFieldsPrefix}Industry"
-    DisplayName="Contract Category"
+    DisplayName="Mission Category"
     Type="Choice"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Category of the contract party.">
+    Description="">
         <CHOICES>
-            <CHOICE>Aluminium products</CHOICE>
-            <CHOICE>Aluminium raw material</CHOICE>
-            <CHOICE>CAPEX</CHOICE>
-            <CHOICE>Chemicals</CHOICE>
-            <CHOICE>Coating raw material</CHOICE>
-            <CHOICE>Coating services</CHOICE>
-            <CHOICE>Concrete products</CHOICE>
-            <CHOICE>Electrical components</CHOICE>
-            <CHOICE>Energy and utilities</CHOICE>
-            <CHOICE>Facilities</CHOICE>
-            <CHOICE>Geosynthetics</CHOICE>
-            <CHOICE>Glass products</CHOICE>
-            <CHOICE>ICT</CHOICE>
-            <CHOICE>Leasing</CHOICE>
-            <CHOICE>Marketing</CHOICE>
-            <CHOICE>MRO - Consumables</CHOICE>
-            <CHOICE>MRO - Services</CHOICE>
-            <CHOICE>Office</CHOICE>
-            <CHOICE>Operating services</CHOICE>
-            <CHOICE>Other metal products</CHOICE>
-            <CHOICE>Packaging</CHOICE>
-            <CHOICE>Plastic products</CHOICE>
-            <CHOICE>Plastic raw material</CHOICE>
-            <CHOICE>Steel products</CHOICE>
-            <CHOICE>Steel raw material</CHOICE>
-            <CHOICE>Transport - Ocean</CHOICE>
-            <CHOICE>Transport - Other</CHOICE>
-            <CHOICE>Transport - Road</CHOICE>
-            <CHOICE>Travel</CHOICE>
-            <CHOICE>Water and sewage products</CHOICE>
-            <CHOICE>Zinc</CHOICE>
+            <CHOICE>Plant Bomb</CHOICE>
+            <CHOICE>Hack mainframe</CHOICE>
+            <CHOICE>Nuke</CHOICE>
+            <CHOICE>Electromagnetic pulse deploy</CHOICE>
         </CHOICES>
-        <Default>Aluminium products</Default>
+        <Default>Electromagnetic pulse deploy</Default>
   </Field>
   <Field
     ID="{7e757b67-dc2c-4ee3-9dc3-d9e5f4a9ed6a}"
@@ -135,33 +108,12 @@
     DisplayName="Jurisdiction"
     Type="MultiChoice"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Jurisdiction where the contract applies.">
+    Description="Jurisdiction where the mission applies.">
         <CHOICES>
-            <CHOICE>Nordics</CHOICE>
-            <CHOICE>EU</CHOICE>
-            <CHOICE>Austria</CHOICE>
-            <CHOICE>Belarus</CHOICE>
-            <CHOICE>Bulgaria</CHOICE>
-            <CHOICE>China</CHOICE>
-            <CHOICE>Czech Republic</CHOICE>
-            <CHOICE>Denmark</CHOICE>
-            <CHOICE>Estonia</CHOICE>
-            <CHOICE>Finland</CHOICE>
-            <CHOICE>Germany</CHOICE>
-            <CHOICE>Hungary</CHOICE>
-            <CHOICE>Latvia</CHOICE>
-            <CHOICE>Lithuania</CHOICE>
-            <CHOICE>Netherlands</CHOICE>
-            <CHOICE>Norway</CHOICE>
-            <CHOICE>Poland</CHOICE>
-            <CHOICE>Romania</CHOICE>
-            <CHOICE>Slovakia</CHOICE>
-            <CHOICE>Sweden</CHOICE>
-            <CHOICE>Turkey</CHOICE>
-            <CHOICE>Ukraina</CHOICE>
-            <CHOICE>United Kingdom</CHOICE>
+            <CHOICE>Zion</CHOICE>
+            <CHOICE>Other</CHOICE>
         </CHOICES>
-        <Default>Nordics</Default>
+        <Default>Zion</Default>
   </Field>
   <Field
     ID="{cd47c6d9-883f-410c-a9b5-de643d5c4538}"
@@ -170,7 +122,7 @@
     DisplayName="Annual Value"
     Type="Number"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Value of the contract per year.">
+    Description="Value of the mission per year.">
   </Field>
   <Field
     ID="{7d8b31b0-8e0c-4ff4-b4e6-1253a314b961}"
@@ -179,7 +131,7 @@
     DisplayName="Annual Value Currency"
     Type="Choice"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Currency used to pay for work done by this contract.">
+    Description="Currency used to pay for work done by this mission.">
         <CHOICES>
             <CHOICE>NOK</CHOICE>
             <CHOICE>SEK</CHOICE>
@@ -199,23 +151,22 @@
     Type="DateTime"
     Format="DateOnly"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Indicates when this contract needs attention next. Typically renegotiation, renewal, contractually stipulated term etc..">
+    Description="Indicates when this mission needs attention next. Typically renegotiation, renewal, contractually stipulated term etc..">
   </Field>
   <Field
     ID="{5ef40b17-2079-4296-b623-8f02857cff76}"
     Name="{parameter:GenericFieldsPrefix}ContractStatus"
     StaticName="{parameter:GenericFieldsPrefix}ContractStatus"
-    DisplayName="Contract Status"
+    DisplayName="Mission Status"
     Type="Choice"
     Group="{parameter:GenericFieldsGroup}"
     Description="The contracts state in the lifecycle.">
         <CHOICES>
-            <CHOICE>Draft</CHOICE>
-            <CHOICE>In Effect</CHOICE>
-            <CHOICE>Expired</CHOICE>
-            <CHOICE>Closed</CHOICE>
+            <CHOICE>Not started</CHOICE>
+            <CHOICE>In progress</CHOICE>
+            <CHOICE>Accomplished</CHOICE>
         </CHOICES>
-        <Default></Default>
+        <Default>Not started</Default>
   </Field>
   <Field
     ID="{c5444fb2-cdd5-4804-8172-f50813894014}"
@@ -225,6 +176,6 @@
     Type="Note"
     UnlimitedLengthInDocumentLibrary="TRUE"
     Group="{parameter:GenericFieldsGroup}"
-    Description="Notes about the contract.">
+    Description="Notes about the mission.">
   </Field>
 </pnp:SiteFields>

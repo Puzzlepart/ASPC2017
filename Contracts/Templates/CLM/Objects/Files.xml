@@ -18,13 +18,6 @@
     <pnp:File Folder="SiteAssets/contracts/html" Overwrite="true" Src="SiteAssets\html\clm-tasks-box.txt" />
     <pnp:File Folder="SiteAssets/contracts/html" Overwrite="true" Src="SiteAssets\html\contract-task-form.txt" />
     <!-- Demo Contract -->
-    <pnp:File Folder="CentralLibrary" Overwrite="true" Src="DemoDocument\DemoContract.docx">
-        <pnp:Properties>
-            <pnp:Property Key="Title" Value="Demo Contract" />
-            <pnp:Property Key="CLMOrgParty" Value="Puzzlepart" />
-            <pnp:Property Key="CLMExternalParty" Value="Crayon" />
-        </pnp:Properties>
-    </pnp:File>
     <!-- Master Page Gallery -->
     <pnp:File Folder="_catalogs/masterpage/Display Templates/Content Web Parts" Src="DisplayTemplates\Item_CLM_Browse.js" Overwrite="true">
         <pnp:Properties>
@@ -179,7 +172,7 @@
                     </WebPart>
                 </pnp:Contents>
             </pnp:WebPart>
-            <pnp:WebPart Title="Contract Tasks" Order="0" Zone="MainColumn">
+            <pnp:WebPart Title="Mission Tasks" Order="0" Zone="MainColumn">
                 <pnp:Contents>
                     <webParts>
                         <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
