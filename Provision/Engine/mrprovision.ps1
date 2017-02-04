@@ -426,6 +426,7 @@ foreach ($siteItem in $siteDirectoryItems) {
     $description = $siteItem["$($columnPrefix)ProjectDescription"]
     $ownerEmailAddresses = @((@($siteItem["$($columnPrefix)BusinessOwner"]) + @($siteItem["$($columnPrefix)SiteOwners"])) |? {-not [String]::IsNullOrEmpty($_.Email)} | select -ExpandProperty Email)
     $siteStatus = $siteItem["$($columnPrefix)SiteStatus"]
+    $externalSharing = $siteItem["$($columnPrefix)ExternalSharing"]
 
     $ownerEmailAddresses = $ownerEmailAddresses | select -uniq | sort
 
@@ -462,7 +463,7 @@ foreach ($siteItem in $siteDirectoryItems) {
         -members $members `
         -visitors $visitors `
         -requestor $orderedByUser `
-        -externalSharing $false
+        -externalSharing $externalSharing
 
     if ($? -eq $true -and ($editor -ne "SharePoint App" -or $Force)) {        
         EnsureSecurityGroups -url $siteUrl -title $title -owners $owners -members $members -visitors $visitors
